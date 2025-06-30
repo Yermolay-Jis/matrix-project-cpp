@@ -1,12 +1,12 @@
-#include "menuLab_3.h"
-#include "menuLab_1.h"
-#include "matrix.h"
+#include "../include/menuLab_3.h"
+#include "../include/menuLab_1.h"
+#include "../include/matrix.h"
 
 
 size_t setRow() {
 	size_t rows;
 	try {
-		std::cout << "   Введите строку(-ки) (rows): ";
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ(-пїЅпїЅ) (rows): ";
 		std::cin >> rows;
 		if (std::cin.bad() || std::cin.fail()) {
 			while (std::cin.bad() || std::cin.fail()) {
@@ -14,7 +14,7 @@ size_t setRow() {
 				const size_t MAX_LINE_IGNORE = 256;
 				std::cin.clear();
 				std::cin.ignore(MAX_LINE_IGNORE, '\n');
-				std::cout << "   Введите строку(-ки) (rows): ";
+				std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ(-пїЅпїЅ) (rows): ";
 				std::cin >> rows;
 			}
 		}
@@ -28,7 +28,7 @@ size_t setCol() {
 	size_t cols;
 
 	try {
-		std::cout << "   Введите столбец(-цы) (cols): ";
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ(-пїЅпїЅ) (cols): ";
 		std::cin >> cols;
 		if (std::cin.bad() || std::cin.fail()) {
 			while (std::cin.bad() || std::cin.fail()) {
@@ -36,7 +36,7 @@ size_t setCol() {
 				const size_t MAX_LINE_IGNORE = 256;
 				std::cin.clear();
 				std::cin.ignore(MAX_LINE_IGNORE, '\n');
-				std::cout << "   Введите столбец(-цы) (cols): ";
+				std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ(-пїЅпїЅ) (cols): ";
 				std::cin >> cols;
 			}
 		}
@@ -47,7 +47,7 @@ size_t setCol() {
 
 void Matrix::fillMatrix(size_t rows, size_t cols, size_t x, size_t y) {
 	if (!(matrix == nullptr || rows <= 0 || cols <= 0)) {
-		std::cout << "\n   Заполнение матрицы размером " << rows << " x " << cols << ":\n\n";
+		std::cout << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << rows << " x " << cols << ":\n\n";
 		for (size_t i = 0; i < rows; i++)
 		{
 			for (size_t j = 0; j < cols; j++)
@@ -67,12 +67,12 @@ void Matrix::fillMatrix(size_t rows, size_t cols, size_t x, size_t y) {
 			}
 		}
 		setColor(10, 0);
-		std::cout << "   Матрица успешно заполнена!" << std::endl;
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!" << std::endl;
 		Sleep(1000);
 		setColor(7, 0);
 	}
 	else {
-		std::cout << "   Здесь пока пусто..." << std::endl;
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ..." << std::endl;
 		
 	}
 }
@@ -87,7 +87,7 @@ void Matrix::changeEl(Matrix &matrix, size_t rows, size_t cols) {
 		for (size_t i = 0; i < rows; i++) {
 			for (size_t j = 0; j < cols; j++) {
 				if (i == nRow - 1 && j == nCol - 1) {
-					std::cout << "   Введите новое значение элемента:\n";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:\n";
 					std::cin >> newValue;
 					matrix.matrix[i][j] = newValue;
 					break;
@@ -95,12 +95,12 @@ void Matrix::changeEl(Matrix &matrix, size_t rows, size_t cols) {
 			}
 		}
 		setColor(10, 0);
-		std::cout << "\n\n   Элемент усаешно изменен!" << std::endl;
+		std::cout << "\n\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!" << std::endl;
 		Sleep(1000);
 		setColor(7, 0);
 	}
 	else {
-		std::cerr << "   Введите действительные значения строки и столбца" << std::endl;
+		std::cerr << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 	}
 }
 
@@ -126,12 +126,12 @@ void clearLine(size_t x_0, size_t y_0, size_t x, size_t y) {
 void info2() {
 	setColor(14, 0);
 	CURSOR(3, 2);
-	std::cout << "Условие: \n";
+	std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: \n";
 	setColor(15, 0);
 	CURSOR(3, 3);
-	std::cout << "Для матрицы 5 х 6 образовать ряд состоящий из номеров столбцов с максимальным\n "
-		<< "   элементом найденным в каждой строке.В каждом столбце с номером из образованного\n"
-		<< "   ряда поменять местами первый и последний элементы";
+	std::cout << "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 5 пїЅ 6 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n "
+		<< "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n"
+		<< "   пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
 	setColor(14, 0);
 }
 
@@ -142,7 +142,7 @@ void solution(Matrix &matrix)
 {
 	if (!(matrix.matrix == nullptr || matrix.rows <= 0 || matrix.cols <= 0)) {
 		info2();
-		std::cout << "\n   Начальная матрица: ";
+		std::cout << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
 		outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 800, 10, 50, 50, 16, 15);
 		size_t n = 0;
 		int sizeArr = matrix.rows;
@@ -198,8 +198,8 @@ void solution(Matrix &matrix)
 		}
 
 		LINES(10);
-		std::cout << "   Номера столбцов в которых были"
-			<< "\n   найдены максимальные элементы : " << std::endl;
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ"
+			<< "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ : " << std::endl;
 		
 
 		for (size_t i = 0; i < sizeArr; i++)
@@ -208,7 +208,7 @@ void solution(Matrix &matrix)
 		}
 		std::cout << std::endl;
 		
-		std::cout << "\n   Результат: " << std::endl;
+		std::cout << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << std::endl;
 		for (size_t i = 0; i < sizeArr; i++)
 		{
 			for (size_t j = 0; j < matrix.cols; j++)
@@ -224,7 +224,7 @@ void solution(Matrix &matrix)
 		outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 800, 350, 50, 50, 16, 15);
 	}
 	else {
-		std::cerr << "\n   Матрица не была создана...";
+		std::cerr << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 	}
 }
 
@@ -237,7 +237,7 @@ Matrix createMatrix(size_t rows, size_t cols) {
 static std::string getNameFile() {
 	setColor(15, 0);
 	std::string fileName;
-	std::cout << "\n   Введите имя файла: ";
+	std::cout << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: ";
 	setColor(10, 0);
 	std::cin >> fileName;
 	if (std::cin.fail() || std::cin.bad()) {
@@ -261,7 +261,7 @@ void writeMatrixTxt(Matrix& matrix)
 	std::ios_base::openmode mode = std::ios::out;
 
 	if (file_bin_exist) {
-		std::cout << "\n\n   Открыть файл для дозаписи?\t1 - да";
+		std::cout << "\n\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?\t1 - пїЅпїЅ";
 		UCHAR ch = _getch();
 		if (ch == '1') { mode = std::ios::app; }
 	}
@@ -280,7 +280,7 @@ void writeMatrixTxt(Matrix& matrix)
 	}
 	file.clear();
 	file.close();
-	std::cout << "\n\n   Данные успешно записаны в файл => ";
+	std::cout << "\n\n   пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ => ";
 	setColor(10, 0);
 	std::cout << nameFile << std::endl;
 }
@@ -293,7 +293,7 @@ void writeMatrixTxt(Matrix& matrix)
 //	std::ios_base::openmode mode = std::ios::out;
 //
 //	if (file_bin_exist) {
-//		std::cout << "\n\n   Открыть файл для дозаписи?\t1 - да";
+//		std::cout << "\n\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?\t1 - пїЅпїЅ";
 //		UCHAR ch = _getch();
 //		if (ch == '1') {
 //			size_t rows = 0, cols = 0;
@@ -321,7 +321,7 @@ void writeMatrixTxt(Matrix& matrix)
 //			}
 //
 //			if (!infile.read(reinterpret_cast<char*>(&matrixFromFile.rows), sizeof(size_t)) || !infile.read(reinterpret_cast<char*>(&matrixFromFile.cols), sizeof(size_t))) {
-//				std::cerr << "   Ошибка: неудалось прочеитать файл";
+//				std::cerr << "   пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ";
 //				infile.close();
 //				combainedMatrix.rows = matrix.rows;
 //				combainedMatrix.cols = matrix.cols;
@@ -402,7 +402,7 @@ void writeMatrixTxt(Matrix& matrix)
 //			}
 //			file.clear();
 //			file.close();
-//			std::cout << "\n\n   Данные успешно записаны в файл => ";
+//			std::cout << "\n\n   пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ => ";
 //			setColor(10, 0);
 //			std::cout << nameFile << std::endl;
 //	}
@@ -427,7 +427,7 @@ void writeMatrixBin(Matrix& matrixToAdd) {
 	file_check.close();
 
 	if (file_bin_exist) {
-		std::cout << "\nФайл '" << nameFile << "' существует. Дозаписать данные? (y/n): ";
+		std::cout << "\nпїЅпїЅпїЅпїЅ '" << nameFile << "' пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ? (y/n): ";
 		char ch;
 		std::cin >> ch;
 		while (std::cin.get() != '\n');
@@ -437,12 +437,12 @@ void writeMatrixBin(Matrix& matrixToAdd) {
 			std::ifstream infile(nameFile, std::ios::binary);
 
 			if (!infile.is_open()) {
-				std::cerr << "Ошибка: Не удалось открыть файл '" << nameFile << "' для чтения. Будет создана новая матрица с данными для добавления.\n";
+				std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ '" << nameFile << "' пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
 			}
 			else {
 				if (!infile.read(reinterpret_cast<char*>(&matrixFromFile.rows), sizeof(size_t)) ||
 					!infile.read(reinterpret_cast<char*>(&matrixFromFile.cols), sizeof(size_t))) {
-					std::cerr << "Ошибка: Не удалось прочитать размеры из файла '" << nameFile << "'. Будет создана новая матрица с данными для добавления.\n";
+					std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ '" << nameFile << "'. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
 				}
 				else {
 					bool read_data_ok = true;
@@ -451,7 +451,7 @@ void writeMatrixBin(Matrix& matrixToAdd) {
 						for (size_t i = 0; i < matrixFromFile.rows; ++i) {
 							matrixFromFile.matrix[i] = new double[matrixFromFile.cols];
 							if (!infile.read(reinterpret_cast<char*>(matrixFromFile.matrix[i]), matrixFromFile.cols * sizeof(double))) {
-								std::cerr << "Ошибка при чтении данных строки " << i << " из файла '" << nameFile << "'.\n";
+								std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " << i << " пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ '" << nameFile << "'.\n";
 								read_data_ok = false;
 								break;
 							}
@@ -476,7 +476,7 @@ void writeMatrixBin(Matrix& matrixToAdd) {
 								if (combinedMatrix.cols > 0) {
 									combinedMatrix.matrix[i] = new double[combinedMatrix.cols];
 									for (size_t j = 0; j < combinedMatrix.cols; ++j) {
-										combinedMatrix.matrix[i][j] = 0.0; // Паддинг
+										combinedMatrix.matrix[i][j] = 0.0; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 									}
 								}
 								else {
@@ -508,18 +508,18 @@ void writeMatrixBin(Matrix& matrixToAdd) {
 						proceed_to_write_combined_matrix = true; 
 					}
 					else {
-						std::cerr << "Дозапись отменена из-за ошибки чтения. Будет создана новая матрица с данными для добавления.\n";
+						std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
 					}
 				}
 				infile.close();
 			}
 		}
 		else {
-			std::cout << "Файл будет перезаписан новой матрицей.\n";
+			std::cout << "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
 		}
 	}
 	else { 
-		std::cout << "Создается новый файл.\n";
+		std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.\n";
 	}
 
 	if (!proceed_to_write_combined_matrix) {
@@ -556,7 +556,7 @@ void writeMatrixBin(Matrix& matrixToAdd) {
 	if (proceed_to_write_combined_matrix) {
 		std::ofstream outfile(nameFile, std::ios::out | std::ios::binary | std::ios::trunc); 
 		if (!outfile.is_open()) {
-			std::cerr << "Ошибка: Не удалось открыть файл '" << nameFile << "' для записи.\n";
+			std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ '" << nameFile << "' пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.\n";
 		}
 		else {
 			outfile.write(reinterpret_cast<const char*>(&combinedMatrix.rows), sizeof(size_t));
@@ -567,13 +567,13 @@ void writeMatrixBin(Matrix& matrixToAdd) {
 				for (size_t i = 0; i < combinedMatrix.rows; ++i) {
 					if (combinedMatrix.matrix[i]) {
 						if (!outfile.write(reinterpret_cast<const char*>(combinedMatrix.matrix[i]), combinedMatrix.cols * sizeof(double))) {
-							std::cerr << "Ошибка при записи данных строки " << i << " в файл '" << nameFile << "'.\n";
+							std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " << i << " пїЅ пїЅпїЅпїЅпїЅ '" << nameFile << "'.\n";
 							write_ok = false;
 							break;
 						}
 					}
 					else {
-						std::cerr << "Внутренняя ошибка: строка " << i << " в combinedMatrix равна null при cols > 0.\n";
+						std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅ " << i << " пїЅ combinedMatrix пїЅпїЅпїЅпїЅпїЅ null пїЅпїЅпїЅ cols > 0.\n";
 						write_ok = false;
 						break;
 					}
@@ -582,21 +582,21 @@ void writeMatrixBin(Matrix& matrixToAdd) {
 			outfile.close();
 
 			if (outfile.fail() && write_ok) {
-				std::cerr << "Произошла ошибка при записи или закрытии файла '" << nameFile << "'.\n";
+				std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ '" << nameFile << "'.\n";
 				write_ok = false;
 			}
 
 			if (write_ok) {
-				std::cout << "Матрица успешно записана в файл: " << nameFile << "\n";
-				std::cout << "Итоговые размеры: " << combinedMatrix.rows << "x" << combinedMatrix.cols << "\n";
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ: " << nameFile << "\n";
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << combinedMatrix.rows << "x" << combinedMatrix.cols << "\n";
 			}
 			else {
-				std::cout << "Запись матрицы в файл " << nameFile << " не удалась.\n";
+				std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ " << nameFile << " пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
 			}
 		}
 	}
 	else {
-		std::cout << "Запись в файл отменена, так как матрица для записи не была сформирована.\n";
+		std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
 	}
 }
 
@@ -611,7 +611,7 @@ void readMatrixTxt(Matrix& matrix) {
 	
 
 	if (indicator) {
-		std::cout << "\n   Файл найден" << std::endl;
+		std::cout << "\n   пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 		std::ifstream file(nameFile);
 		size_t rows = 0, cols = 0;
 
@@ -712,9 +712,9 @@ void readMatrixTxt(Matrix& matrix) {
 				catch (const std::exception)
 				{
 					setColor(4, 0);
-					std::cerr << "\n\n\n\n   Ошибка: недействительный элемент в строке => "
-						<< i + 1 << " и столбце =>" << j + 1 << " был заменен на 0." << std::endl
-						<< "   Пожалуйста измените значение и откройте файл заново" << std::endl;
+					std::cerr << "\n\n\n\n   пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ => "
+						<< i + 1 << " пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ =>" << j + 1 << " пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 0." << std::endl
+						<< "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					setColor(7, 0);
 				}
 				catch (const std::invalid_argument& e) { std::cerr << "\n\n\n\n   Error: " << e.what(); }
@@ -727,7 +727,7 @@ void readMatrixTxt(Matrix& matrix) {
 		char key;
 		do {
 			system("cls");
-			std::cout << "   1 - Решение\n   2 - Замена значения\n\n" << std::endl;
+			std::cout << "   1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   2 - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n\n" << std::endl;
 			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 
 			key = _getch();
@@ -753,11 +753,11 @@ void readMatrixTxt(Matrix& matrix) {
 				_getch();
 			}
 			else if (key == 27) { return; }
-			else { std::cerr << "   Неизвестная команда..."; return; }
+			else { std::cerr << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..."; return; }
 		} while (key != 27);
 	}
  else {
-	 std::cerr << "\n   Такого файла нет..." << std::endl;
+	 std::cerr << "\n   пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ..." << std::endl;
 	}
 }
 
@@ -768,7 +768,7 @@ void readMatrixBin(Matrix& matrix) {
 
 
 	if (indicator) {
-		std::cout << "\n   Файл найден" << std::endl;
+		std::cout << "\n   пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 
 
 
@@ -789,8 +789,8 @@ void readMatrixBin(Matrix& matrix) {
 		for (size_t i = 0; i < rows; i++) {
 			file.read(reinterpret_cast<char*>(matrix.matrix[i]), cols * sizeof(double));
 			if (!file) {
-				std::cerr << "   Не удалось прочесть для строки " << i << std::endl;
-				std::cerr << "   Ожиддалоось байт: " << (cols * sizeof(double)) << "  Прочитанно " << file.gcount() << std::endl;
+				std::cerr << "   пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " << i << std::endl;
+				std::cerr << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: " << (cols * sizeof(double)) << "  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << file.gcount() << std::endl;
 			}
 		}
 		file.close();
@@ -804,7 +804,7 @@ void readMatrixBin(Matrix& matrix) {
 		char key;
 		do {
 			system("cls");
-			std::cout << "   1 - Решение\n   2 - Замена значения\n\n" << std::endl;
+			std::cout << "   1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   2 - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n\n" << std::endl;
 			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 
 			key = _getch();
@@ -831,11 +831,11 @@ void readMatrixBin(Matrix& matrix) {
 				_getch();
 			}
 			else if (key == 27) { return; }
-			else { std::cerr << "   Неизвестная команда..."; return; }
+			else { std::cerr << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..."; return; }
 		} while (key != 27);
 	}
 	else {
-		std::cerr << "\n   Такого файла нет..." << std::endl;
+		std::cerr << "\n   пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ..." << std::endl;
 	}
 }
 
@@ -850,25 +850,25 @@ void clearSpace(Matrix& matrix) {
 			}
 		}
 		setColor(10, 0);
-		std::cout << "   Пространство очищено!" << std::endl;
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!" << std::endl;
 	}
 	else {
 		setColor(4, 0);
-		std::cout << "   Матрица не была создана..." << std::endl;
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..." << std::endl;
 	}
 	setColor(7, 0);
 }
 
 void readMatrixFile(Matrix& matrix) {
-	std::cout << "   Выберете тип файла для сохранения" << std::endl;
-	std::cout << "   1 - Текстовый файл\n   2 - Бинарный файл";
+	std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+	std::cout << "   1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n   2 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ";
 	size_t key = _getch();
 	if (key == '1') { 
 		system("cls");
 		readMatrixTxt(matrix);
 	}
 	else if (key == '2') { 
-		std::cout << "   1 - решение\n   2 - замена значения\n" << std::endl;
+		std::cout << "   1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   2 - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n" << std::endl;
 		system("cls");
 		readMatrixBin(matrix);
 	}
@@ -878,8 +878,8 @@ void readMatrixFile(Matrix& matrix) {
 
 void saveMatrixFile(Matrix& matrix) {
 	if (!(matrix.matrix == nullptr || matrix.rows <= 0 || matrix.cols <= 0)) {
-		std::cout << "   Выберите тип файла для сохранения" << std::endl;
-		std::cout << "   1 - Текстовый файл\n   2 - Бинарный файл" << std::endl;
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
+		std::cout << "   1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n   2 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" << std::endl;
 		size_t key = _getch();
 		if (key == '1') { system("cls"); writeMatrixTxt(matrix);
 		_getch();
@@ -890,7 +890,7 @@ void saveMatrixFile(Matrix& matrix) {
 		else { return; }
 	}
 	else {
-		std::cerr << "   Здесь пока пусто...";
+		std::cerr << "   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ...";
 		_getch();
 	}
 }
@@ -912,7 +912,7 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 		char ch;
 		do {
 			system("cls");
-			std::cout << "\n\n   1 - сохранить матрицу\n   2 - изменить текущую на сохраненную матрицу\n   3 - присоединить к текущей сохраненную матрицу\n\n   4 - вставить строку\n   5 - втавить столбец\n   6 - вставить строку и столбец\n\n   7 - удалить строку\n   8 - удалить столбец\n   9 - удалить строку и столбец\n\n   0 - транспонировать\n\n\n";
+			std::cout << "\n\n   1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   2 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   3 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n\n   4 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\n   5 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   6 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n\n   7 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\n   8 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   9 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n\n   0 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n\n\n";
 			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 			ch = _getch();
 			switch (ch) {
@@ -924,7 +924,7 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					}
 				}
 				setColor(10, 0);
-				std::cout << "   Матрица размером " << matrix.rows << " x " << matrix.cols << " сохранена";
+				std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << matrix.rows << " x " << matrix.cols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
 				Sleep(1000);
 				clearLine(7, 0, 8, 15);
 				BACK(30);
@@ -942,13 +942,13 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 						}
 					}
 					setColor(10, 0);
-					std::cout << "   Матрица размером " << oldRows << " x " << oldCols << " изменена на сохраненную,"
-						<< " размером " << reserveMatrix.rows << " x " << reserveMatrix.cols;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << oldRows << " x " << oldCols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ,"
+						<< " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << reserveMatrix.rows << " x " << reserveMatrix.cols;
 					Sleep(3000);
 					setColor(7, 0);
 				}
 				else {
-					std::cout << "   Отсутствуют сохраненные матрицы...";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 					Sleep(1000);
 					clearLine(7, 0, 8, 15);
 					BACK(30);
@@ -965,7 +965,7 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					size_t oldRows = matrix.rows;
 					size_t oldCols = matrix.cols;
 
-					size_t nLine = 0, nCol = 0; // Нумераторы для резервной матрицы
+					size_t nLine = 0, nCol = 0; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 					//Copied reserveMatrix
 					copyMatrix(reserveMatrix, copySaveMatrix);
@@ -1000,13 +1000,13 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 						nLine++;
 					}
 					setColor(10, 0);
-					std::cout << "   Матрица размером " << oldRows << " x " << oldCols << " изменена на сохраненную,"
-						<< " размером " << copySaveMatrix.rows << " x " << copySaveMatrix.cols;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << oldRows << " x " << oldCols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ,"
+						<< " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << copySaveMatrix.rows << " x " << copySaveMatrix.cols;
 					Sleep(3000);
 					setColor(7, 0);
 				}
 				else {
-					std::cout << "   Отсутствуют сохраненные матрицы...";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 					Sleep(1000);
 					clearLine(7, 0, 8, 15);
 					BACK(30);
@@ -1018,18 +1018,18 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					char kb;
 					int newLine1;
 					int nLines;
-					std::cout << "   Сколько строк добавить?" << std::endl;;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?" << std::endl;;
 					std::cin >> nLines;
 					size_t newRows = matrix.rows + nLines;
 					Matrix saveCurrentMatrix;
 					copyMatrix(matrix, saveCurrentMatrix);
 					matrix.changeSize(newRows, matrix.cols);
 
-					std::cout << "   Введите номер строки после которой\n будет вставлена новая строка" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					ClearCin;
 					std::cin >> newLine1;
 					if (!(newLine1 >= 0 && newLine1 < matrix.rows + 1) || std::cin.fail()) {
-						std::cerr << "\n   Введите корректный номер строки";
+						std::cerr << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ";
 						Sleep(400);
 						break;
 					}
@@ -1058,16 +1058,16 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					}
 
 
-					std::cout << "   Заполнить?\n   1 - да" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?\n   1 - пїЅпїЅ" << std::endl;
 					kb = _getch();
 					if (kb == '1') {
 
-						std::cout << "   Введите новые значения" << std::endl;
+						std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 						for (size_t i = newLine1; i < newLine1 + nLines; i++) {
 							for (size_t j = 0; j < matrix.cols; j++) {
 								outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 								int newValue;
-								std::cout << "   Новое значение [" << i + 1 << "][" << j + 1<< "] = ";
+								std::cout << "   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [" << i + 1 << "][" << j + 1<< "] = ";
 								std::cin >> newValue;
 								matrix.matrix[i][j] = newValue;
 							}
@@ -1076,12 +1076,12 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 
 					setColor(10, 0);
-					std::cout << "   Матрица с новым размером " << matrix.rows << " x " << matrix.cols << " измененa";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << matrix.rows << " x " << matrix.cols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅa";
 					Sleep(3000);
 					setColor(7, 0);
 				}
 				else {
-					std::cout << "   Отсутствуют сохраненные матрицы...";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 					Sleep(1000);
 					clearLine(7, 0, 8, 15);
 					BACK(30);
@@ -1093,18 +1093,18 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					char kb;
 					int newLine1;
 					int nLines;
-					std::cout << "   Сколько столбцов добавить?" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?" << std::endl;
 					std::cin >> nLines;
 					size_t newCols = matrix.cols + nLines;
 					Matrix saveCurrentMatrix;
 					copyMatrix(matrix, saveCurrentMatrix);
 					matrix.changeSize(matrix.rows, newCols);
 
-					std::cout << "   Введите номер столбца после которого\n   будут вставлены новые столбцы" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					ClearCin;
 					std::cin >> newLine1;
 					if (!(newLine1 >= 0 && newLine1 < matrix.cols + 1) || std::cin.fail()) {
-						std::cerr << "\n   Введите корректный номер строки";
+						std::cerr << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ";
 						Sleep(400);
 						break;
 					}
@@ -1142,15 +1142,15 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 
 
-					std::cout << "   Заполнить?\n   1 - да" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?\n   1 - пїЅпїЅ" << std::endl;
 					kb = _getch();
 					if (kb == '1') {
-						std::cout << "   Введите новые значения" << std::endl;
+						std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 						for (size_t i = 0; i < matrix.rows; i++) {
 							for (size_t j = newLine1; j < newLine1 + nLines; j++) {
 								outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 								int newValue;
-								std::cout << "   Новое значение [" << j + 1 << "][" << i + 1 << "] = ";
+								std::cout << "   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [" << j + 1 << "][" << i + 1 << "] = ";
 								std::cin >> newValue;
 								matrix.matrix[i][j] = newValue;
 							}
@@ -1159,12 +1159,12 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 
 					setColor(10, 0);
-					std::cout << "   Матрица с новым размером " << matrix.rows << " x " << matrix.cols << " измененa";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << matrix.rows << " x " << matrix.cols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅa";
 					Sleep(3000);
 					setColor(7, 0);
 				}
 				else {
-					std::cout << "   Отсутствуют сохраненные матрицы...";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 					Sleep(1000);
 					clearLine(7, 0, 8, 15);
 					BACK(30);
@@ -1176,18 +1176,18 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					char kb;
 					int newLine1;
 					int nLines;
-					std::cout << "   Сколько строк добавить?" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?" << std::endl;
 					std::cin >> nLines;
 					size_t newRows = matrix.rows + nLines;
 					Matrix saveCurrentMatrix;
 					copyMatrix(matrix, saveCurrentMatrix);
 					matrix.changeSize(newRows, matrix.cols);
 
-					std::cout << "   Введите номер строки после которой\n   будет вставлена новая строка" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					ClearCin;
 					std::cin >> newLine1;
 					if (!(newLine1 >= 0 && newLine1 < matrix.rows + 1)) {
-						std::cerr << "\n   Введите корректный номер строки";
+						std::cerr << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ";
 						Sleep(400);
 						break;
 					}
@@ -1216,16 +1216,16 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					}
 
 
-					std::cout << "   Заполнить?\n   1 - да" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?\n   1 - пїЅпїЅ" << std::endl;
 					kb = _getch();
 					if (kb == '1') {
 
-						std::cout << "   Введите новые значения" << std::endl;
+						std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 						for (size_t i = newLine1; i < newLine1 + nLines; i++) {
 							for (size_t j = 0; j < matrix.cols; j++) {
 								outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 								int newValue;
-								std::cout << "   Новое значение [" << i + 1 << "][" << j + 1 << "] = ";
+								std::cout << "   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [" << i + 1 << "][" << j + 1 << "] = ";
 								std::cin >> newValue;
 								std::cout << std::endl;
 								if (std::cin.fail() || std::cin.bad()) {
@@ -1246,18 +1246,18 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 					int newLine2;
 					int nLines2;
-					std::cout << "   Сколько столбцов добавить?" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?" << std::endl;
 					std::cin >> nLines2;
 					size_t newCols = matrix.cols + nLines2;
 					Matrix saveCurrentMatrix2;
 					copyMatrix(matrix, saveCurrentMatrix2);
 					matrix.changeSize(matrix.rows, newCols);
 
-					std::cout << "   Введите номер столбца после которого\n   будут вставлены новые столбцы" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					ClearCin;
 					std::cin >> newLine2;
 					if (!(newLine2 >= 0 && newLine2 < matrix.cols + 1)) {
-						std::cerr << "\n   Введите корректный номер строки";
+						std::cerr << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ";
 						Sleep(400);
 						break;
 					}
@@ -1295,15 +1295,15 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 
 
-					std::cout << "   Заполнить?\n   1 - да" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ?\n   1 - пїЅпїЅ" << std::endl;
 					kb = _getch();
 					if (kb == '1') {
-						std::cout << "   Введите новые значения" << std::endl;
+						std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 						for (size_t i = 0; i < matrix.rows; i++) {
 							for (size_t j = newLine1; j < newLine1 + nLines; j++) {
 								outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 								int newValue;
-								std::cout << "   Новое значение [" << j + 1 << "][" << i + 1 << "] = ";
+								std::cout << "   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ [" << j + 1 << "][" << i + 1 << "] = ";
 								std::cin >> newValue;
 								if (std::cin.fail() || std::cin.bad()) {
 									const size_t MAX_LINE_IGNORE = 256;
@@ -1319,12 +1319,12 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 
 					setColor(10, 0);
-					std::cout << "   Матрица с новым размером " << matrix.rows << " x " << matrix.cols << " измененa";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << matrix.rows << " x " << matrix.cols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅa";
 					Sleep(3000);
 					setColor(7, 0);
 				}
 				else {
-					std::cout << "   Отсутствуют сохраненные матрицы...";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 					Sleep(1000);
 					clearLine(7, 0, 8, 15);
 					BACK(30);
@@ -1334,7 +1334,7 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 			case '7': {
 				if (!(matrix.matrix == nullptr || matrix.rows <= 1 || matrix.cols <= 1)) {
-					std::cout << "   Введите номер строки котрую нужно удалить" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					int deleteEl;
 					std::cin >> deleteEl;
 					size_t newRows = matrix.rows - 1;
@@ -1363,12 +1363,12 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 
 					setColor(10, 0);
-					std::cout << "   Матрица с новым размером " << matrix.rows << " x " << matrix.cols << " измененa";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << matrix.rows << " x " << matrix.cols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅa";
 					Sleep(3000);
 					setColor(7, 0);
 				}
 				else {
-					std::cout << "   Слишком маленький размер матрицы...";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 					Sleep(1000);
 					clearLine(7, 0, 8, 15);
 					BACK(30);
@@ -1377,7 +1377,7 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 			}
 			case '8': {
 				if (!(matrix.matrix == nullptr || matrix.rows <= 1 || matrix.cols <= 1)) {
-					std::cout << "   Введите номер строки котрую нужно удалить" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					int deleteEl;
 					std::cin >> deleteEl;
 					size_t newCols = matrix.cols - 1;
@@ -1404,12 +1404,12 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					
 
 					setColor(10, 0);
-					std::cout << "   Матрица с новым размером " << matrix.rows << " x " << matrix.cols << " измененa";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << matrix.rows << " x " << matrix.cols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅa";
 					Sleep(3000);
 					setColor(7, 0);
 				}
 				else {
-					std::cout << "   Слишком маленький размер матрицы...";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 					Sleep(1000);
 					clearLine(7, 0, 8, 15);
 					BACK(30);
@@ -1418,7 +1418,7 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 			}
 			case '9': {
 				if (!(matrix.matrix == nullptr || matrix.rows <= 1 || matrix.cols <= 1)) {
-					std::cout << "   Введите номер строки котрую нужно удалить" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					int deleteEl;
 					std::cin >> deleteEl;
 					size_t newRows = matrix.rows - 1;
@@ -1448,7 +1448,7 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 
 
-					std::cout << "   Введите номер строки котрую нужно удалить" << std::endl;
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 					int deleteEl2;
 					std::cin >> deleteEl2;
 					size_t newCols = matrix.cols - 1;
@@ -1473,12 +1473,12 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 
 
 					setColor(10, 0);
-					std::cout << "   Матрица с новым размером " << matrix.rows << " x " << matrix.cols << " измененa";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << matrix.rows << " x " << matrix.cols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅa";
 					Sleep(3000);
 					setColor(7, 0);
 				}
 				else {
-					std::cout << "   Слишком маленький размер матрицы...";
+					std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...";
 					Sleep(1000);
 					clearLine(7, 0, 8, 15);
 					BACK(30);
@@ -1507,21 +1507,21 @@ void insertMatrix(Matrix& matrix, Matrix& reserveMatrix) {
 					}
 				}
 				else {
-					std::cerr << "   Матрица не была создана..." << std::endl;
+					std::cerr << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..." << std::endl;
 				}
 			}
 			
 			case 27:
 				break;
 			default:
-				std::cerr << "\n   Введите коректную команду";
+				std::cerr << "\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
 				break;
 			}
 
 		} while (ch != 27);
 	}
 	else { 
-		std::cout << "   Матрица не создана..." << std::endl;
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..." << std::endl;
 		_getch();
 	}
 };
@@ -1533,7 +1533,7 @@ void fillMatrixMenu(Matrix& matrix) {
 		do {
 			system("cls");
 			info2();
-			std::cout << "\n\n   1 - Полностью заполнить матрицу\n   2 - Заполнить по индексу\n   esc - Назад\n\n";
+			std::cout << "\n\n   1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   2 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n   esc - пїЅпїЅпїЅпїЅпїЅ\n\n";
 			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 			ch = _getch();
 
@@ -1547,13 +1547,13 @@ void fillMatrixMenu(Matrix& matrix) {
 			case 27:
 				break;
 			default:
-				std::cout << "   Выберите команду из предложенных" << std::endl;
+				std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 				break;
 			}
 		} while (ch != 27);
 	}
 	else {
-		std::cout << "   Mатрица не была создана..." << std::endl;
+		std::cout << "   MпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ..." << std::endl;
 		_getch();
 	}
 }
@@ -1562,18 +1562,18 @@ void fillMatrixMenu(Matrix& matrix) {
 
 
 void outTableMatrixGraf(HDC hdc,
-	double** matrix, // Матрица чисел double
+	double** matrix, // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ double
 	size_t rows, size_t cols,
-	int startX, int startY,      // Начальные координаты таблицы
-	int cellWidth, int cellHeight, // Размеры ячейки
-	int headerFontSize = 16,     // Размер шрифта заголовков
-	int dataFontSize = 15)       // Размер шрифта данных
+	int startX, int startY,      // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	int cellWidth, int cellHeight, // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+	int headerFontSize = 16,     // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	int dataFontSize = 15)       // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 {
 	if (hdc == NULL) {
 		return; 
 	}
 	if (matrix == nullptr || rows <= 0 || cols <= 0) {
-		std::cout << "   Здесь пока пусто..." << std::endl;
+		std::cout << "   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ..." << std::endl;
 		return; 
 	}
 	else {
@@ -1582,13 +1582,13 @@ void outTableMatrixGraf(HDC hdc,
 			return; 
 		}
 
-		char textBuffer[64]; // Буфер для временного хранения чисел, преобразованных в строки
-		char formatString[16]; // Буфер для строки формата (например, "%.2f")
+		char textBuffer[64]; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+		char formatString[16]; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, "%.2f")
 
-		// Создаем строку формата для double на основе параметра precision
-		sprintf_s(formatString, sizeof(formatString), "%%.%df", 2); // Например, если precision=2, то formatString будет "%.2f"
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ double пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ precision
+		sprintf_s(formatString, sizeof(formatString), "%%.%df", 2); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ precision=2, пїЅпїЅ formatString пїЅпїЅпїЅпїЅпїЅ "%.2f"
 
-		// --- Настройка шрифтов ---
+		// --- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ---
 		HFONT hFontHeaders = CreateFontA(headerFontSize, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE,
 			RUSSIAN_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS,
 			DEFAULT_QUALITY, FF_DONTCARE | VARIABLE_PITCH, "Terminal");
@@ -1597,10 +1597,10 @@ void outTableMatrixGraf(HDC hdc,
 			RUSSIAN_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS,
 			DEFAULT_QUALITY, FF_DONTCARE | VARIABLE_PITCH, "Terminal");
 
-		// --- Настройка пера для сетки ---
-		HPEN hPenGrid = CreatePen(PS_SOLID, 1, RGB(255, 255, 255)); // Светло-серое перо
+		// --- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ ---
+		HPEN hPenGrid = CreatePen(PS_SOLID, 1, RGB(255, 255, 255)); // пїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
-		// Сохраняем старые GDI объекты, чтобы потом восстановить
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ GDI пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 		COLORREF cellFillColor = RGB(150, 150, 150);
 
@@ -1609,35 +1609,35 @@ void outTableMatrixGraf(HDC hdc,
 		HPEN hOldPen = (HPEN)SelectObject(hdc, GetStockObject(BLACK_PEN));
 
 		int oldBkMode = SetBkMode(hdc, RGB(157, 56, 188));
-		SetBkMode(hdc, RGB(192, 192, 192)); // Делаем фон текста прозрачным
+		SetBkMode(hdc, RGB(192, 192, 192)); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	
 
-		// --- 1. Рисуем номера столбцов (заголовки) ---
-		if (hFontHeaders) SelectObject(hdc, hFontHeaders); // Выбираем шрифт для заголовков
-		SetTextColor(hdc, RGB(255, 255, 255)); // Темно-синий цвет для заголовков
+		// --- 1. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ) ---
+		if (hFontHeaders) SelectObject(hdc, hFontHeaders); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+		SetTextColor(hdc, RGB(255, 255, 255)); // пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 		for (int j = 0; j < cols; ++j) {
-			int x_header_col = startX + cellWidth + j * cellWidth; // X-координата ячейки заголовка столбца
-			int y_header_col = startY;                             // Y-координата ячейки заголовка столбца
+			int x_header_col = startX + cellWidth + j * cellWidth; // X-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			int y_header_col = startY;                             // Y-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-			sprintf_s(textBuffer, sizeof(textBuffer), "%d", j + 1); // Преобразуем номер столбца в строку
+			sprintf_s(textBuffer, sizeof(textBuffer), "%d", j + 1); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 			SIZE textSize;
-			GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize); // Узнаем размер текста
-			// Выводим текст по центру ячейки заголовка
+			GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			TextOutA(hdc,
 				x_header_col + (cellWidth - textSize.cx) / 2,
 				y_header_col + (cellHeight - textSize.cy) / 2,
 				textBuffer, strlen(textBuffer));
 		}
 
-		// --- 2. Рисуем номера строк (заголовки) ---
-		// Шрифт и цвет текста для заголовков уже установлены
+		// --- 2. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ) ---
+		// пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		for (int i = 0; i < rows; ++i) {
-			int x_header_row = startX;                                // X-координата ячейки заголовка строки
-			int y_header_row = startY + cellHeight + i * cellHeight;  // Y-координата ячейки заголовка строки
+			int x_header_row = startX;                                // X-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+			int y_header_row = startY + cellHeight + i * cellHeight;  // Y-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-			sprintf_s(textBuffer, sizeof(textBuffer), "%d", i + 1); // Преобразуем номер строки в строку
+			sprintf_s(textBuffer, sizeof(textBuffer), "%d", i + 1); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 			SIZE textSize;
 			GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize);
@@ -1647,25 +1647,25 @@ void outTableMatrixGraf(HDC hdc,
 				textBuffer, strlen(textBuffer));
 		}
 
-		// --- 3. Рисуем данные матрицы и сетку ---
-		if (hFontData) SelectObject(hdc, hFontData); // Выбираем шрифт для данных
-		SetTextColor(hdc, RGB(255, 255, 255));             // Черный цвет для данных
-		if (hPenGrid) SelectObject(hdc, hPenGrid);   // Выбираем перо для рисования сетки
+		// --- 3. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ ---
+		if (hFontData) SelectObject(hdc, hFontData); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+		SetTextColor(hdc, RGB(255, 255, 255));             // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+		if (hPenGrid) SelectObject(hdc, hPenGrid);   // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 		for (int i = 0; i < rows; ++i) {
 
-			if (matrix[i] == nullptr) { // Проверка, что строка матрицы выделена
-				// Можно добавить вывод ошибки или просто пропустить
+			if (matrix[i] == nullptr) { // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+				// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 				continue;
 			}
 			for (int j = 0; j < cols; ++j) {
-				int cellX = startX + cellWidth + j * cellWidth;     // X-координата текущей ячейки данных
-				int cellY = startY + cellHeight + i * cellHeight;    // Y-координата текущей ячейки данных
+				int cellX = startX + cellWidth + j * cellWidth;     // X-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+				int cellY = startY + cellHeight + i * cellHeight;    // Y-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-				// Преобразуем число double из матрицы в строку
+				// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ double пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 				sprintf_s(textBuffer, sizeof(textBuffer), formatString, matrix[i][j]);
 			
-				// Рисуем рамку ячейки (если перо для сетки создано)
+				// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
 				if (hPenGrid) {
 					Rectangle(hdc, cellX, cellY, cellX + cellWidth, cellY + cellHeight);
 				}
@@ -1673,7 +1673,7 @@ void outTableMatrixGraf(HDC hdc,
 				SIZE textSize;
 				GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize);
 
-				// Выводим текст (данные) по центру ячейки
+				// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅ) пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 				TextOutA(hdc,
 					cellX + (cellWidth - textSize.cx) / 2,
 					cellY + (cellHeight - textSize.cy) / 2,
@@ -1682,14 +1682,14 @@ void outTableMatrixGraf(HDC hdc,
 		}
 	
 
-		// --- Очистка GDI объектов ---
+		// --- пїЅпїЅпїЅпїЅпїЅпїЅпїЅ GDI пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ ---
 		SetBkMode(hdc, oldBkMode);
-		SelectObject(hdc, hOldFont); // Восстанавливаем старый шрифт
-		if (hFontHeaders) DeleteObject(hFontHeaders); // Удаляем созданный шрифт
-		if (hFontData) DeleteObject(hFontData);       // Удаляем созданный шрифт
+		SelectObject(hdc, hOldFont); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+		if (hFontHeaders) DeleteObject(hFontHeaders); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+		if (hFontData) DeleteObject(hFontData);       // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
-		SelectObject(hdc, hOldPen); // Восстанавливаем старое перо
-		if (hPenGrid) DeleteObject(hPenGrid);         // Удаляем созданное перо
+		SelectObject(hdc, hOldPen); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+		if (hPenGrid) DeleteObject(hPenGrid);         // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 	}
 }
 
@@ -1709,19 +1709,19 @@ void menuLab_3() {
 		system("cls");
 		
 
-		Text(hdc, 50, 0, "Меню лабораторной работы №3 - 4", RGB(255, 255, 255), RGB(0, 0, 0), 25);
-		Text(hdc, 50, 50, "0 - Условие задачи", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 100, "1 - Задать размеры матрицы", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 150, "2 - Заполнить матрицу", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 200, "3 - Просмотр текущей матрицы", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 250, "4 - Сохранить/вставить/присоединить", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 300, "5 - Сохранить матрицу в файле", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 350, "6 - Решение со значениями из файла", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 400, "7 - Решение со значениями из текщей матрицы", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 450, "8 - Очистка пространства", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 500, "9 - Просмотр директории", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 0, "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ3 - 4", RGB(255, 255, 255), RGB(0, 0, 0), 25);
+		Text(hdc, 50, 50, "0 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 100, "1 - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 150, "2 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 200, "3 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 250, "4 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 300, "5 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 350, "6 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 400, "7 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 450, "8 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		Text(hdc, 50, 500, "9 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(15, 5, 77), 25);
 
-		Text(hdc, 50, 550, "ESC - Назад", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+		Text(hdc, 50, 550, "ESC - пїЅпїЅпїЅпїЅпїЅ", RGB(255, 255, 255), RGB(157, 56, 188), 25);
 
 
 		key = _getch();
@@ -1740,13 +1740,13 @@ void menuLab_3() {
 			system("cls");
 			info2();
 			setColor(14, 0);
-			std::cout << "\n\n   Устаноовление размера матрицы" << std::endl;
+			std::cout << "\n\n   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 			setColor(15, 0);
 			size_t newRows = setRow();
 			size_t newCols = setCol();
 			if (!(matrix.matrix == nullptr || matrix.rows <= 0 || matrix.cols <= 0 || newRows < matrix.rows || newCols < matrix.cols)) {
 
-				std::cout << "   1 - Сохранить данные?" << std::endl;
+				std::cout << "   1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ?" << std::endl;
 				if (_getch() == '1') {
 					Matrix helpMatrix;
 					copyMatrix(matrix, helpMatrix);
@@ -1759,7 +1759,7 @@ void menuLab_3() {
 				}else { matrix.changeSize(newRows, newCols); }
 			} else { matrix.changeSize(newRows, newCols); }
 			setColor(10, 0);
-			std::cout << "   Матрица размером " << newRows << " x " << newCols << " успешно создана" << std::endl;
+			std::cout << "   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << newRows << " x " << newCols << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 			setColor(7, 0);
 			std::cout << "\n\n   ";
 			system("pause");
@@ -1813,7 +1813,7 @@ void menuLab_3() {
 		case 27:
 			break;
 		default:
-			std::cout << "\nВведена неизвестная команда" << std::endl;
+			std::cout << "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << std::endl;
 		}
 		setColor(7, 0);
 	} while (key != 27);

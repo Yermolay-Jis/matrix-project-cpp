@@ -1,5 +1,5 @@
-#include "matrix.h"
-#include "menuLab_3.h"
+#include "../include/matrix.h"
+#include "../include/menuLab_3.h"
 
 
 Matrix::Matrix()
@@ -36,7 +36,7 @@ void Matrix::changeSize(size_t newRows, size_t newCols) {
         cols = newCols;
     }
     catch (const std::bad_alloc(&e)) {
-        std::cerr << "Ошибка: введите значения не меньше 1!" << std::endl;
+        std::cerr << "пїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 1!" << std::endl;
     }
     catch (const std::exception(&e)) {
         std::cerr << "Error: " << e.what() << std::endl;

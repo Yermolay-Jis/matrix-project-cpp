@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/app.dir/src/MyFunctioin.cpp.o CMakeFiles/app.dir/src/main.cpp.o CMakeFiles/app.dir/src/matrix.cpp.o CMakeFiles/app.dir/src/menuLab2.cpp.o CMakeFiles/app.dir/src/menuLab_1.cpp.o CMakeFiles/app.dir/src/menuLab_3.cpp.o -o app 

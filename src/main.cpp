@@ -1,6 +1,6 @@
-﻿#include "menuLab_1.h"
-#include "menuLab2.h"
-#include "menuLab_3.h"
+﻿#include "../include/menuLab_1.h"
+#include "../include/menuLab2.h"
+#include "../include/menuLab_3.h"
 
 using namespace std;
 
