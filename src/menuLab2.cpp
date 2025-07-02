@@ -4,8 +4,8 @@
 static std::string nameFile;
 static bool indicator;
 
-
-void writeBinFile() {
+void writeBinFile()
+{
 	system("cls");
 	CURSOR(3, 3);
 	setColor(6, 0);
@@ -13,9 +13,15 @@ void writeBinFile() {
 
 	setColor(15, 0);
 	LINES(2);
-	std::cout << "   ������� ��� �����: "; 
+	std::cout << "   ������� ��� �����: ";
 	std::cin >> nameFile;
-	if (std::cin.fail() || std::cin.bad()) { while (std::cin.fail() || std::cin.bad()) { std::cin >> nameFile; } }
+	if (std::cin.fail() || std::cin.bad())
+	{
+		while (std::cin.fail() || std::cin.bad())
+		{
+			std::cin >> nameFile;
+		}
+	}
 	ClearCin;
 
 	std::ifstream file_bin_test(nameFile);
@@ -23,19 +29,31 @@ void writeBinFile() {
 	file_bin_test.close();
 	std::ios_base::openmode mode = std::ios::out;
 
-	if (file_bin_exist) {
+	if (file_bin_exist)
+	{
 		std::cout << "\n\n   ������� ���� ��� ��������?\t1 - ��";
 		char ch = _getch();
-		if (ch == '1') { mode = std::ios::app; }
+		if (ch == '1')
+		{
+			mode = std::ios::app;
+		}
 	}
 	std::ofstream file(nameFile, mode);
-	if (!file.is_open()) { std::cerr << "   Error: file is not opened"; };
-	if (sizeArr == 0) { std::cerr << "   Error: file is empty! "; return; }
+	if (!file.is_open())
+	{
+		std::cerr << "   Error: file is not opened";
+	};
+	if (sizeArr == 0)
+	{
+		std::cerr << "   Error: file is empty! ";
+		return;
+	}
 
 	system("cls");
 	inputEl();
-	for (int i = 0; i < sizeArr; i++) {
-		file.write(reinterpret_cast<char*>(&arr[i]), sizeof(arr[i])); // Write element of array
+	for (size_t i = 0; i < sizeArr; i++)
+	{
+		file.write(reinterpret_cast<char *>(&arr[i]), sizeof(arr[i])); // Write element of array
 	}
 
 	file.flush();
@@ -50,11 +68,10 @@ void writeBinFile() {
 	CURSOR(0, 0);
 }
 
-void readBinFile() {
+void readBinFile()
+{
 	setColor(14, 0);
 	nameFile = getNameFile();
-	
-	
 
 	std::cout << "\n";
 	setColor(15, 0);
@@ -64,58 +81,67 @@ void readBinFile() {
 	std::string comment = file.is_open() ? "   ���� ������� ������\n\n" : "   ������, ������ ����� ���\n\n";
 	std::cout << comment << std::endl;
 
-
-	if (indicator == true) {
+	if (indicator == true)
+	{
 
 		double data = 0;
 		size_t numberEl = 0;
 		size_t i = 0;
 
-		while (file.read(reinterpret_cast<char*>(&data), sizeof(data))) {
+		while (file.read(reinterpret_cast<char *>(&data), sizeof(data)))
+		{
 			numberEl++;
 		}
-		if (numberEl == 0) { std::cout << "���� ����"; }
-		else { std::cout << "\n\n   ���������� ������ � �����: " << numberEl << std::endl;}
+		if (numberEl == 0)
+		{
+			std::cout << "���� ����";
+		}
+		else
+		{
+			std::cout << "\n\n   ���������� ������ � �����: " << numberEl << std::endl;
+		}
 
-
-
-		try {
+		try
+		{
 			arr = new double[numberEl];
 			sizeArr = numberEl;
 		}
-		catch (const std::bad_alloc& e) {
+		catch (const std::bad_alloc &e)
+		{
 			std::cerr << "������: " << e.what();
 		};
-
 
 		file.clear();
 		file.seekg(0, std::ios::beg);
 
-		if (!file) {
+		if (!file)
+		{
 			std::cerr << "   ����������� ������: �� ������� �������� � ������ �����\n";
 			std::cerr << "   ��������� ������ eof()" << file.eof() << " fail = " << file.fail() << " bad() = " << file.bad();
 		}
 
-		while (i < sizeArr && file.read(reinterpret_cast<char*>(&arr[i]), sizeof(data))) { i++; }
+		while (i < sizeArr && file.read(reinterpret_cast<char *>(&arr[i]), sizeof(data)))
+		{
+			i++;
+		}
 		file.close();
-
 
 		solution1();
 		outputEl();
 	}
-
-	
-
 }
 
-void replaceElBinFile() {
+void replaceElBinFile()
+{
 	readBinFile();
 
-	if (indicator == true) { // if file is open
+	if (indicator == true)
+	{ // if file is open
 		std::cout << "\n   �������� �������� ��������?\n\n   1 - ��\t2 - ���" << std::endl;
 		size_t key = _getch();
 
-		if (key == '1') {
+		if (key == '1')
+		{
 			system("cls");
 
 			Text(hdc, 50, 17, "������ �� �����:", RGB(255, 255, 255), RGB(0, 0, 0), 15);
@@ -126,24 +152,29 @@ void replaceElBinFile() {
 			CURSOR(3, 12);
 			Text(hdc, 50, 150, "������� ����� �������� �������� ������ �������� (0, 1, 2, ...)", RGB(255, 255, 255), RGB(0, 0, 0), 15);
 			std::cin >> replaceElIdx;
-			if (replaceElIdx >= sizeArr || replaceElIdx < 0 || std::cin.fail() || std::cin.bad()) {
+			if (replaceElIdx >= sizeArr || std::cin.fail() || std::cin.bad())
+			{
 				Text(hdc, 50, 200, "������: �������� � ����� �������� �� ����������!", RGB(255, 0, 0), RGB(0, 0, 0), 15);
-				while (replaceElIdx >= sizeArr || replaceElIdx < 0 || std::cin.fail() || std::cin.bad()) {
+				while (replaceElIdx >= sizeArr || std::cin.fail() || std::cin.bad())
+				{
 					CURSOR(3, 14);
 					SPACEBACK(30);
 					std::cin.clear();
 					std::cin.ignore(250, '\n');
 					std::cin >> replaceElIdx;
 				}
-				for (size_t i = 17; i < 500; i++) {
-					Text(hdc, i, 200, " ", RGB(12,12,12), RGB(12,12,12), 15);
+				for (size_t i = 17; i < 500; i++)
+				{
+					Text(hdc, i, 200, " ", RGB(12, 12, 12), RGB(12, 12, 12), 15);
 				};
 			}
 			CURSOR(3, 14);
 
 			double replaceEl;
-			for (size_t i = 0; i < sizeArr; i++) { // Search elements in array for replace
-				if (i == replaceElIdx) {
+			for (size_t i = 0; i < sizeArr; i++)
+			{ // Search elements in array for replace
+				if (i == replaceElIdx)
+				{
 					replaceElIdx = i;
 					replaceEl = arr[i];
 					break;
@@ -168,49 +199,68 @@ void replaceElBinFile() {
 
 			arr[replaceElIdx] = newElement;
 
-
 			// Write an item to a file that the user chooses
 			double item = 0;
 			std::fstream file(nameFile, std::ios::binary | std::ios::in | std::ios::out);
 			std::streampos currentPos;
 			size_t gap = 0;
-			while (true) {
-				try {
+			while (true)
+			{
+				try
+				{
 					currentPos = file.tellg();
-					if (!file.read(reinterpret_cast<char*>(&item), sizeof(double))) {
-						if (file.eof()) { std::cerr << "   ������� �� ������ � �����" << std::endl; }
-						else { std::cerr << "   ������ ������ �� �����" << std::endl; break;  }
+					if (!file.read(reinterpret_cast<char *>(&item), sizeof(double)))
+					{
+						if (file.eof())
+						{
+							std::cerr << "   ������� �� ������ � �����" << std::endl;
+						}
+						else
+						{
+							std::cerr << "   ������ ������ �� �����" << std::endl;
+							break;
+						}
 					}
-					if (item == replaceEl && gap == replaceElIdx) { // Item that the has been find
+					if (item == replaceEl && gap == replaceElIdx)
+					{ // Item that the has been find
 						item = newElement;
 						file.seekg(0, std::ios::beg);
 						file.seekp(currentPos);
-						file.write(reinterpret_cast<char*>(&newElement), sizeof(double));
+						file.write(reinterpret_cast<char *>(&newElement), sizeof(double));
 						file.flush();
 						break;
 					}
 					gap++;
 				}
-				catch (const std::exception& e) { std::cerr << "Error: " << e.what(); }
+				catch (const std::exception &e)
+				{
+					std::cerr << "Error: " << e.what();
+				}
 			}
 			file.close();
 
 			Text(hdc, 50, 250, "���������� ������:", RGB(255, 255, 255), RGB(12, 12, 12), 15);
 			size_t n = 50;
-			for (size_t i = 0; i < sizeArr; i++) { 
+			for (size_t i = 0; i < sizeArr; i++)
+			{
 				std::ostringstream oss;
 				oss << std::fixed << std::setprecision(2) << arr[i];
 				Text(hdc, n, 300, oss.str(), RGB(255, 255, 255), RGB(12, 12, 12), 15);
 				n += 50;
 			}
 		}
-		else { std::cout << "\n\n   ������� ESC ����� �����..."; }
+		else
+		{
+			std::cout << "\n\n   ������� ESC ����� �����...";
+		}
 	}
 }
 
-void menuLab_2() {
+void menuLab_2()
+{
 
-	if (arr == nullptr) {
+	if (arr == nullptr)
+	{
 		arr = new double[sizeArr];
 	}
 
@@ -220,7 +270,8 @@ void menuLab_2() {
 
 	size_t key;
 
-	do {
+	do
+	{
 		system("cls");
 
 		Text(hdc, 50, 0, "���� ������������ ������ �2", RGB(255, 255, 255), RGB(0, 0, 0), 25);
@@ -234,10 +285,10 @@ void menuLab_2() {
 		Text(hdc, 50, 500, "7 - �������� ����������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
 		Text(hdc, 50, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
 
-
 		key = _getch();
 
-		switch (key) {
+		switch (key)
+		{
 		case '0':
 			system("cls");
 			info();
@@ -245,8 +296,8 @@ void menuLab_2() {
 			system("pause");
 			system("cls");
 			inputEl(),
-			solution1(),
-			outputEl();
+				solution1(),
+				outputEl();
 			CURSOR(3, 14);
 			_getch();
 			break;
@@ -260,7 +311,7 @@ void menuLab_2() {
 			inputEl();
 			solution1();
 			LINES(5);
-			outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10 , "", "X", hdc, 1);
+			outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "", "X", hdc, 1);
 			_getch();
 			break;
 		case '2':

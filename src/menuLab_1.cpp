@@ -3,8 +3,13 @@
 #include "../include/menuLab_1.h"
 
 char separate = ',';
+<<<<<<< HEAD
 int sizeArr = 10;
 double* arr = new double[sizeArr];
+=======
+size_t sizeArr = 10;
+double *arr = new double[sizeArr];
+>>>>>>> 927b644 (Finall fix)
 static double min_el;
 static int index;
 static HDC hdc = GetDC(GetConsoleWindow());
@@ -27,7 +32,6 @@ void Text(HDC hdc, int indentX, int indentY, std::string title, COLORREF textCol
 	GetConsoleScreenBufferInfo(hdc, &csbi);
 
 	WORD originalAttributes = csbi.wAttributes;
-	HFONT holdfont = (HFONT)SelectObject(hdc, hfontText);
 
 
 	SetTextColor(hdc, textColor);
@@ -64,7 +68,12 @@ void inputEl() {
 
 	info();
 	std::cout << "   ������� �������� �������: \n";
+<<<<<<< HEAD
 	for (int i = 0; i < sizeArr; i++) {
+=======
+	for (size_t i = 0; i < sizeArr; i++)
+	{
+>>>>>>> 927b644 (Finall fix)
 		CURSOR(3, 6);
 		SPACEBACK(30);
 		setColor(10, 0);
@@ -97,8 +106,15 @@ void solution1() {
 	std::cout << "\n   ����������� ������� = ";
 	min_el = arr[0];
 	index = -1;
+<<<<<<< HEAD
 	for (int i = 0; i < sizeArr; i++) {
 		if (arr[i] < min_el) {
+=======
+	for (size_t i = 0; i < sizeArr; i++)
+	{
+		if (arr[i] < min_el)
+		{
+>>>>>>> 927b644 (Finall fix)
 			min_el = arr[i];
 			index = i;
 		}
@@ -110,7 +126,12 @@ void outputEl() {
 	//����� �����������
 
 	std::cout << "\n   ������: ";
+<<<<<<< HEAD
 	for (int i = 0; i < sizeArr; i++) {
+=======
+	for (size_t i = 0; i < sizeArr; i++)
+	{
+>>>>>>> 927b644 (Finall fix)
 		std::cout << arr[i] << " ";
 	}
 	setColor(14, 0);
@@ -138,7 +159,7 @@ int setSizeArr() {
 	CURSOR(3, 2);
 	unsigned int key;
 	setColor(7, 0);
-	std::cout << "   ������� ������?" << "\n\n   1 - ��   2 - ���";
+	std::cout << "   ������� ������?" << "\n\n   1 - да   2 - нет";
 	key = _getch();
 	if (key == '1') {
 		LINES(1);
@@ -149,11 +170,17 @@ int setSizeArr() {
 		setColor(10, 0);
 		std::cout << "   ������ ������� ������� �������!\n\n";
 		setColor(7, 0);
-		std::cout << "\n\n   ������� ESC, ����� �����...";
+		std::cout << "\n\n   нажмите ESC, чтобы выйти...";
 		return sizeArr;
 	}
+<<<<<<< HEAD
 	else {
 		std::cout << "\n\n   ������� ESC ����� �����...";
+=======
+	else
+	{
+		throw std::runtime_error("\n\n   нажмите ESC чтобы выйти...");
+>>>>>>> 927b644 (Finall fix)
 	}
 }
 
@@ -269,6 +296,7 @@ void outFile() {
 					result += value;
 
 				}
+<<<<<<< HEAD
 				catch (const std::exception) {
 					setColor(12, 0);
 					std::cerr << "   ������: ������� � ������ " << i + 1<< " ����� ���������������� �������� � ��� ������� �� 0. �������� ������� � �������� ���� ������" << std::endl;
@@ -278,8 +306,22 @@ void outFile() {
 					std::cerr << "   ������: ��������������� �������� " << std::endl;
 				}
 				catch (const std::out_of_range) {
+=======
+				catch (const std::invalid_argument &e)
+				{
+					setColor(12, 0);
+					std::cerr << "   ������: ��������������� �������� " << std::endl;
+				}
+				catch (const std::out_of_range &e)
+				{
+>>>>>>> 927b644 (Finall fix)
 					setColor(12, 0);
 					std::cerr << "   ������: ����� �� ������� ������� �������" << std::endl;
+				}
+				catch (const std::exception &e)
+				{
+					setColor(12, 0);
+					std::cerr << "   ������: ������� � ������ " << i + 1 << " ����� ���������������� �������� � ��� ������� �� 0. �������� ������� � �������� ���� ������" << std::endl;
 				}
 			}
 			arr[i] = result;
@@ -321,6 +363,7 @@ void outTableGraf(double* arr, int size, int pnsec, std::string title, std::stri
 		indentY += 34;
 		int nsec = size / pnsec + ((size % pnsec > 0) ? 1 : 0);
 
+<<<<<<< HEAD
 
 		HPEN hpen = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
 		LOGBRUSH lgbr{ PS_SOLID, RGB(94, 94, 94), 0 };
@@ -328,6 +371,8 @@ void outTableGraf(double* arr, int size, int pnsec, std::string title, std::stri
 		HANDLE oldbrush = SelectObject(hdc, hbrush),
 			oldpen = SelectObject(hdc, hpen);
 
+=======
+>>>>>>> 927b644 (Finall fix)
 		Rectangle(hdc, indentX, indentY, indentX + pnsec * 5 * conf.dwFontSize.X, indentY + (5 * conf.dwFontSize.Y) * nsec);
 
 		for (int i = 0; i < nsec; i++) {
@@ -378,6 +423,7 @@ void replaceElFile() {
 			system("cls");
 
 			std::cout << "   ������ �� �����:\n";
+<<<<<<< HEAD
 			for (int i = 0; i < sizeArr; i++) {
 				std::cout << "  " << arr[i];
 			}
@@ -388,6 +434,22 @@ void replaceElFile() {
 			if (replaceElIdx >= sizeArr  || replaceElIdx < 0 || std::cin.fail() || std::cin.bad()) {
 				std::cerr << "   ������: �������� � ����� �������� �� ����������!" << std::endl;
 				while (replaceElIdx >= sizeArr || replaceElIdx < 0 || std::cin.fail() || std::cin.bad()) {
+=======
+			for (size_t i = 0; i < sizeArr; i++)
+			{
+				std::cout << "  " << arr[i];
+			}
+
+			size_t replaceElIdx;
+			std::cout << "\n\n   ������� ����� �������� �������� ������ �������� (0, 1, 2, ...)" << std::endl
+					  << "   ";
+			std::cin >> replaceElIdx;
+			if (replaceElIdx >= sizeArr || std::cin.fail() || std::cin.bad())
+			{
+				std::cerr << "   ������: �������� � ����� �������� �� ����������!" << std::endl;
+				while (replaceElIdx >= sizeArr || std::cin.fail() || std::cin.bad())
+				{
+>>>>>>> 927b644 (Finall fix)
 					CURSOR(3, 6);
 					SPACEBACK(30);
 					std::cin.clear();
@@ -405,13 +467,19 @@ void replaceElFile() {
 			}
 			CURSOR(3, 6);
 
+<<<<<<< HEAD
 
 
 			double replaceEl;
 			for (int i = 0; i < sizeArr; i++) {
 				if (i == replaceElIdx) {
+=======
+			for (size_t i = 0; i < sizeArr; i++)
+			{
+				if (i == replaceElIdx)
+				{
+>>>>>>> 927b644 (Finall fix)
 					replaceElIdx = i;
-					replaceEl = arr[i];
 					break;
 				}
 			}
@@ -442,13 +510,23 @@ void replaceElFile() {
 
 			arr[replaceElIdx] = newElement;
 			std::ofstream file(nameFile, std::ios::trunc);
+<<<<<<< HEAD
 			for (int i = 0; i < sizeArr; i++) {
+=======
+			for (size_t i = 0; i < sizeArr; i++)
+			{
+>>>>>>> 927b644 (Finall fix)
 				file << arr[i] << "\n";
 			}
 
 
 			std::cout << "   ���������� ������:\n";
+<<<<<<< HEAD
 			for (int i = 0; i < sizeArr; i++) {
+=======
+			for (size_t i = 0; i < sizeArr; i++)
+			{
+>>>>>>> 927b644 (Finall fix)
 				std::cout << "  " << arr[i];
 			}
 
@@ -501,6 +579,7 @@ void menuLab_1() {
 				inputEl(),
 				solution1(),
 				outputEl();
+<<<<<<< HEAD
 				setColor(7, 0);
 				std::cout << "\n\n   ������� ESC, ����� �����...";
 				CURSOR(3, 14);
@@ -566,6 +645,73 @@ void menuLab_1() {
 				break;
 			default:
 				std::cout << "\n������� ����������� �������" << std::endl;
+=======
+			setColor(7, 0);
+			std::cout << "\n\n   нажмите ESC чтобы выйти...";
+			CURSOR(3, 14);
+			_getch();
+			break;
+		case '1':
+			system("cls");
+			info();
+			CURSOR(3, 8);
+			system("pause");
+			system("cls");
+			inputEl();
+			solution1();
+			outputEl();
+			LINES(3);
+			outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
+			setColor(7, 0);
+			Text(hdc, 40, 400, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+			_getch();
+			break;
+		case '2':
+			inpFile();
+			setColor(7, 0);
+			std::cout << "\n\n   нажмите ESC чтобы выйти...";
+			_getch();
+			break;
+		case '3':
+			system("cls");
+			outFile();
+			setColor(7, 0);
+			std::cout << "\n\n   нажмите ESC чтобы выйти...";
+			_getch();
+			break;
+		case '4':
+			system("cls");
+			info();
+			outFile();
+			LINES(1);
+			outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
+			setColor(7, 0);
+			Text(hdc, 40, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+			_getch();
+			break;
+		case '5':
+			system("cls");
+			replaceElFile();
+			setColor(7, 0);
+			_getch();
+			break;
+		case '6':
+			system("cls");
+			setSizeArr();
+			setColor(7, 0);
+			_getch();
+			break;
+		case '7':
+			system("dir");
+			setColor(7, 0);
+			std::cout << "\n\n   нажмите ESC чтобы выйти...";
+			_getch();
+			break;
+		case 27:
+			break;
+		default:
+			std::cout << "\n������� ����������� �������" << std::endl;
+>>>>>>> 927b644 (Finall fix)
 		}
 		
 		setColor(7, 0);

@@ -6,5 +6,9 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/workspaces/matrix-project-cpp/include
 
+<<<<<<< HEAD
 CXX_FLAGS = -std=gnu++17
+=======
+CXX_FLAGS = -g -std=c++17 -Wall -Wextra
+>>>>>>> 927b644 (Finall fix)
 

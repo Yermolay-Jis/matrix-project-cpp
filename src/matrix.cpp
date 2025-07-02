@@ -1,10 +1,9 @@
 #include "../include/matrix.h"
 #include "../include/menuLab_3.h"
 
-
 Matrix::Matrix()
 {
-    matrix = new double* [rows]();
+    matrix = new double *[rows]();
     for (size_t i = 0; i < rows; i++)
     {
         matrix[i] = new double[cols]();
@@ -12,36 +11,42 @@ Matrix::Matrix()
 }
 Matrix::Matrix(size_t rows, size_t cols) : rows(rows), cols(cols)
 {
-    matrix = new double* [rows]();
+    matrix = new double *[rows]();
     for (size_t i = 0; i < rows; i++)
     {
         matrix[i] = new double[cols]();
     }
 }
-void Matrix::changeSize(size_t newRows, size_t newCols) {
-    try {
-        if (newRows == 0 || newCols == 0) {
+void Matrix::changeSize(size_t newRows, size_t newCols)
+{
+    try
+    {
+        if (newRows == 0 || newCols == 0)
+        {
             throw std::bad_alloc();
         }
-        for (size_t i = 0; i < rows; i++) {
+        for (size_t i = 0; i < rows; i++)
+        {
             delete matrix[i];
-         }
+        }
         delete[] matrix;
-        double** newMatrix = new double* [newRows]();
-        for (size_t i = 0; i < newRows; i++) {
+        double **newMatrix = new double *[newRows]();
+        for (size_t i = 0; i < newRows; i++)
+        {
             newMatrix[i] = new double[newCols]();
         }
         matrix = newMatrix;
         rows = newRows;
         cols = newCols;
     }
-    catch (const std::bad_alloc(&e)) {
+    catch (const std::bad_alloc &e)
+    {
         std::cerr << "������: ������� �������� �� ������ 1!" << std::endl;
     }
-    catch (const std::exception(&e)) {
+    catch (const std::exception &e)
+    {
         std::cerr << "Error: " << e.what() << std::endl;
     }
-    
 }
 void Matrix::printMatrix() const
 {
@@ -63,4 +68,3 @@ Matrix::~Matrix()
     delete[] matrix;
     matrix = nullptr;
 }
-
