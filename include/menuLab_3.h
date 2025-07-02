@@ -6,18 +6,17 @@
 void menuLab_3();
 void info2();
 void writeMatrixTxt(Matrix &matrix);
-//void readMatrixTxt();
-void replaceEl(Matrix& matrix);
-Matrix createMatrix(size_t , size_t);
+// void readMatrixTxt();
+void replaceEl(Matrix &matrix);
+Matrix createMatrix(size_t, size_t);
 void solution(Matrix &matrix);
-//void clearMatrix();
-//void inpMatirxEl();
-
+// void clearMatrix();
+// void inpMatirxEl();
 
 void outTableMatrixGraf(HDC hdc,
-	double** matrix, // Матрица чисел double
-	size_t rows, size_t cols,
-	int startX, int startY,      // Начальные координаты таблицы
-	int cellWidth, int cellHeight, // Размеры ячейки
-	int headerFontSize,     // Размер шрифта заголовков
-	int dataFontSize );
+						double **matrix, // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ double
+						size_t rows, size_t cols,
+						int startX, int startY,		   // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+						int cellWidth, int cellHeight, // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+						int headerFontSize,			   // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+						int dataFontSize);
