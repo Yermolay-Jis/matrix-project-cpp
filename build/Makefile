@@ -194,6 +194,19 @@ app/fast:
 .PHONY : app/fast
 
 #=============================================================================
+# Target rules for targets named subprocess
+
+# Build rule for target.
+subprocess: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 subprocess
+.PHONY : subprocess
+
+# fast build rule for target.
+subprocess/fast:
+	$(MAKE) $(MAKESILENT) -f lib\cpp_subprocess\CMakeFiles\subprocess.dir\build.make lib/cpp_subprocess/CMakeFiles/subprocess.dir/build
+.PHONY : subprocess/fast
+
+#=============================================================================
 # Target rules for targets named screen
 
 # Build rule for target.
@@ -203,7 +216,7 @@ screen: cmake_check_build_system
 
 # fast build rule for target.
 screen/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\ftxui-build\CMakeFiles\screen.dir\build.make _deps/ftxui-build/CMakeFiles/screen.dir/build
+	$(MAKE) $(MAKESILENT) -f lib\FTXUI\CMakeFiles\screen.dir\build.make lib/FTXUI/CMakeFiles/screen.dir/build
 .PHONY : screen/fast
 
 #=============================================================================
@@ -216,7 +229,7 @@ dom: cmake_check_build_system
 
 # fast build rule for target.
 dom/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\ftxui-build\CMakeFiles\dom.dir\build.make _deps/ftxui-build/CMakeFiles/dom.dir/build
+	$(MAKE) $(MAKESILENT) -f lib\FTXUI\CMakeFiles\dom.dir\build.make lib/FTXUI/CMakeFiles/dom.dir/build
 .PHONY : dom/fast
 
 #=============================================================================
@@ -229,8 +242,56 @@ component: cmake_check_build_system
 
 # fast build rule for target.
 component/fast:
-	$(MAKE) $(MAKESILENT) -f _deps\ftxui-build\CMakeFiles\component.dir\build.make _deps/ftxui-build/CMakeFiles/component.dir/build
+	$(MAKE) $(MAKESILENT) -f lib\FTXUI\CMakeFiles\component.dir\build.make lib/FTXUI/CMakeFiles/component.dir/build
 .PHONY : component/fast
+
+src/Menu.obj: src/Menu.cpp.obj
+.PHONY : src/Menu.obj
+
+# target to build an object file
+src/Menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/Menu.cpp.obj
+.PHONY : src/Menu.cpp.obj
+
+src/Menu.i: src/Menu.cpp.i
+.PHONY : src/Menu.i
+
+# target to preprocess a source file
+src/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/Menu.cpp.i
+.PHONY : src/Menu.cpp.i
+
+src/Menu.s: src/Menu.cpp.s
+.PHONY : src/Menu.s
+
+# target to generate assembly for a file
+src/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/Menu.cpp.s
+.PHONY : src/Menu.cpp.s
+
+src/MenuItem.obj: src/MenuItem.cpp.obj
+.PHONY : src/MenuItem.obj
+
+# target to build an object file
+src/MenuItem.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/MenuItem.cpp.obj
+.PHONY : src/MenuItem.cpp.obj
+
+src/MenuItem.i: src/MenuItem.cpp.i
+.PHONY : src/MenuItem.i
+
+# target to preprocess a source file
+src/MenuItem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/MenuItem.cpp.i
+.PHONY : src/MenuItem.cpp.i
+
+src/MenuItem.s: src/MenuItem.cpp.s
+.PHONY : src/MenuItem.s
+
+# target to generate assembly for a file
+src/MenuItem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/MenuItem.cpp.s
+.PHONY : src/MenuItem.cpp.s
 
 src/MyFunctioin.obj: src/MyFunctioin.cpp.obj
 .PHONY : src/MyFunctioin.obj
@@ -376,6 +437,30 @@ src/menuLab_3.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/menuLab_3.cpp.s
 .PHONY : src/menuLab_3.cpp.s
 
+src/portable_io.obj: src/portable_io.cpp.obj
+.PHONY : src/portable_io.obj
+
+# target to build an object file
+src/portable_io.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/portable_io.cpp.obj
+.PHONY : src/portable_io.cpp.obj
+
+src/portable_io.i: src/portable_io.cpp.i
+.PHONY : src/portable_io.i
+
+# target to preprocess a source file
+src/portable_io.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/portable_io.cpp.i
+.PHONY : src/portable_io.cpp.i
+
+src/portable_io.s: src/portable_io.cpp.s
+.PHONY : src/portable_io.s
+
+# target to generate assembly for a file
+src/portable_io.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/portable_io.cpp.s
+.PHONY : src/portable_io.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -394,6 +479,13 @@ help:
 	@echo ... component
 	@echo ... dom
 	@echo ... screen
+	@echo ... subprocess
+	@echo ... src/Menu.obj
+	@echo ... src/Menu.i
+	@echo ... src/Menu.s
+	@echo ... src/MenuItem.obj
+	@echo ... src/MenuItem.i
+	@echo ... src/MenuItem.s
 	@echo ... src/MyFunctioin.obj
 	@echo ... src/MyFunctioin.i
 	@echo ... src/MyFunctioin.s
@@ -412,6 +504,9 @@ help:
 	@echo ... src/menuLab_3.obj
 	@echo ... src/menuLab_3.i
 	@echo ... src/menuLab_3.s
+	@echo ... src/portable_io.obj
+	@echo ... src/portable_io.i
+	@echo ... src/portable_io.s
 .PHONY : help
 
 

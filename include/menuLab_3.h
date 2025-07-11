@@ -13,10 +13,10 @@ void solution(Matrix &matrix);
 // void clearMatrix();
 // void inpMatirxEl();
 
-void outTableMatrixGraf(HDC hdc,
-						double **matrix, // ������� ����� double
-						size_t rows, size_t cols,
-						int startX, int startY,		   // ��������� ���������� �������
-						int cellWidth, int cellHeight, // ������� ������
-						int headerFontSize,			   // ������ ������ ����������
-						int dataFontSize);
+// void outTableMatrixGraf(HDC hdc,
+// 						double **matrix, // ������� ����� double
+// 						size_t rows, size_t cols,
+// 						int startX, int startY,		   // ��������� ���������� �������
+// 						int cellWidth, int cellHeight, // ������� ������
+// 						int headerFontSize,			   // ������ ������ ����������
+// 						int dataFontSize);

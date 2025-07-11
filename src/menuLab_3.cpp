@@ -1,6 +1,7 @@
 #include "../include/menuLab_3.h"
 #include "../include/menuLab_1.h"
 #include "../include/matrix.h"
+#include "portable_io.h"
 
 size_t setRow()
 {
@@ -67,7 +68,7 @@ void Matrix::fillMatrix(size_t rows, size_t cols, size_t x, size_t y)
 		{
 			for (size_t j = 0; j < cols; j++)
 			{
-				outTableMatrixGraf(hdc, matrix, rows, cols, 400, 120, 50, 50, 16, 15);
+				// outTableMatrixGraf(hdc, matrix, rows, cols, 400, 120, 50, 50, 16, 15);
 				CURSOR(x, y);
 				SPACEBACK(30);
 				std::cout << "   [" << i << "][" << j << "] = ";
@@ -84,7 +85,7 @@ void Matrix::fillMatrix(size_t rows, size_t cols, size_t x, size_t y)
 		}
 		setColor(10, 0);
 		std::cout << "   ������� ������� ���������!" << std::endl;
-		Sleep(1000);
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 		setColor(7, 0);
 	}
 	else
@@ -116,7 +117,7 @@ void Matrix::changeEl(Matrix &matrix, size_t rows, size_t cols)
 		}
 		setColor(10, 0);
 		std::cout << "\n\n   ������� ������� �������!" << std::endl;
-		Sleep(1000);
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 		setColor(7, 0);
 	}
 	else
@@ -161,7 +162,7 @@ void solution(Matrix &matrix)
 	{
 		info2();
 		std::cout << "\n   ��������� �������: ";
-		outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 800, 10, 50, 50, 16, 15);
+		// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 800, 10, 50, 50, 16, 15);
 		size_t n = 0;
 		size_t sizeArr = matrix.rows;
 		double *colsNumb = new double[sizeArr];
@@ -243,7 +244,7 @@ void solution(Matrix &matrix)
 				}
 			}
 		}
-		outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 800, 350, 50, 50, 16, 15);
+		// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 800, 350, 50, 50, 16, 15);
 	}
 	else
 	{
@@ -277,7 +278,7 @@ Matrix createMatrix(size_t rows, size_t cols)
 
 void writeMatrixTxt(Matrix &matrix)
 {
-	outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+	// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 	std::string nameFile = getNameFile();
 	std::ifstream file_bin_test(nameFile);
 	bool file_bin_exist = file_bin_test.good();
@@ -287,7 +288,7 @@ void writeMatrixTxt(Matrix &matrix)
 	if (file_bin_exist)
 	{
 		std::cout << "\n\n   ������� ���� ��� ��������?\t1 - ��";
-		UCHAR ch = _getch();
+		unsigned char ch = get_char_non_blocking();
 		if (ch == '1')
 		{
 			mode = std::ios::app;
@@ -321,7 +322,7 @@ void writeMatrixTxt(Matrix &matrix)
 //
 //	if (file_bin_exist) {
 //		std::cout << "\n\n   ������� ���� ��� ��������?\t1 - ��";
-//		UCHAR ch = _getch();
+//		UCHAR ch = get_char_non_blocking();
 //		if (ch == '1') {
 //			size_t rows = 0, cols = 0;
 //
@@ -382,7 +383,7 @@ void writeMatrixTxt(Matrix &matrix)
 //
 //
 //			/*std::cout << "OK";
-//			system("pause");*/
+//			system_pause_function());*/
 //
 //			/*for (size_t i = 0; i < saveMatrix.rows; i++) {
 //				for (size_t j = 0; j < saveMatrix.cols; j++) {
@@ -409,7 +410,7 @@ void writeMatrixTxt(Matrix &matrix)
 //			}
 //			outTableMatrixGraf(hdc, newMatrix.matrix, newMatrix.rows, newMatrix.cols, 400, 120, 50, 50, 16, 15);
 //
-//			_getch();
+//			get_char_non_blocking();
 //		}*/
 //			}
 //	} else {
@@ -820,20 +821,20 @@ void readMatrixTxt(Matrix &matrix)
 			system("cls");
 			std::cout << "   1 - �������\n   2 - ������ ��������\n\n"
 					  << std::endl;
-			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+			// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 
-			key = _getch();
+			key = get_char_non_blocking();
 
 			if (key == '1')
 			{
 				system("cls");
 				solution(matrix);
-				_getch();
+				get_char_non_blocking();
 			}
 			else if (key == '2')
 			{
 				system("cls");
-				outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+				// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 				matrix.changeEl(matrix, matrix.rows, matrix.cols);
 				std::ofstream file(nameFile, std::ios::trunc);
 				for (size_t i = 0; i < matrix.rows; i++)
@@ -844,8 +845,8 @@ void readMatrixTxt(Matrix &matrix)
 					}
 					file << "\n";
 				}
-				outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
-				_getch();
+				// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+				get_char_non_blocking();
 			}
 			else if (key == 27)
 			{
@@ -896,30 +897,30 @@ void readMatrixBin(Matrix &matrix)
 		}
 		file.close();
 
-		outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+		// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 
 		// Output an elements
 
 		char key;
 		do
 		{
-			system("cls");
+			// system("cls");
 			std::cout << "   1 - �������\n   2 - ������ ��������\n\n"
 					  << std::endl;
-			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+			// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 
-			key = _getch();
+			key = get_char_non_blocking();
 
 			if (key == '1')
 			{
 				system("cls");
 				solution(matrix);
-				_getch();
+				get_char_non_blocking();
 			}
 			else if (key == '2')
 			{
-				system("cls");
-				outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+				// system("cls");
+				// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 				matrix.changeEl(matrix, matrix.rows, matrix.cols);
 				std::ofstream file(nameFile, std::ios::binary | std::ios::trunc);
 				file.write(reinterpret_cast<char *>(&matrix.rows), sizeof(size_t));
@@ -931,8 +932,8 @@ void readMatrixBin(Matrix &matrix)
 						file.write(reinterpret_cast<char *>(&matrix.matrix[i][j]), sizeof(matrix.matrix[i][j]));
 					}
 				}
-				outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
-				_getch();
+				// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+				get_char_non_blocking();
 			}
 			else if (key == 27)
 			{
@@ -977,17 +978,17 @@ void readMatrixFile(Matrix &matrix)
 {
 	std::cout << "   �������� ��� ����� ��� ����������" << std::endl;
 	std::cout << "   1 - ��������� ����\n   2 - �������� ����";
-	size_t key = _getch();
+	size_t key = get_char_non_blocking();
 	if (key == '1')
 	{
-		system("cls");
+		// system("cls");
 		readMatrixTxt(matrix);
 	}
 	else if (key == '2')
 	{
 		std::cout << "   1 - �������\n   2 - ������ ��������\n"
 				  << std::endl;
-		system("cls");
+		// system("cls");
 		readMatrixBin(matrix);
 	}
 	else
@@ -1002,17 +1003,17 @@ void saveMatrixFile(Matrix &matrix)
 	{
 		std::cout << "   �������� ��� ����� ��� ����������" << std::endl;
 		std::cout << "   1 - ��������� ����\n   2 - �������� ����" << std::endl;
-		size_t key = _getch();
+		size_t key = get_char_non_blocking();
 		if (key == '1')
 		{
-			system("cls");
+			// system("cls");
 			writeMatrixTxt(matrix);
-			_getch();
+			get_char_non_blocking();
 		}
 		else if (key == '2')
 		{
 			writeMatrixBin(matrix);
-			_getch();
+			get_char_non_blocking();
 		}
 		else
 		{
@@ -1022,7 +1023,7 @@ void saveMatrixFile(Matrix &matrix)
 	else
 	{
 		std::cerr << "   ����� ���� �����...";
-		_getch();
+		get_char_non_blocking();
 	}
 }
 
@@ -1045,10 +1046,10 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 		char ch;
 		do
 		{
-			system("cls");
+			// system("cls");
 			std::cout << "\n\n   1 - ��������� �������\n   2 - �������� ������� �� ����������� �������\n   3 - ������������ � ������� ����������� �������\n\n   4 - �������� ������\n   5 - ������� �������\n   6 - �������� ������ � �������\n\n   7 - ������� ������\n   8 - ������� �������\n   9 - ������� ������ � �������\n\n   0 - ���������������\n\n\n";
-			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
-			ch = _getch();
+			// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+			ch = get_char_non_blocking();
 			switch (ch)
 			{
 			case '1':
@@ -1063,7 +1064,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 				}
 				setColor(10, 0);
 				std::cout << "   ������� �������� " << matrix.rows << " x " << matrix.cols << " ���������";
-				Sleep(1000);
+				std::this_thread::sleep_for(std::chrono::seconds(1));
 				clearLine(7, 0, 8, 15);
 				BACK(30);
 				setColor(7, 0);
@@ -1086,13 +1087,13 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					setColor(10, 0);
 					std::cout << "   ������� �������� " << oldRows << " x " << oldCols << " �������� �� �����������,"
 							  << " �������� " << reserveMatrix.rows << " x " << reserveMatrix.cols;
-					Sleep(3000);
+					std::this_thread::sleep_for(std::chrono::seconds(3));
 					setColor(7, 0);
 				}
 				else
 				{
 					std::cout << "   ����������� ����������� �������...";
-					Sleep(1000);
+					std::this_thread::sleep_for(std::chrono::seconds(1));
 					clearLine(7, 0, 8, 15);
 					BACK(30);
 				}
@@ -1153,13 +1154,13 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					setColor(10, 0);
 					std::cout << "   ������� �������� " << oldRows << " x " << oldCols << " �������� �� �����������,"
 							  << " �������� " << copySaveMatrix.rows << " x " << copySaveMatrix.cols;
-					Sleep(3000);
+					std::this_thread::sleep_for(std::chrono::seconds(3));
 					setColor(7, 0);
 				}
 				else
 				{
 					std::cout << "   ����������� ����������� �������...";
-					Sleep(1000);
+					std::this_thread::sleep_for(std::chrono::seconds(1));
 					clearLine(7, 0, 8, 15);
 					BACK(30);
 				}
@@ -1186,7 +1187,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					if (!(newLine1 < matrix.rows + 1) || std::cin.fail())
 					{
 						std::cerr << "\n   ������� ���������� ����� ������";
-						Sleep(400);
+						std::this_thread::sleep_for(std::chrono::milliseconds(400));
 						break;
 					}
 
@@ -1214,7 +1215,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					}
 
 					std::cout << "   ���������?\n   1 - ��" << std::endl;
-					kb = _getch();
+					kb = get_char_non_blocking();
 					if (kb == '1')
 					{
 
@@ -1223,7 +1224,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 						{
 							for (size_t j = 0; j < matrix.cols; j++)
 							{
-								outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+								// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 								int newValue;
 								std::cout << "   ����� �������� [" << i + 1 << "][" << j + 1 << "] = ";
 								std::cin >> newValue;
@@ -1234,13 +1235,13 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 
 					setColor(10, 0);
 					std::cout << "   ������� � ����� �������� " << matrix.rows << " x " << matrix.cols << " �������a";
-					Sleep(3000);
+					std::this_thread::sleep_for(std::chrono::seconds(3));
 					setColor(7, 0);
 				}
 				else
 				{
 					std::cout << "   ����������� ����������� �������...";
-					Sleep(1000);
+					std::this_thread::sleep_for(std::chrono::seconds(1));
 					clearLine(7, 0, 8, 15);
 					BACK(30);
 				}
@@ -1266,7 +1267,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					if (!(newLine1 < matrix.cols + 1) || std::cin.fail())
 					{
 						std::cerr << "\n   ������� ���������� ����� ������";
-						Sleep(400);
+						std::this_thread::sleep_for(std::chrono::milliseconds(400));
 						break;
 					}
 
@@ -1294,7 +1295,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					}
 
 					std::cout << "   ���������?\n   1 - ��" << std::endl;
-					kb = _getch();
+					kb = get_char_non_blocking();
 					if (kb == '1')
 					{
 						std::cout << "   ������� ����� ��������" << std::endl;
@@ -1302,7 +1303,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 						{
 							for (size_t j = newLine1; j < newLine1 + nLines; j++)
 							{
-								outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+								// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 								int newValue;
 								std::cout << "   ����� �������� [" << j + 1 << "][" << i + 1 << "] = ";
 								std::cin >> newValue;
@@ -1313,13 +1314,13 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 
 					setColor(10, 0);
 					std::cout << "   ������� � ����� �������� " << matrix.rows << " x " << matrix.cols << " �������a";
-					Sleep(3000);
+					std::this_thread::sleep_for(std::chrono::seconds(3));
 					setColor(7, 0);
 				}
 				else
 				{
 					std::cout << "   ����������� ����������� �������...";
-					Sleep(1000);
+					std::this_thread::sleep_for(std::chrono::seconds(1));
 					clearLine(7, 0, 8, 15);
 					BACK(30);
 				}
@@ -1345,7 +1346,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					if (!(newLine1 < matrix.rows + 1))
 					{
 						std::cerr << "\n   ������� ���������� ����� ������";
-						Sleep(400);
+						std::this_thread::sleep_for(std::chrono::milliseconds(400));
 						break;
 					}
 
@@ -1373,7 +1374,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					}
 
 					std::cout << "   ���������?\n   1 - ��" << std::endl;
-					kb = _getch();
+					kb = get_char_non_blocking();
 					if (kb == '1')
 					{
 
@@ -1382,7 +1383,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 						{
 							for (size_t j = 0; j < matrix.cols; j++)
 							{
-								outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+								// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 								int newValue;
 								std::cout << "   ����� �������� [" << i + 1 << "][" << j + 1 << "] = ";
 								std::cin >> newValue;
@@ -1399,7 +1400,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 							}
 						}
 					}
-					outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+					// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 
 					size_t newLine2;
 					int nLines2;
@@ -1416,7 +1417,8 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					if (!(newLine2 < matrix.cols + 1))
 					{
 						std::cerr << "\n   ������� ���������� ����� ������";
-						Sleep(400);
+
+						std::this_thread::sleep_for(std::chrono::milliseconds(400));
 						break;
 					}
 
@@ -1444,7 +1446,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 					}
 
 					std::cout << "   ���������?\n   1 - ��" << std::endl;
-					kb = _getch();
+					kb = get_char_non_blocking();
 					if (kb == '1')
 					{
 						std::cout << "   ������� ����� ��������" << std::endl;
@@ -1452,7 +1454,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 						{
 							for (size_t j = newLine1; j < newLine1 + nLines; j++)
 							{
-								outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+								// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
 								int newValue;
 								std::cout << "   ����� �������� [" << j + 1 << "][" << i + 1 << "] = ";
 								std::cin >> newValue;
@@ -1471,13 +1473,15 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 
 					setColor(10, 0);
 					std::cout << "   ������� � ����� �������� " << matrix.rows << " x " << matrix.cols << " �������a";
-					Sleep(3000);
+					;
+					std::this_thread::sleep_for(std::chrono::milliseconds(400));
 					setColor(7, 0);
 				}
 				else
 				{
 					std::cout << "   ����������� ����������� �������...";
-					Sleep(1000);
+					;
+					std::this_thread::sleep_for(std::chrono::milliseconds(400));
 					clearLine(7, 0, 8, 15);
 					BACK(30);
 				}
@@ -1521,13 +1525,14 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 
 					setColor(10, 0);
 					std::cout << "   ������� � ����� �������� " << matrix.rows << " x " << matrix.cols << " �������a";
-					Sleep(3000);
+					std::this_thread::sleep_for(std::chrono::seconds(3));
 					setColor(7, 0);
 				}
 				else
 				{
 					std::cout << "   ������� ��������� ������ �������...";
-					Sleep(1000);
+					std::this_thread::sleep_for(std::chrono::seconds(3));
+					;
 					clearLine(7, 0, 8, 15);
 					BACK(30);
 				}
@@ -1564,13 +1569,15 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 
 					setColor(10, 0);
 					std::cout << "   ������� � ����� �������� " << matrix.rows << " x " << matrix.cols << " �������a";
-					Sleep(3000);
+					std::this_thread::sleep_for(std::chrono::seconds(3));
+					;
 					setColor(7, 0);
 				}
 				else
 				{
 					std::cout << "   ������� ��������� ������ �������...";
-					Sleep(1000);
+					std::this_thread::sleep_for(std::chrono::seconds(1));
+					;
 					clearLine(7, 0, 8, 15);
 					BACK(30);
 				}
@@ -1638,13 +1645,13 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 
 					setColor(10, 0);
 					std::cout << "   ������� � ����� �������� " << matrix.rows << " x " << matrix.cols << " �������a";
-					Sleep(3000);
+					std::this_thread::sleep_for(std::chrono::seconds(3));
 					setColor(7, 0);
 				}
 				else
 				{
 					std::cout << "   ������� ��������� ������ �������...";
-					Sleep(1000);
+					std::this_thread::sleep_for(std::chrono::seconds(1));
 					clearLine(7, 0, 8, 15);
 					BACK(30);
 				}
@@ -1695,7 +1702,7 @@ void insertMatrix(Matrix &matrix, Matrix &reserveMatrix)
 	else
 	{
 		std::cout << "   ������� �� �������..." << std::endl;
-		_getch();
+		get_char_non_blocking();
 	}
 };
 
@@ -1706,11 +1713,11 @@ void fillMatrixMenu(Matrix &matrix)
 		char ch;
 		do
 		{
-			system("cls");
+			// system("cls");
 			info2();
 			std::cout << "\n\n   1 - ��������� ��������� �������\n   2 - ��������� �� �������\n   esc - �����\n\n";
-			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
-			ch = _getch();
+			// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 400, 120, 50, 50, 16, 15);
+			ch = get_char_non_blocking();
 
 			switch (ch)
 			{
@@ -1731,198 +1738,196 @@ void fillMatrixMenu(Matrix &matrix)
 	else
 	{
 		std::cout << "   M������ �� ���� �������..." << std::endl;
-		_getch();
+		get_char_non_blocking();
 	}
 }
 
-void outTableMatrixGraf(HDC hdc,
-						double **matrix, // ������� ����� double
-						size_t rows, size_t cols,
-						int startX, int startY,		   // ��������� ���������� �������
-						int cellWidth, int cellHeight, // ������� ������
-						int headerFontSize = 16,	   // ������ ������ ����������
-						int dataFontSize = 15)		   // ������ ������ ������
-{
-	if (hdc == NULL)
-	{
-		return;
-	}
-	if (matrix == nullptr || rows <= 0 || cols <= 0)
-	{
-		std::cout << "   ����� ���� �����..." << std::endl;
-		return;
-	}
-	else
-	{
+// void outTableMatrixGraf(HDC hdc,
+// 						double **matrix, // ������� ����� double
+// 						size_t rows, size_t cols,
+// 						int startX, int startY,		   // ��������� ���������� �������
+// 						int cellWidth, int cellHeight, // ������� ������
+// 						int headerFontSize = 16,	   // ������ ������ ����������
+// 						int dataFontSize = 15)		   // ������ ������ ������
+// {
+// 	if (hdc == NULL)
+// 	{
+// 		return;
+// 	}
+// 	if (matrix == nullptr || rows <= 0 || cols <= 0)
+// 	{
+// 		std::cout << "   ����� ���� �����..." << std::endl;
+// 		return;
+// 	}
+// 	else
+// 	{
 
-		if (cellWidth <= 0 || cellHeight <= 0)
-		{
-			return;
-		}
+// 		if (cellWidth <= 0 || cellHeight <= 0)
+// 		{
+// 			return;
+// 		}
 
-		char textBuffer[64];   // ����� ��� ���������� �������� �����, ��������������� � ������
-		char formatString[16]; // ����� ��� ������ ������� (��������, "%.2f")
+// 		char textBuffer[64];   // ����� ��� ���������� �������� �����, ��������������� � ������
+// 		char formatString[16]; // ����� ��� ������ ������� (��������, "%.2f")
 
-		// ������� ������ ������� ��� double �� ������ ��������� precision
-		sprintf_s(formatString, sizeof(formatString), "%%.%df", 2); // ��������, ���� precision=2, �� formatString ����� "%.2f"
+// 		// ������� ������ ������� ��� double �� ������ ��������� precision
+// 		sprintf_s(formatString, sizeof(formatString), "%%.%df", 2); // ��������, ���� precision=2, �� formatString ����� "%.2f"
 
-		// --- ��������� ������� ---
-		HFONT hFontHeaders = CreateFontA(headerFontSize, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE,
-										 RUSSIAN_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS,
-										 DEFAULT_QUALITY, FF_DONTCARE | VARIABLE_PITCH, "Terminal");
+// 		// --- ��������� ������� ---
+// 		HFONT hFontHeaders = CreateFontA(headerFontSize, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE,
+// 										 RUSSIAN_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS,
+// 										 DEFAULT_QUALITY, FF_DONTCARE | VARIABLE_PITCH, "Terminal");
 
-		HFONT hFontData = CreateFontA(dataFontSize, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
-									  RUSSIAN_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS,
-									  DEFAULT_QUALITY, FF_DONTCARE | VARIABLE_PITCH, "Terminal");
+// 		HFONT hFontData = CreateFontA(dataFontSize, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
+// 									  RUSSIAN_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS,
+// 									  DEFAULT_QUALITY, FF_DONTCARE | VARIABLE_PITCH, "Terminal");
 
-		// --- ��������� ���� ��� ����� ---
-		HPEN hPenGrid = CreatePen(PS_SOLID, 1, RGB(255, 255, 255)); // ������-����� ����
+// 		// --- ��������� ���� ��� ����� ---
+// 		HPEN hPenGrid = CreatePen(PS_SOLID, 1, RGB(255, 255, 255)); // ������-����� ����
 
-		// ��������� ������ GDI �������, ����� ����� ������������
+// 		// ��������� ������ GDI �������, ����� ����� ������������
 
-		COLORREF cellFillColor = RGB(150, 150, 150);
+// 		COLORREF cellFillColor = RGB(150, 150, 150);
 
-		HBRUSH hcellBrush = CreateSolidBrush(cellFillColor);
-		HBRUSH hOldFont = (HBRUSH)SelectObject(hdc, hcellBrush);
-		HPEN hOldPen = (HPEN)SelectObject(hdc, GetStockObject(BLACK_PEN));
+// 		HBRUSH hcellBrush = CreateSolidBrush(cellFillColor);
+// 		HBRUSH hOldFont = (HBRUSH)SelectObject(hdc, hcellBrush);
+// 		HPEN hOldPen = (HPEN)SelectObject(hdc, GetStockObject(BLACK_PEN));
 
-		int oldBkMode = SetBkMode(hdc, RGB(157, 56, 188));
-		SetBkMode(hdc, RGB(192, 192, 192)); // ������ ��� ������ ����������
+// 		int oldBkMode = SetBkMode(hdc, RGB(157, 56, 188));
+// 		SetBkMode(hdc, RGB(192, 192, 192)); // ������ ��� ������ ����������
 
-		// --- 1. ������ ������ �������� (���������) ---
-		if (hFontHeaders)
-			SelectObject(hdc, hFontHeaders);   // �������� ����� ��� ����������
-		SetTextColor(hdc, RGB(255, 255, 255)); // �����-����� ���� ��� ����������
+// 		// --- 1. ������ ������ �������� (���������) ---
+// 		if (hFontHeaders)
+// 			SelectObject(hdc, hFontHeaders);   // �������� ����� ��� ����������
+// 		SetTextColor(hdc, RGB(255, 255, 255)); // �����-����� ���� ��� ����������
 
-		for (size_t j = 0; j < cols; ++j)
-		{
-			int x_header_col = startX + cellWidth + j * cellWidth; // X-���������� ������ ��������� �������
-			int y_header_col = startY;							   // Y-���������� ������ ��������� �������
+// 		for (size_t j = 0; j < cols; ++j)
+// 		{
+// 			int x_header_col = startX + cellWidth + j * cellWidth; // X-���������� ������ ��������� �������
+// 			int y_header_col = startY;							   // Y-���������� ������ ��������� �������
 
-			sprintf_s(textBuffer, sizeof(textBuffer), "%d", j + 1); // ����������� ����� ������� � ������
+// 			sprintf_s(textBuffer, sizeof(textBuffer), "%d", j + 1); // ����������� ����� ������� � ������
 
-			SIZE textSize;
-			GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize); // ������ ������ ������
-			// ������� ����� �� ������ ������ ���������
-			TextOutA(hdc,
-					 x_header_col + (cellWidth - textSize.cx) / 2,
-					 y_header_col + (cellHeight - textSize.cy) / 2,
-					 textBuffer, strlen(textBuffer));
-		}
+// 			SIZE textSize;
+// 			GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize); // ������ ������ ������
+// 			// ������� ����� �� ������ ������ ���������
+// 			TextOutA(hdc,
+// 					 x_header_col + (cellWidth - textSize.cx) / 2,
+// 					 y_header_col + (cellHeight - textSize.cy) / 2,
+// 					 textBuffer, strlen(textBuffer));
+// 		}
 
-		// --- 2. ������ ������ ����� (���������) ---
-		// ����� � ���� ������ ��� ���������� ��� �����������
-		for (size_t i = 0; i < rows; ++i)
-		{
-			int x_header_row = startX;								 // X-���������� ������ ��������� ������
-			int y_header_row = startY + cellHeight + i * cellHeight; // Y-���������� ������ ��������� ������
+// 		// --- 2. ������ ������ ����� (���������) ---
+// 		// ����� � ���� ������ ��� ���������� ��� �����������
+// 		for (size_t i = 0; i < rows; ++i)
+// 		{
+// 			int x_header_row = startX;								 // X-���������� ������ ��������� ������
+// 			int y_header_row = startY + cellHeight + i * cellHeight; // Y-���������� ������ ��������� ������
 
-			sprintf_s(textBuffer, sizeof(textBuffer), "%d", i + 1); // ����������� ����� ������ � ������
+// 			sprintf_s(textBuffer, sizeof(textBuffer), "%d", i + 1); // ����������� ����� ������ � ������
 
-			SIZE textSize;
-			GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize);
-			TextOutA(hdc,
-					 x_header_row + (cellWidth - textSize.cx) / 2,
-					 y_header_row + (cellHeight - textSize.cy) / 2,
-					 textBuffer, strlen(textBuffer));
-		}
+// 			SIZE textSize;
+// 			GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize);
+// 			TextOutA(hdc,
+// 					 x_header_row + (cellWidth - textSize.cx) / 2,
+// 					 y_header_row + (cellHeight - textSize.cy) / 2,
+// 					 textBuffer, strlen(textBuffer));
+// 		}
 
-		// --- 3. ������ ������ ������� � ����� ---
-		if (hFontData)
-			SelectObject(hdc, hFontData);	   // �������� ����� ��� ������
-		SetTextColor(hdc, RGB(255, 255, 255)); // ������ ���� ��� ������
-		if (hPenGrid)
-			SelectObject(hdc, hPenGrid); // �������� ���� ��� ��������� �����
+// 		// --- 3. ������ ������ ������� � ����� ---
+// 		if (hFontData)
+// 			SelectObject(hdc, hFontData);	   // �������� ����� ��� ������
+// 		SetTextColor(hdc, RGB(255, 255, 255)); // ������ ���� ��� ������
+// 		if (hPenGrid)
+// 			SelectObject(hdc, hPenGrid); // �������� ���� ��� ��������� �����
 
-		for (size_t i = 0; i < rows; ++i)
-		{
+// 		for (size_t i = 0; i < rows; ++i)
+// 		{
 
-			if (matrix[i] == nullptr)
-			{ // ��������, ��� ������ ������� ��������
-				// ����� �������� ����� ������ ��� ������ ����������
-				continue;
-			}
-			for (size_t j = 0; j < cols; ++j)
-			{
-				int cellX = startX + cellWidth + j * cellWidth;	  // X-���������� ������� ������ ������
-				int cellY = startY + cellHeight + i * cellHeight; // Y-���������� ������� ������ ������
+// 			if (matrix[i] == nullptr)
+// 			{ // ��������, ��� ������ ������� ��������
+// 				// ����� �������� ����� ������ ��� ������ ����������
+// 				continue;
+// 			}
+// 			for (size_t j = 0; j < cols; ++j)
+// 			{
+// 				int cellX = startX + cellWidth + j * cellWidth;	  // X-���������� ������� ������ ������
+// 				int cellY = startY + cellHeight + i * cellHeight; // Y-���������� ������� ������ ������
 
-				// ����������� ����� double �� ������� � ������
-				sprintf_s(textBuffer, sizeof(textBuffer), formatString, matrix[i][j]);
+// 				// ����������� ����� double �� ������� � ������
+// 				sprintf_s(textBuffer, sizeof(textBuffer), formatString, matrix[i][j]);
 
-				// ������ ����� ������ (���� ���� ��� ����� �������)
-				if (hPenGrid)
-				{
-					Rectangle(hdc, cellX, cellY, cellX + cellWidth, cellY + cellHeight);
-				}
+// 				// ������ ����� ������ (���� ���� ��� ����� �������)
+// 				if (hPenGrid)
+// 				{
+// 					Rectangle(hdc, cellX, cellY, cellX + cellWidth, cellY + cellHeight);
+// 				}
 
-				SIZE textSize;
-				GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize);
+// 				SIZE textSize;
+// 				GetTextExtentPoint32A(hdc, textBuffer, strlen(textBuffer), &textSize);
 
-				// ������� ����� (������) �� ������ ������
-				TextOutA(hdc,
-						 cellX + (cellWidth - textSize.cx) / 2,
-						 cellY + (cellHeight - textSize.cy) / 2,
-						 textBuffer, strlen(textBuffer));
-			}
-		}
+// 				// ������� ����� (������) �� ������ ������
+// 				TextOutA(hdc,
+// 						 cellX + (cellWidth - textSize.cx) / 2,
+// 						 cellY + (cellHeight - textSize.cy) / 2,
+// 						 textBuffer, strlen(textBuffer));
+// 			}
+// 		}
 
-		// --- ������� GDI �������� ---
-		SetBkMode(hdc, oldBkMode);
-		SelectObject(hdc, hOldFont); // ��������������� ������ �����
-		if (hFontHeaders)
-			DeleteObject(hFontHeaders); // ������� ��������� �����
-		if (hFontData)
-			DeleteObject(hFontData); // ������� ��������� �����
+// 		// --- ������� GDI �������� ---
+// 		SetBkMode(hdc, oldBkMode);
+// 		SelectObject(hdc, hOldFont); // ��������������� ������ �����
+// 		if (hFontHeaders)
+// 			DeleteObject(hFontHeaders); // ������� ��������� �����
+// 		if (hFontData)
+// 			DeleteObject(hFontData); // ������� ��������� �����
 
-		SelectObject(hdc, hOldPen); // ��������������� ������ ����
-		if (hPenGrid)
-			DeleteObject(hPenGrid); // ������� ��������� ����
-	}
-}
+// 		SelectObject(hdc, hOldPen); // ��������������� ������ ����
+// 		if (hPenGrid)
+// 			DeleteObject(hPenGrid); // ������� ��������� ����
+// 	}
+// }
 
 void menuLab_3()
 {
 	setlocale(LC_ALL, "rus");
-	SetConsoleOutputCP(1251);
-	SetConsoleCP(1251);
 	SetDefBkColor(CL_BLACK);
 
 	size_t key;
 
 	do
 	{
-		system("cls");
+		// system("cls");
 
-		Text(hdc, 50, 0, "���� ������������ ������ �3 - 4", RGB(255, 255, 255), RGB(0, 0, 0), 25);
-		Text(hdc, 50, 50, "0 - ������� ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 100, "1 - ������ ������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 150, "2 - ��������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 200, "3 - �������� ������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 250, "4 - ���������/��������/������������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 300, "5 - ��������� ������� � �����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 350, "6 - ������� �� ���������� �� �����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 400, "7 - ������� �� ���������� �� ������ �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 450, "8 - ������� ������������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 500, "9 - �������� ����������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 0, "���� ������������ ������ �3 - 4", RGB(255, 255, 255), RGB(0, 0, 0), 25);
+		// Text(hdc, 50, 50, "0 - ������� ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 100, "1 - ������ ������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 150, "2 - ��������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 200, "3 - �������� ������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 250, "4 - ���������/��������/������������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 300, "5 - ��������� ������� � �����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 350, "6 - ������� �� ���������� �� �����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 400, "7 - ������� �� ���������� �� ������ �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 450, "8 - ������� ������������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 500, "9 - �������� ����������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
 
-		Text(hdc, 50, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+		// Text(hdc, 50, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
 
-		key = _getch();
+		key = get_char_non_blocking();
 
 		switch (key)
 		{
 		case '0':
 			// information about the task
-			system("cls");
+			// system("cls");
 			info2();
 			std::cout << "\n\n   ";
-			system("pause");
+			system_pause_function();
 			break;
 		case '1':
 		{
 			// size
-			system("cls");
+			// system("cls");
 			info2();
 			setColor(14, 0);
 			std::cout << "\n\n   ������������� ������� �������" << std::endl;
@@ -1933,7 +1938,7 @@ void menuLab_3()
 			{
 
 				std::cout << "   1 - ��������� ������?" << std::endl;
-				if (_getch() == '1')
+				if (get_char_non_blocking() == '1')
 				{
 					Matrix helpMatrix;
 					copyMatrix(matrix, helpMatrix);
@@ -1959,54 +1964,54 @@ void menuLab_3()
 			std::cout << "   ������� �������� " << newRows << " x " << newCols << " ������� �������" << std::endl;
 			setColor(7, 0);
 			std::cout << "\n\n   ";
-			system("pause");
+			system_pause_function();
 			break;
 		}
 		case '2':
 		{
 			// fill matrix
-			system("cls");
+			// system("cls");
 			fillMatrixMenu(matrix);
 			break;
 		}
 		case '3':
 			// print current matrix
-			system("cls");
-			outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 10, 5, 50, 50);
-			_getch();
+			// system("cls");
+			// outTableMatrixGraf(hdc, matrix.matrix, matrix.rows, matrix.cols, 10, 5, 50, 50);
+			get_char_non_blocking();
 			break;
 		case '4':
 			// insert / current
-			system("cls");
+			// system("cls");
 			insertMatrix(matrix, reserveMatrix);
 			break;
 		case '5':
 			// save matrix
-			system("cls");
+			// system("cls");
 			saveMatrixFile(matrix);
 			break;
 		case '6':
 			// solution with value from file
-			system("cls");
+			// system("cls");
 			readMatrixFile(matrix);
 			// solution(matrix);
 			break;
 		case '7':
-			system("cls");
+			// system("cls");
 			solution(matrix);
-			_getch();
+			get_char_non_blocking();
 			break;
 		case '8':
 			// clear space
-			system("cls");
+			// system("cls");
 			clearSpace(matrix);
-			_getch();
+			get_char_non_blocking();
 			break;
 		case '9':
 			// check directory
-			system("cls");
-			system("dir");
-			_getch();
+			// system("cls");
+			system_directory();
+			get_char_non_blocking();
 			break;
 		case 27:
 			break;

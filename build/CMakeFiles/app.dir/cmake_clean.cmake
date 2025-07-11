@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/app.dir/src/Menu.cpp.obj"
+  "CMakeFiles/app.dir/src/Menu.cpp.obj.d"
+  "CMakeFiles/app.dir/src/MenuItem.cpp.obj"
+  "CMakeFiles/app.dir/src/MenuItem.cpp.obj.d"
   "CMakeFiles/app.dir/src/MyFunctioin.cpp.obj"
   "CMakeFiles/app.dir/src/MyFunctioin.cpp.obj.d"
   "CMakeFiles/app.dir/src/main.cpp.obj"
@@ -11,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/app.dir/src/menuLab_1.cpp.obj.d"
   "CMakeFiles/app.dir/src/menuLab_3.cpp.obj"
   "CMakeFiles/app.dir/src/menuLab_3.cpp.obj.d"
+  "CMakeFiles/app.dir/src/portable_io.cpp.obj"
+  "CMakeFiles/app.dir/src/portable_io.cpp.obj.d"
   "app.exe"
   "app.exe.manifest"
   "app.pdb"

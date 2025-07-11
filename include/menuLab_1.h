@@ -13,8 +13,7 @@ void clearArr(double *);
 void inpFile();
 void outFile();
 
-void outTableGraf(double *, int, int, std::string, std::string, HDC, size_t);
-void Text(HDC hdc, int indentX, int indentY, std::string title, COLORREF textColor, COLORREF BG, int size);
+// void outTableGraf(double *, int, int, std::string, std::string, HDC, size_t);
 
 int setSizeArr();
 
@@ -24,5 +23,5 @@ bool is_number(std::string);
 
 extern size_t sizeArr;
 extern double *arr;
-extern HDC hdc;
+// extern HDC hdc;
 extern char separate;

@@ -1,6 +1,7 @@
 #include "../include/Header.h"
 #include "../include/MyFunction.h"
 #include "../include/menuLab_1.h"
+#include "portable_io.h"
 
 char separate = ',';
 size_t sizeArr = 10;
@@ -15,26 +16,6 @@ static bool textIndicator;
 int sizeBuckupArr1 = 10, sizeBuckupArr2 = 10;
 static double *buckupArr1 = new double[sizeBuckupArr1]();
 static double *buckupArr2 = new double[sizeBuckupArr2]();
-
-void Text(HDC hdc, int indentX, int indentY, std::string title, COLORREF textColor, COLORREF BG, int size)
-{
-
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	HFONT hfontText = CreateFontA(size, 0, 0, 0, FW_BOLD, false, false, false, RUSSIAN_CHARSET,
-								  OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, NONANTIALIASED_QUALITY, VARIABLE_PITCH, "Terminal");
-
-	GetConsoleScreenBufferInfo(hdc, &csbi);
-
-	WORD originalAttributes = csbi.wAttributes;
-
-	SetTextColor(hdc, textColor);
-	SetBkColor(hdc, BG);
-	TextOutA(hdc, indentX, indentY, title.c_str(), title.length());
-
-	SetConsoleTextAttribute(hdc, originalAttributes);
-
-	DeleteObject(hfontText);
-}
 
 static void saveArr(double *svArr, double size)
 {
@@ -150,7 +131,7 @@ int setSizeArr()
 	unsigned int key;
 	setColor(7, 0);
 	std::cout << "   ������� ������?" << "\n\n   1 - да   2 - нет";
-	key = _getch();
+	key = get_char_non_blocking();
 	if (key == '1')
 	{
 		LINES(1);
@@ -192,7 +173,7 @@ std::string getNameFile()
 
 void inpFile()
 {
-	system("cls");
+	// system("cls");
 	CURSOR(3, 3);
 	setColor(6, 0);
 	std::cout << "������ ������ � ����";
@@ -207,7 +188,7 @@ void inpFile()
 	if (file_exist)
 	{
 		std::cout << "\n\n   ���������� �������� � ����?\t1 - ��";
-		char ch = _getch();
+		char ch = get_char_non_blocking();
 		if (ch == '1')
 		{
 			mode = std::ios::app;
@@ -226,7 +207,7 @@ void inpFile()
 		return;
 	};
 
-	system("cls");
+	// system("cls");
 	inputEl();
 	for (size_t i = 0; i < sizeArr; i++)
 	{
@@ -344,74 +325,74 @@ void outFile()
 	}
 }
 
-void outTableGraf(double *arr, int size, int pnsec, std::string title, std::string psmas, HDC hdc, size_t n)
-{
-	if (indicator == true || textIndicator == true)
-	{
+// void outTableGraf(double *arr, int size, int pnsec, std::string title, std::string psmas, HDC hdc, size_t n)
+// {
+// 	if (indicator == true || textIndicator == true)
+// 	{
 
-		HWND hwnd = (HWND)GetStdHandle(STD_OUTPUT_HANDLE);
+// 		HWND hwnd = (HWND)GetStdHandle(STD_OUTPUT_HANDLE);
 
-		CONSOLE_FONT_INFO conf{};
-		GetCurrentConsoleFont(hwnd, false, &conf);
-		COORD cxy = CURSORPOS;
+// 		CONSOLE_FONT_INFO conf{};
+// 		GetCurrentConsoleFont(hwnd, false, &conf);
+// 		COORD cxy = CURSORPOS;
 
-		int indentY = conf.dwFontSize.Y * (cxy.Y + 1),
-			indentX = 40;
+// 		int indentY = conf.dwFontSize.Y * (cxy.Y + 1),
+// 			indentX = 40;
 
-		HFONT hfont = CreateFontA(20, 0, 0, 0, FW_BLACK, false, false, false, RUSSIAN_CHARSET,
-								  OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, NONANTIALIASED_QUALITY, VARIABLE_PITCH, "Terminal");
-		HFONT holdfont = (HFONT)SelectObject(hdc, hfont);
+// 		HFONT hfont = CreateFontA(20, 0, 0, 0, FW_BLACK, false, false, false, RUSSIAN_CHARSET,
+// 								  OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, NONANTIALIASED_QUALITY, VARIABLE_PITCH, "Terminal");
+// 		HFONT holdfont = (HFONT)SelectObject(hdc, hfont);
 
-		SetTextColor(hdc, RGB(255, 255, 255));
-		SetBkColor(hdc, RGB(0, 0, 0));
-		TextOutA(hdc, indentY + 100, indentY, title.c_str(), title.length());
-		SelectObject(hdc, holdfont);
-		DeleteObject(hfont);
+// 		SetTextColor(hdc, RGB(255, 255, 255));
+// 		SetBkColor(hdc, RGB(0, 0, 0));
+// 		TextOutA(hdc, indentY + 100, indentY, title.c_str(), title.length());
+// 		SelectObject(hdc, holdfont);
+// 		DeleteObject(hfont);
 
-		indentY += 34;
-		int nsec = size / pnsec + ((size % pnsec > 0) ? 1 : 0);
+// 		indentY += 34;
+// 		int nsec = size / pnsec + ((size % pnsec > 0) ? 1 : 0);
 
-		Rectangle(hdc, indentX, indentY, indentX + pnsec * 5 * conf.dwFontSize.X, indentY + (5 * conf.dwFontSize.Y) * nsec);
+// 		Rectangle(hdc, indentX, indentY, indentX + pnsec * 5 * conf.dwFontSize.X, indentY + (5 * conf.dwFontSize.Y) * nsec);
 
-		for (int i = 0; i < nsec; i++)
-		{
-			int nx = indentX,
-				nx2 = indentX + pnsec * 5 * conf.dwFontSize.X;
-			MoveToEx(hdc, nx, indentY + i * 5 * conf.dwFontSize.Y + (5 * conf.dwFontSize.Y) / 2, NULL);
-			LineTo(hdc, nx2, indentY + i * 5 * conf.dwFontSize.Y + (5 * conf.dwFontSize.Y) / 2);
-			MoveToEx(hdc, nx, indentY + ((i + 1) * 5 * conf.dwFontSize.Y), NULL);
-			LineTo(hdc, nx2, indentY + ((i + 1) * 5 * conf.dwFontSize.Y));
-		}
+// 		for (int i = 0; i < nsec; i++)
+// 		{
+// 			int nx = indentX,
+// 				nx2 = indentX + pnsec * 5 * conf.dwFontSize.X;
+// 			MoveToEx(hdc, nx, indentY + i * 5 * conf.dwFontSize.Y + (5 * conf.dwFontSize.Y) / 2, NULL);
+// 			LineTo(hdc, nx2, indentY + i * 5 * conf.dwFontSize.Y + (5 * conf.dwFontSize.Y) / 2);
+// 			MoveToEx(hdc, nx, indentY + ((i + 1) * 5 * conf.dwFontSize.Y), NULL);
+// 			LineTo(hdc, nx2, indentY + ((i + 1) * 5 * conf.dwFontSize.Y));
+// 		}
 
-		SetTextColor(hdc, RGB(255, 255, 255));
-		SetBkColor(hdc, RGB(94, 94, 94));
+// 		SetTextColor(hdc, RGB(255, 255, 255));
+// 		SetBkColor(hdc, RGB(94, 94, 94));
 
-		for (int i = 0; i < pnsec; i++)
-		{
-			int nx = indentX + (i) * 5 * conf.dwFontSize.X,
-				ny = indentY;
+// 		for (int i = 0; i < pnsec; i++)
+// 		{
+// 			int nx = indentX + (i) * 5 * conf.dwFontSize.X,
+// 				ny = indentY;
 
-			MoveToEx(hdc, nx, ny, NULL);
-			LineTo(hdc, nx, ny + (5 * conf.dwFontSize.Y) * nsec);
-			char txt[30]{};
+// 			MoveToEx(hdc, nx, ny, NULL);
+// 			LineTo(hdc, nx, ny + (5 * conf.dwFontSize.Y) * nsec);
+// 			char txt[30]{};
 
-			for (int j = 0; j < nsec; j++)
-			{
-				if (j * pnsec + i < size)
-				{
-					sprintf_s(txt, "%s%d", psmas.c_str(), j * pnsec + i + n);
-					SIZE sz{};
-					GetTextExtentPoint32A(hdc, txt, strlen(txt), &sz);
-					TextOutA(hdc, nx + (5 * conf.dwFontSize.X - sz.cx) / 2, ny + j * (conf.dwFontSize.Y * 5) + conf.dwFontSize.Y, txt, strlen(txt));
-					sprintf_s(txt, "%5.1f", arr[j * pnsec + i]);
-					GetTextExtentPoint32A(hdc, txt, strlen(txt), &sz);
-					TextOutA(hdc, nx + (5 * conf.dwFontSize.X - sz.cx) / 2, ny + j * (conf.dwFontSize.Y * 5) + 3 * conf.dwFontSize.Y, txt, strlen(txt));
-				}
-			}
-		}
-		DeleteObject(hfont);
-	}
-};
+// 			for (int j = 0; j < nsec; j++)
+// 			{
+// 				if (j * pnsec + i < size)
+// 				{
+// 					sprintf_s(txt, "%s%d", psmas.c_str(), j * pnsec + i + n);
+// 					SIZE sz{};
+// 					GetTextExtentPoint32A(hdc, txt, strlen(txt), &sz);
+// 					TextOutA(hdc, nx + (5 * conf.dwFontSize.X - sz.cx) / 2, ny + j * (conf.dwFontSize.Y * 5) + conf.dwFontSize.Y, txt, strlen(txt));
+// 					sprintf_s(txt, "%5.1f", arr[j * pnsec + i]);
+// 					GetTextExtentPoint32A(hdc, txt, strlen(txt), &sz);
+// 					TextOutA(hdc, nx + (5 * conf.dwFontSize.X - sz.cx) / 2, ny + j * (conf.dwFontSize.Y * 5) + 3 * conf.dwFontSize.Y, txt, strlen(txt));
+// 				}
+// 			}
+// 		}
+// 		DeleteObject(hfont);
+// 	}
+// };
 
 void replaceElFile()
 {
@@ -420,11 +401,11 @@ void replaceElFile()
 	if (indicator == true)
 	{
 		std::cout << "\n   �������� �������� ��������?\n\n   1 - ��\t2 - ���" << std::endl;
-		size_t key = _getch();
+		size_t key = get_char_non_blocking();
 
 		if (key == '1')
 		{
-			system("cls");
+			// system("cls");
 
 			std::cout << "   ������ �� �����:\n";
 			for (size_t i = 0; i < sizeArr; i++)
@@ -521,101 +502,98 @@ void menuLab_1()
 		arr = new double[sizeArr];
 	}
 
-	setlocale(LC_ALL, "rus");
-	SetConsoleOutputCP(1251);
-	SetConsoleCP(1251);
-	SetDefBkColor(CL_BLACK);
-
 	size_t key;
 
 	do
 	{
-		system("cls");
+		// system("cls");
 
-		Text(hdc, 50, 0, "���� ������������ ������ �1", RGB(255, 255, 255), RGB(0, 0, 0), 25);
-		Text(hdc, 50, 50, "0 - ������� � �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 100, "1 - ������� � ��������� ������ ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 150, "2 - ������� �� ���������� � ����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 250, "3 - ������� �� ���������� �� �����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 300, "4 - ������� �� ����� � ��������� ������ ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 350, "5 - ������ �������� �������� � ����� �� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 450, "6 - ������ ������ ������������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 500, "7 - �������� ����������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		Text(hdc, 50, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+		// Text(hdc, 50, 0, "���� ������������ ������ �1", RGB(255, 255, 255), RGB(0, 0, 0), 25);
+		// Text(hdc, 50, 50, "0 - ������� � �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 100, "1 - ������� � ��������� ������ ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 150, "2 - ������� �� ���������� � ����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 250, "3 - ������� �� ���������� �� �����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 300, "4 - ������� �� ����� � ��������� ������ ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 350, "5 - ������ �������� �������� � ����� �� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 450, "6 - ������ ������ ������������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 500, "7 - �������� ����������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+		// Text(hdc, 50, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
 
-		key = _getch();
+		key = get_char_non_blocking();
 
 		switch (key)
 		{
 		case '0':
-			system("cls");
+			// system("cls");
 			info();
 			CURSOR(3, 7);
-			system("pause");
-			system("cls");
+
+			system_pause_function();
+			// system("cls");
 			inputEl(),
 				solution1(),
 				outputEl();
 			setColor(7, 0);
 			std::cout << "\n\n   нажмите ESC чтобы выйти...";
 			CURSOR(3, 14);
-			_getch();
+			get_char_non_blocking();
 			break;
 		case '1':
-			system("cls");
+			// system("cls");
 			info();
 			CURSOR(3, 8);
-			system("pause");
+			;
+			system_pause_function();
 			system("cls");
 			inputEl();
 			solution1();
 			outputEl();
 			LINES(3);
-			outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
+			// outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
 			setColor(7, 0);
-			Text(hdc, 40, 400, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
-			_getch();
+			// Text(hdc, 40, 400, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+			get_char_non_blocking();
 			break;
 		case '2':
 			inpFile();
 			setColor(7, 0);
 			std::cout << "\n\n   нажмите ESC чтобы выйти...";
-			_getch();
+			get_char_non_blocking();
 			break;
 		case '3':
 			system("cls");
 			outFile();
 			setColor(7, 0);
 			std::cout << "\n\n   нажмите ESC чтобы выйти...";
-			_getch();
+			get_char_non_blocking();
 			break;
 		case '4':
 			system("cls");
 			info();
 			outFile();
 			LINES(1);
-			outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
+			// outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
 			setColor(7, 0);
-			Text(hdc, 40, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
-			_getch();
+			// Text(hdc, 40, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+			get_char_non_blocking();
 			break;
 		case '5':
 			system("cls");
 			replaceElFile();
 			setColor(7, 0);
-			_getch();
+			get_char_non_blocking();
 			break;
 		case '6':
 			system("cls");
 			setSizeArr();
 			setColor(7, 0);
-			_getch();
+			get_char_non_blocking();
 			break;
 		case '7':
-			system("dir");
+			system_directory();
 			setColor(7, 0);
 			std::cout << "\n\n   нажмите ESC чтобы выйти...";
-			_getch();
+			get_char_non_blocking();
 			break;
 		case 27:
 			break;
