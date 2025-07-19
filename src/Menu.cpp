@@ -3,16 +3,47 @@
 ftxui::Element Menu::Render()
 {
     std::vector<ftxui::Element> items;
-    for (size_t i = 0; i < items_.size(); i++)
+    for (int i = 0; i < items_.size(); i++)
     {
         auto element = std::dynamic_pointer_cast<MenuItem>(items_[i]);
         if (element)
         {
             element->SetSelected(i == index_active_item_);
         };
+
         items.push_back(items_[i]->Render());
-    };
+    }
     return ftxui::vbox(items);
+};
+
+int Menu::FindActiveItemNext()
+{
+    int i = index_active_item_ + 1;
+    while (i != items_.size())
+    {
+        if (items_[i]->IsSelectable())
+        {
+            return i;
+        };
+
+        i++;
+    };
+    return index_active_item_;
+};
+
+int Menu::FindActiveItemPrevious()
+{
+    int i = index_active_item_ - 1;
+    while (i > 0)
+    {
+        if (items_[i]->IsSelectable())
+        {
+            return i;
+        };
+
+        i--;
+    };
+    return index_active_item_;
 };
 
 void Menu::OnEvent(ftxui::Event event)
@@ -29,7 +60,7 @@ void Menu::OnEvent(ftxui::Event event)
 
     if (event == ftxui::Event::ArrowDown || event == ftxui::Event::Character("j"))
     {
-        index_active_item_++;
+        index_active_item_ = FindActiveItemNext();
     };
 
     if (index_active_item_ >= items_.size())
@@ -39,7 +70,7 @@ void Menu::OnEvent(ftxui::Event event)
 
     if (event == ftxui::Event::ArrowUp || event == ftxui::Event::Character("k"))
     {
-        index_active_item_--;
+        index_active_item_ = FindActiveItemPrevious();
     };
     ;
 

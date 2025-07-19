@@ -14,6 +14,7 @@ public:
 
     ftxui::Element Render() override;
     void OnEvent(ftxui::Event event) override;
+    bool IsSelectable() override;
 
     void SetSelected(bool selected);
 };

@@ -5,6 +5,7 @@
 #include "../include/UIComponent.h"
 #include "../include/Menu.h"
 #include "../include/MenuItem.h"
+#include "../include/TextItem.h"
 #include "../include/portable_io.h"
 
 int main()
@@ -45,30 +46,32 @@ int main()
 
     auto screen = ftxui::ScreenInteractive::Fullscreen();
     auto mainMenu = std::make_shared<Menu>();
-    auto menuLab_1 = std::make_shared<Menu>();
-    auto menuLab_2 = std::make_shared<Menu>();
-    auto menuLab_3 = std::make_shared<Menu>();
 
     std::shared_ptr<UIComponent> activeComponent = mainMenu;
     std::vector<std::shared_ptr<UIComponent>> navigationStack;
 
-    auto navigateTo = [&](std::shared_ptr<Menu> &component)
+    auto navigateTo = [&](const std::shared_ptr<UIComponent> &component)
     {
         navigationStack.push_back(activeComponent);
         activeComponent = component;
     };
     auto navigateBack = [&]
     {
-        activeComponent = navigationStack.back();
-        navigationStack.pop_back();
+        if (!navigationStack.empty())
+        {
+            activeComponent = navigationStack.back();
+            navigationStack.pop_back();
+        }
     };
+    auto menuLab_1 = std::make_shared<MenuLab_1>(navigateBack);
 
-    mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №1", [&]
+    mainMenu->AddItem(std::make_shared<TextItem>("Main menu"));
+    mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №1", [navigateTo, menuLab_1]
                                                  { navigateTo(menuLab_1); }));
-    mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №2", [&]
-                                                 { navigateTo(menuLab_2); }));
-    mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №3", [&]
-                                                 { navigateTo(menuLab_3); }));
+    // mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №2", [&]
+    //                                              { navigateTo(menuLab_2); }));
+    // mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №3", [&]
+    //                                              { navigateTo(menuLab_3); }));
     mainMenu->AddItem(std::make_shared<MenuItem>("Exit", [&]
                                                  { screen.Exit(); }));
 
@@ -76,7 +79,8 @@ int main()
                                      { return activeComponent->Render(); });
     component = ftxui::CatchEvent(component, [&](ftxui::Event event)
                                   {
-        if (event == ftxui::Event::Escape) {
+        if (event == ftxui::Event::Escape)
+        {
             navigateBack();
             return true;
         };

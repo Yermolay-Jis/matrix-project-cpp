@@ -20,6 +20,11 @@ void MenuItem::OnEvent(ftxui::Event event)
     };
 };
 
+bool MenuItem::IsSelectable()
+{
+    return true;
+};
+
 void MenuItem::SetSelected(bool selected)
 {
     is_selected_ = selected;

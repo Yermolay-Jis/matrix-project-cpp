@@ -494,6 +494,14 @@ void replaceElFile()
 	}
 }
 
+MenuLab_1::MenuLab_1(const std::function<void()> &navigateBack)
+{
+	this->AddItem(std::make_shared<TextItem>("Laboratory work #1"));
+	this->AddItem(std::make_shared<MenuItem>("Information", []
+											 { info(); }));
+	this->AddItem(std::make_shared<MenuItem>("Back", navigateBack));
+};
+
 void menuLab_1()
 {
 
@@ -502,107 +510,107 @@ void menuLab_1()
 		arr = new double[sizeArr];
 	}
 
-	size_t key;
+	// size_t key;
 
-	do
-	{
-		// system("cls");
+	// do
+	// {
+	// 	// system("cls");
 
-		// Text(hdc, 50, 0, "���� ������������ ������ �1", RGB(255, 255, 255), RGB(0, 0, 0), 25);
-		// Text(hdc, 50, 50, "0 - ������� � �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		// Text(hdc, 50, 100, "1 - ������� � ��������� ������ ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		// Text(hdc, 50, 150, "2 - ������� �� ���������� � ����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		// Text(hdc, 50, 250, "3 - ������� �� ���������� �� �����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		// Text(hdc, 50, 300, "4 - ������� �� ����� � ��������� ������ ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		// Text(hdc, 50, 350, "5 - ������ �������� �������� � ����� �� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		// Text(hdc, 50, 450, "6 - ������ ������ ������������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		// Text(hdc, 50, 500, "7 - �������� ����������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
-		// Text(hdc, 50, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+	// 	// Text(hdc, 50, 0, "���� ������������ ������ �1", RGB(255, 255, 255), RGB(0, 0, 0), 25);
+	// 	// Text(hdc, 50, 50, "0 - ������� � �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+	// 	// Text(hdc, 50, 100, "1 - ������� � ��������� ������ ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+	// 	// Text(hdc, 50, 150, "2 - ������� �� ���������� � ����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+	// 	// Text(hdc, 50, 250, "3 - ������� �� ���������� �� �����", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+	// 	// Text(hdc, 50, 300, "4 - ������� �� ����� � ��������� ������ ������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+	// 	// Text(hdc, 50, 350, "5 - ������ �������� �������� � ����� �� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+	// 	// Text(hdc, 50, 450, "6 - ������ ������ ������������� �������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+	// 	// Text(hdc, 50, 500, "7 - �������� ����������", RGB(255, 255, 255), RGB(15, 5, 77), 25);
+	// 	// Text(hdc, 50, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
 
-		key = get_char_non_blocking();
+	// 	key = get_char_non_blocking();
 
-		switch (key)
-		{
-		case '0':
-			// system("cls");
-			info();
-			CURSOR(3, 7);
+	// 	switch (key)
+	// 	{
+	// 	case '0':
+	// 		// system("cls");
+	// 		info();
+	// 		CURSOR(3, 7);
 
-			system_pause_function();
-			// system("cls");
-			inputEl(),
-				solution1(),
-				outputEl();
-			setColor(7, 0);
-			std::cout << "\n\n   нажмите ESC чтобы выйти...";
-			CURSOR(3, 14);
-			get_char_non_blocking();
-			break;
-		case '1':
-			// system("cls");
-			info();
-			CURSOR(3, 8);
-			;
-			system_pause_function();
-			system("cls");
-			inputEl();
-			solution1();
-			outputEl();
-			LINES(3);
-			// outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
-			setColor(7, 0);
-			// Text(hdc, 40, 400, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
-			get_char_non_blocking();
-			break;
-		case '2':
-			inpFile();
-			setColor(7, 0);
-			std::cout << "\n\n   нажмите ESC чтобы выйти...";
-			get_char_non_blocking();
-			break;
-		case '3':
-			system("cls");
-			outFile();
-			setColor(7, 0);
-			std::cout << "\n\n   нажмите ESC чтобы выйти...";
-			get_char_non_blocking();
-			break;
-		case '4':
-			system("cls");
-			info();
-			outFile();
-			LINES(1);
-			// outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
-			setColor(7, 0);
-			// Text(hdc, 40, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
-			get_char_non_blocking();
-			break;
-		case '5':
-			system("cls");
-			replaceElFile();
-			setColor(7, 0);
-			get_char_non_blocking();
-			break;
-		case '6':
-			system("cls");
-			setSizeArr();
-			setColor(7, 0);
-			get_char_non_blocking();
-			break;
-		case '7':
-			system_directory();
-			setColor(7, 0);
-			std::cout << "\n\n   нажмите ESC чтобы выйти...";
-			get_char_non_blocking();
-			break;
-		case 27:
-			break;
-		default:
-			std::cout << "\n������� ����������� �������" << std::endl;
-		}
+	// 		system_pause_function();
+	// 		// system("cls");
+	// 		inputEl(),
+	// 			solution1(),
+	// 			outputEl();
+	// 		setColor(7, 0);
+	// 		std::cout << "\n\n   нажмите ESC чтобы выйти...";
+	// 		CURSOR(3, 14);
+	// 		get_char_non_blocking();
+	// 		break;
+	// 	case '1':
+	// 		// system("cls");
+	// 		info();
+	// 		CURSOR(3, 8);
+	// 		;
+	// 		system_pause_function();
+	// 		system("cls");
+	// 		inputEl();
+	// 		solution1();
+	// 		outputEl();
+	// 		LINES(3);
+	// 		// outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
+	// 		setColor(7, 0);
+	// 		// Text(hdc, 40, 400, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+	// 		get_char_non_blocking();
+	// 		break;
+	// 	case '2':
+	// 		inpFile();
+	// 		setColor(7, 0);
+	// 		std::cout << "\n\n   нажмите ESC чтобы выйти...";
+	// 		get_char_non_blocking();
+	// 		break;
+	// 	case '3':
+	// 		system("cls");
+	// 		outFile();
+	// 		setColor(7, 0);
+	// 		std::cout << "\n\n   нажмите ESC чтобы выйти...";
+	// 		get_char_non_blocking();
+	// 		break;
+	// 	case '4':
+	// 		system("cls");
+	// 		info();
+	// 		outFile();
+	// 		LINES(1);
+	// 		// outTableGraf(arr, sizeArr, sizeArr < 10 ? sizeArr : 10, "��������� ����� ������", "X", hdc, 1);
+	// 		setColor(7, 0);
+	// 		// Text(hdc, 40, 550, "ESC - �����", RGB(255, 255, 255), RGB(157, 56, 188), 25);
+	// 		get_char_non_blocking();
+	// 		break;
+	// 	case '5':
+	// 		system("cls");
+	// 		replaceElFile();
+	// 		setColor(7, 0);
+	// 		get_char_non_blocking();
+	// 		break;
+	// 	case '6':
+	// 		system("cls");
+	// 		setSizeArr();
+	// 		setColor(7, 0);
+	// 		get_char_non_blocking();
+	// 		break;
+	// 	case '7':
+	// 		system_directory();
+	// 		setColor(7, 0);
+	// 		std::cout << "\n\n   нажмите ESC чтобы выйти...";
+	// 		get_char_non_blocking();
+	// 		break;
+	// 	case 27:
+	// 		break;
+	// 	default:
+	// 		std::cout << "\n������� ����������� �������" << std::endl;
+	// 	}
 
-		setColor(7, 0);
-	} while (key != 27);
-	clearArr(arr);
-	system("cls");
+	// 	setColor(7, 0);
+	// } while (key != 27);
+	// clearArr(arr);
+	// system("cls");
 }

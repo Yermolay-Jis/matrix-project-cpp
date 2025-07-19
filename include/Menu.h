@@ -2,12 +2,15 @@
 #include "Header.h"
 #include "UIComponent.h"
 #include "MenuItem.h"
+#include "TextItem.h"
 
 class Menu : public UIComponent
 {
 private:
     std::vector<std::shared_ptr<UIComponent>> items_;
     int index_active_item_ = 0;
+    int FindActiveItemNext();
+    int FindActiveItemPrevious();
 
 public:
     Menu() = default;

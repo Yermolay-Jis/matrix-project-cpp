@@ -317,6 +317,30 @@ src/MyFunctioin.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/MyFunctioin.cpp.s
 .PHONY : src/MyFunctioin.cpp.s
 
+src/TextItem.obj: src/TextItem.cpp.obj
+.PHONY : src/TextItem.obj
+
+# target to build an object file
+src/TextItem.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/TextItem.cpp.obj
+.PHONY : src/TextItem.cpp.obj
+
+src/TextItem.i: src/TextItem.cpp.i
+.PHONY : src/TextItem.i
+
+# target to preprocess a source file
+src/TextItem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/TextItem.cpp.i
+.PHONY : src/TextItem.cpp.i
+
+src/TextItem.s: src/TextItem.cpp.s
+.PHONY : src/TextItem.s
+
+# target to generate assembly for a file
+src/TextItem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/TextItem.cpp.s
+.PHONY : src/TextItem.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -364,30 +388,6 @@ src/matrix.s: src/matrix.cpp.s
 src/matrix.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/matrix.cpp.s
 .PHONY : src/matrix.cpp.s
-
-src/menuLab2.obj: src/menuLab2.cpp.obj
-.PHONY : src/menuLab2.obj
-
-# target to build an object file
-src/menuLab2.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/menuLab2.cpp.obj
-.PHONY : src/menuLab2.cpp.obj
-
-src/menuLab2.i: src/menuLab2.cpp.i
-.PHONY : src/menuLab2.i
-
-# target to preprocess a source file
-src/menuLab2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/menuLab2.cpp.i
-.PHONY : src/menuLab2.cpp.i
-
-src/menuLab2.s: src/menuLab2.cpp.s
-.PHONY : src/menuLab2.s
-
-# target to generate assembly for a file
-src/menuLab2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/menuLab2.cpp.s
-.PHONY : src/menuLab2.cpp.s
 
 src/menuLab_1.obj: src/menuLab_1.cpp.obj
 .PHONY : src/menuLab_1.obj
@@ -489,15 +489,15 @@ help:
 	@echo ... src/MyFunctioin.obj
 	@echo ... src/MyFunctioin.i
 	@echo ... src/MyFunctioin.s
+	@echo ... src/TextItem.obj
+	@echo ... src/TextItem.i
+	@echo ... src/TextItem.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
 	@echo ... src/matrix.obj
 	@echo ... src/matrix.i
 	@echo ... src/matrix.s
-	@echo ... src/menuLab2.obj
-	@echo ... src/menuLab2.i
-	@echo ... src/menuLab2.s
 	@echo ... src/menuLab_1.obj
 	@echo ... src/menuLab_1.i
 	@echo ... src/menuLab_1.s

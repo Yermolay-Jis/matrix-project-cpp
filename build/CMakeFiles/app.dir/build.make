@@ -116,11 +116,26 @@ CMakeFiles/app.dir/src/MyFunctioin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/MyFunctioin.cpp.s"
 	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\matrixApp\matrix-project-cpp\src\MyFunctioin.cpp -o CMakeFiles\app.dir\src\MyFunctioin.cpp.s
 
+CMakeFiles/app.dir/src/TextItem.cpp.obj: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/src/TextItem.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
+CMakeFiles/app.dir/src/TextItem.cpp.obj: C:/Users/User/matrixApp/matrix-project-cpp/src/TextItem.cpp
+CMakeFiles/app.dir/src/TextItem.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\User\matrixApp\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/app.dir/src/TextItem.cpp.obj"
+	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/TextItem.cpp.obj -MF CMakeFiles\app.dir\src\TextItem.cpp.obj.d -o CMakeFiles\app.dir\src\TextItem.cpp.obj -c C:\Users\User\matrixApp\matrix-project-cpp\src\TextItem.cpp
+
+CMakeFiles/app.dir/src/TextItem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/TextItem.cpp.i"
+	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\matrixApp\matrix-project-cpp\src\TextItem.cpp > CMakeFiles\app.dir\src\TextItem.cpp.i
+
+CMakeFiles/app.dir/src/TextItem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/TextItem.cpp.s"
+	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\matrixApp\matrix-project-cpp\src\TextItem.cpp -o CMakeFiles\app.dir\src\TextItem.cpp.s
+
 CMakeFiles/app.dir/src/main.cpp.obj: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/main.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
 CMakeFiles/app.dir/src/main.cpp.obj: C:/Users/User/matrixApp/matrix-project-cpp/src/main.cpp
 CMakeFiles/app.dir/src/main.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\User\matrixApp\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/app.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\User\matrixApp\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/app.dir/src/main.cpp.obj"
 	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/main.cpp.obj -MF CMakeFiles\app.dir\src\main.cpp.obj.d -o CMakeFiles\app.dir\src\main.cpp.obj -c C:\Users\User\matrixApp\matrix-project-cpp\src\main.cpp
 
 CMakeFiles/app.dir/src/main.cpp.i: cmake_force
@@ -135,7 +150,7 @@ CMakeFiles/app.dir/src/matrix.cpp.obj: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/matrix.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
 CMakeFiles/app.dir/src/matrix.cpp.obj: C:/Users/User/matrixApp/matrix-project-cpp/src/matrix.cpp
 CMakeFiles/app.dir/src/matrix.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\User\matrixApp\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/app.dir/src/matrix.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\User\matrixApp\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/app.dir/src/matrix.cpp.obj"
 	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/matrix.cpp.obj -MF CMakeFiles\app.dir\src\matrix.cpp.obj.d -o CMakeFiles\app.dir\src\matrix.cpp.obj -c C:\Users\User\matrixApp\matrix-project-cpp\src\matrix.cpp
 
 CMakeFiles/app.dir/src/matrix.cpp.i: cmake_force
@@ -145,21 +160,6 @@ CMakeFiles/app.dir/src/matrix.cpp.i: cmake_force
 CMakeFiles/app.dir/src/matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/matrix.cpp.s"
 	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\matrixApp\matrix-project-cpp\src\matrix.cpp -o CMakeFiles\app.dir\src\matrix.cpp.s
-
-CMakeFiles/app.dir/src/menuLab2.cpp.obj: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/src/menuLab2.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
-CMakeFiles/app.dir/src/menuLab2.cpp.obj: C:/Users/User/matrixApp/matrix-project-cpp/src/menuLab2.cpp
-CMakeFiles/app.dir/src/menuLab2.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\User\matrixApp\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/app.dir/src/menuLab2.cpp.obj"
-	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/menuLab2.cpp.obj -MF CMakeFiles\app.dir\src\menuLab2.cpp.obj.d -o CMakeFiles\app.dir\src\menuLab2.cpp.obj -c C:\Users\User\matrixApp\matrix-project-cpp\src\menuLab2.cpp
-
-CMakeFiles/app.dir/src/menuLab2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/menuLab2.cpp.i"
-	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\matrixApp\matrix-project-cpp\src\menuLab2.cpp > CMakeFiles\app.dir\src\menuLab2.cpp.i
-
-CMakeFiles/app.dir/src/menuLab2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/menuLab2.cpp.s"
-	C:\ProgramData\mingw64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\matrixApp\matrix-project-cpp\src\menuLab2.cpp -o CMakeFiles\app.dir\src\menuLab2.cpp.s
 
 CMakeFiles/app.dir/src/menuLab_1.cpp.obj: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/menuLab_1.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
@@ -211,9 +211,9 @@ app_OBJECTS = \
 "CMakeFiles/app.dir/src/Menu.cpp.obj" \
 "CMakeFiles/app.dir/src/MenuItem.cpp.obj" \
 "CMakeFiles/app.dir/src/MyFunctioin.cpp.obj" \
+"CMakeFiles/app.dir/src/TextItem.cpp.obj" \
 "CMakeFiles/app.dir/src/main.cpp.obj" \
 "CMakeFiles/app.dir/src/matrix.cpp.obj" \
-"CMakeFiles/app.dir/src/menuLab2.cpp.obj" \
 "CMakeFiles/app.dir/src/menuLab_1.cpp.obj" \
 "CMakeFiles/app.dir/src/menuLab_3.cpp.obj" \
 "CMakeFiles/app.dir/src/portable_io.cpp.obj"
@@ -224,9 +224,9 @@ app_EXTERNAL_OBJECTS =
 app.exe: CMakeFiles/app.dir/src/Menu.cpp.obj
 app.exe: CMakeFiles/app.dir/src/MenuItem.cpp.obj
 app.exe: CMakeFiles/app.dir/src/MyFunctioin.cpp.obj
+app.exe: CMakeFiles/app.dir/src/TextItem.cpp.obj
 app.exe: CMakeFiles/app.dir/src/main.cpp.obj
 app.exe: CMakeFiles/app.dir/src/matrix.cpp.obj
-app.exe: CMakeFiles/app.dir/src/menuLab2.cpp.obj
 app.exe: CMakeFiles/app.dir/src/menuLab_1.cpp.obj
 app.exe: CMakeFiles/app.dir/src/menuLab_3.cpp.obj
 app.exe: CMakeFiles/app.dir/src/portable_io.cpp.obj
