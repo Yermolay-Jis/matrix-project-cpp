@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/app.dir/src/ArrayModel.cpp.obj"
+  "CMakeFiles/app.dir/src/ArrayModel.cpp.obj.d"
+  "CMakeFiles/app.dir/src/InfoComponent.cpp.obj"
+  "CMakeFiles/app.dir/src/InfoComponent.cpp.obj.d"
   "CMakeFiles/app.dir/src/Menu.cpp.obj"
   "CMakeFiles/app.dir/src/Menu.cpp.obj.d"
   "CMakeFiles/app.dir/src/MenuItem.cpp.obj"

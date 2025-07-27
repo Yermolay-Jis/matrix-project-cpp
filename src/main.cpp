@@ -63,7 +63,7 @@ int main()
             navigationStack.pop_back();
         }
     };
-    auto menuLab_1 = std::make_shared<MenuLab_1>(navigateBack);
+    auto menuLab_1 = std::make_shared<MenuLab_1>(navigateBack, navigateTo);
 
     mainMenu->AddItem(std::make_shared<TextItem>("Main menu"));
     mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №1", [navigateTo, menuLab_1]

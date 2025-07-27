@@ -245,6 +245,54 @@ component/fast:
 	$(MAKE) $(MAKESILENT) -f lib\FTXUI\CMakeFiles\component.dir\build.make lib/FTXUI/CMakeFiles/component.dir/build
 .PHONY : component/fast
 
+src/ArrayModel.obj: src/ArrayModel.cpp.obj
+.PHONY : src/ArrayModel.obj
+
+# target to build an object file
+src/ArrayModel.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ArrayModel.cpp.obj
+.PHONY : src/ArrayModel.cpp.obj
+
+src/ArrayModel.i: src/ArrayModel.cpp.i
+.PHONY : src/ArrayModel.i
+
+# target to preprocess a source file
+src/ArrayModel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ArrayModel.cpp.i
+.PHONY : src/ArrayModel.cpp.i
+
+src/ArrayModel.s: src/ArrayModel.cpp.s
+.PHONY : src/ArrayModel.s
+
+# target to generate assembly for a file
+src/ArrayModel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ArrayModel.cpp.s
+.PHONY : src/ArrayModel.cpp.s
+
+src/InfoComponent.obj: src/InfoComponent.cpp.obj
+.PHONY : src/InfoComponent.obj
+
+# target to build an object file
+src/InfoComponent.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/InfoComponent.cpp.obj
+.PHONY : src/InfoComponent.cpp.obj
+
+src/InfoComponent.i: src/InfoComponent.cpp.i
+.PHONY : src/InfoComponent.i
+
+# target to preprocess a source file
+src/InfoComponent.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/InfoComponent.cpp.i
+.PHONY : src/InfoComponent.cpp.i
+
+src/InfoComponent.s: src/InfoComponent.cpp.s
+.PHONY : src/InfoComponent.s
+
+# target to generate assembly for a file
+src/InfoComponent.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/InfoComponent.cpp.s
+.PHONY : src/InfoComponent.cpp.s
+
 src/Menu.obj: src/Menu.cpp.obj
 .PHONY : src/Menu.obj
 
@@ -480,6 +528,12 @@ help:
 	@echo ... dom
 	@echo ... screen
 	@echo ... subprocess
+	@echo ... src/ArrayModel.obj
+	@echo ... src/ArrayModel.i
+	@echo ... src/ArrayModel.s
+	@echo ... src/InfoComponent.obj
+	@echo ... src/InfoComponent.i
+	@echo ... src/InfoComponent.s
 	@echo ... src/Menu.obj
 	@echo ... src/Menu.i
 	@echo ... src/Menu.s

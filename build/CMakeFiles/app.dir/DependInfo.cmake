@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/User/matrixApp/matrix-project-cpp/src/ArrayModel.cpp" "CMakeFiles/app.dir/src/ArrayModel.cpp.obj" "gcc" "CMakeFiles/app.dir/src/ArrayModel.cpp.obj.d"
+  "C:/Users/User/matrixApp/matrix-project-cpp/src/InfoComponent.cpp" "CMakeFiles/app.dir/src/InfoComponent.cpp.obj" "gcc" "CMakeFiles/app.dir/src/InfoComponent.cpp.obj.d"
   "C:/Users/User/matrixApp/matrix-project-cpp/src/Menu.cpp" "CMakeFiles/app.dir/src/Menu.cpp.obj" "gcc" "CMakeFiles/app.dir/src/Menu.cpp.obj.d"
   "C:/Users/User/matrixApp/matrix-project-cpp/src/MenuItem.cpp" "CMakeFiles/app.dir/src/MenuItem.cpp.obj" "gcc" "CMakeFiles/app.dir/src/MenuItem.cpp.obj.d"
   "C:/Users/User/matrixApp/matrix-project-cpp/src/MyFunctioin.cpp" "CMakeFiles/app.dir/src/MyFunctioin.cpp.obj" "gcc" "CMakeFiles/app.dir/src/MyFunctioin.cpp.obj.d"

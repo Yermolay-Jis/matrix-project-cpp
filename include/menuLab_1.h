@@ -1,5 +1,6 @@
 #pragma once
 #include "Header.h"
+#include "ArrayModel.h"
 #include "../include/UIComponent.h"
 #include "../include/Menu.h"
 #include "../include/MenuItem.h"
@@ -7,8 +8,37 @@
 
 class MenuLab_1 : public Menu
 {
+private:
+    enum class ViewMode
+    {
+        MenuMode,
+        InputMode,
+        SetSizeArrayMode,
+        PopulateArrayMode,
+        SolutionMode
+    };
+
+    ViewMode activeMode_ = ViewMode::MenuMode;
+    ViewMode returnToMode_;
+    ArrayModel arrayModel_;
+
+    size_t receivedValue_;
+    bool getValue_ = false;
+    std::string inputString_ = "";
+    std::string promptMessage_ = "Enter the value:";
+    std::string errorMessage_;
+    ftxui::Component inputComponent_ = ftxui::Input(&inputString_, promptMessage_);
+    void promptForGetValue();
+
 public:
-    MenuLab_1(const std::function<void()> &navigateBack);
+    MenuLab_1(const std::function<void()> &navigateBack, const std::function<void(std::shared_ptr<UIComponent>)> &navigateTo);
+    ftxui::Element Render() override;
+    void handleSetSizeArray();
+
+    void handlePopulateArray();
+    void handleSolutionTask();
+    void handleSaveArrayAs();
+    void handleLoadArray();
 };
 
 void menuLab_1();

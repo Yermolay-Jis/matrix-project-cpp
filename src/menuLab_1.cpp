@@ -1,6 +1,8 @@
 #include "../include/Header.h"
 #include "../include/MyFunction.h"
 #include "../include/menuLab_1.h"
+#include "../include/InfoComponent.h"
+#include "../include/ArrayModel.h"
 #include "portable_io.h"
 
 char separate = ',';
@@ -35,50 +37,51 @@ void info()
 {
 	setColor(14, 0);
 	CURSOR(3, 2);
-	std::cout << "�������: \n";
+	std::cout << "Условие: \n";
 	CURSOR(3, 3);
-	std::cout << "��� ������ x_1 ..., x_n";
+	std::cout << "Дан массив x_1 ..., x_n";
 	CURSOR(3, 4);
-	std::cout << "����� ����� �������� �� �_1 �� �_min\n\n";
+	std::cout << "Найти сумму элементов от x_1 до x_min\n\n";
+	ftxui::Element task = ftxui::text("Task: An array of numbers is given from x_1 to x_n.\n Find the sum of the elements from x_1 to x_min\n\n");
 }
 
-void inputEl()
-{
-	setColor(15, 0);
+// void inputEl()
+// {
+// 	setColor(15, 0);
 
-	info();
-	std::cout << "   ������� �������� �������: \n";
-	for (size_t i = 0; i < sizeArr; i++)
-	{
-		CURSOR(3, 6);
-		SPACEBACK(30);
-		setColor(10, 0);
+// 	info();
+// 	std::cout << "   Введите элементы массива: \n";
+// 	for (size_t i = 0; i < sizeArr; i++)
+// 	{
+// 		CURSOR(3, 6);
+// 		SPACEBACK(30);
+// 		setColor(10, 0);
 
-		if (i == sizeArr - 1)
-		{
-			setColor(12, 0);
-		}
-		std::cout << "   x[" << i + 1 << "] = ";
-		std::cin >> arr[i];
+// 		if (i == sizeArr - 1)
+// 		{
+// 			setColor(12, 0);
+// 		}
+// 		std::cout << "   x[" << i + 1 << "] = ";
+// 		std::cin >> arr[i];
 
-		if (std::cin.bad() || std::cin.fail())
-		{
-			const size_t MAX_IGNORE_LINE = 256;
-			std::cin.clear();
-			std::cin.ignore(MAX_IGNORE_LINE, '\n');
-			i--;
-			continue;
-		}
-	}
-	setColor(7, 0);
-	textIndicator = true;
-}
+// 		if (std::cin.bad() || std::cin.fail())
+// 		{
+// 			const size_t MAX_IGNORE_LINE = 256;
+// 			std::cin.clear();
+// 			std::cin.ignore(MAX_IGNORE_LINE, '\n');
+// 			i--;
+// 			continue;
+// 		}
+// 	}
+// 	setColor(7, 0);
+// 	textIndicator = true;
+// }
 
 void solution1()
 {
 	setColor(15, 0);
 	// �������
-	std::cout << "\n   ����������� ������� = ";
+	std::cout << "\n   минимальный элемент = ";
 	min_el = arr[0];
 	index = -1;
 	for (size_t i = 0; i < sizeArr; i++)
@@ -96,13 +99,13 @@ void outputEl()
 {
 	// ����� �����������
 
-	std::cout << "\n   ������: ";
+	std::cout << "\n   Массив: ";
 	for (size_t i = 0; i < sizeArr; i++)
 	{
 		std::cout << arr[i] << " ";
 	}
 	setColor(14, 0);
-	std::cout << "\n\n   ����� ��������� ������� �� ������������ �������� " << "( "
+	std::cout << "\n\n   Сумма чисел от начала массива до минмального элемента " << "( "
 			  << min_el << " ) = ";
 	double sum = 0;
 	for (int i = 0; i < index; i++)
@@ -123,39 +126,39 @@ void clearArr(double *arr)
 	}
 }
 
-int setSizeArr()
-{
-	setColor(15, 0);
-	std::cout << "   ���������� ������� �������" << std::endl;
-	CURSOR(3, 2);
-	unsigned int key;
-	setColor(7, 0);
-	std::cout << "   ������� ������?" << "\n\n   1 - да   2 - нет";
-	key = get_char_non_blocking();
-	if (key == '1')
-	{
-		LINES(1);
-		std::cout << "\n   ������� ������ �������: ";
-		std::cin >> sizeArr;
-		arr = new double[sizeArr]{};
+// int setSizeArr()
+// {
+// 	setColor(15, 0);
+// 	std::cout << "   Изменение размера массива" << std::endl;
+// 	CURSOR(3, 2);
+// 	unsigned int key;
+// 	setColor(7, 0);
+// 	std::cout << "   Изменить размер?" << "\n\n   1 - да   2 - нет";
+// 	key = get_char_non_blocking();
+// 	if (key == '1')
+// 	{
+// 		LINES(1);
+// 		std::cout << "\n   Введите новый размер: ";
+// 		std::cin >> sizeArr;
+// 		arr = new double[sizeArr]{};
 
-		setColor(10, 0);
-		std::cout << "   ������ ������� ������� �������!\n\n";
-		setColor(7, 0);
-		std::cout << "\n\n   нажмите ESC, чтобы выйти...";
-		return sizeArr;
-	}
-	else
-	{
-		throw std::runtime_error("\n\n   нажмите ESC чтобы выйти...");
-	}
-}
+// 		setColor(10, 0);
+// 		std::cout << "   Размер массива успешно изменен!\n\n";
+// 		setColor(7, 0);
+// 		std::cout << "\n\n   нажмите ESC, чтобы выйти...";
+// 		return sizeArr;
+// 	}
+// 	else
+// 	{
+// 		throw std::runtime_error("\n\n   нажмите ESC чтобы выйти...");
+// 	}
+// }
 
 std::string getNameFile()
 {
 	setColor(15, 0);
 	std::string nameFile;
-	std::cout << "\n   ������� ��� �����: ";
+	std::cout << "\n   Введите имя файла: ";
 	setColor(10, 0);
 	// std::cin >> nameFile;
 	std::cin >> nameFile;
@@ -171,159 +174,159 @@ std::string getNameFile()
 	return nameFile;
 }
 
-void inpFile()
-{
-	// system("cls");
-	CURSOR(3, 3);
-	setColor(6, 0);
-	std::cout << "������ ������ � ����";
+// void inpFile()
+// {
+// 	// system("cls");
+// 	CURSOR(3, 3);
+// 	setColor(6, 0);
+// 	std::cout << "������ ������ � ����";
 
-	nameFile = getNameFile();
+// 	nameFile = getNameFile();
 
-	std::ifstream file_test(nameFile);
-	bool file_exist = file_test.good();
-	file_test.close();
-	std::ios_base::openmode mode = std::ios::out;
+// 	std::ifstream file_test(nameFile);
+// 	bool file_exist = file_test.good();
+// 	file_test.close();
+// 	std::ios_base::openmode mode = std::ios::out;
 
-	if (file_exist)
-	{
-		std::cout << "\n\n   ���������� �������� � ����?\t1 - ��";
-		char ch = get_char_non_blocking();
-		if (ch == '1')
-		{
-			mode = std::ios::app;
-		}
-	}
-	std::ofstream file(nameFile, mode);
+// 	if (file_exist)
+// 	{
+// 		std::cout << "\n\n   Дозаписать значения в файл?\t1 - да";
+// 		char ch = get_char_non_blocking();
+// 		if (ch == '1')
+// 		{
+// 			mode = std::ios::app;
+// 		}
+// 	}
+// 	std::ofstream file(nameFile, mode);
 
-	if (!file.is_open())
-	{
-		std::cerr << "  Error: file not opened";
-		return;
-	};
-	if (sizeArr == 0)
-	{
-		std::cerr << "   Error: file is empty! ";
-		return;
-	};
+// 	if (!file.is_open())
+// 	{
+// 		std::cerr << "  Error: file not opened";
+// 		return;
+// 	};
+// 	if (sizeArr == 0)
+// 	{
+// 		std::cerr << "   Error: file is empty! ";
+// 		return;
+// 	};
 
-	// system("cls");
-	inputEl();
-	for (size_t i = 0; i < sizeArr; i++)
-	{
-		file << arr[i] << std::endl;
-	}
-	file.close();
-	LINES(1);
+// 	// system("cls");
+// 	inputEl();
+// 	for (size_t i = 0; i < sizeArr; i++)
+// 	{
+// 		file << arr[i] << std::endl;
+// 	}
+// 	file.close();
+// 	LINES(1);
 
-	setColor(7, 0);
-	std::cout << "   ������ ������� �������� � ���� => ";
-	SPACEBACK(1);
-	setColor(10, 0);
-	std::cout << nameFile;
-}
+// 	setColor(7, 0);
+// 	std::cout << "   Массив успешно сохрарнен в файле => ";
+// 	SPACEBACK(1);
+// 	setColor(10, 0);
+// 	std::cout << nameFile;
+// }
 
-void outFile()
-{
-	nameFile = getNameFile();
+// void outFile()
+// {
+// 	nameFile = getNameFile();
 
-	std::cout << "\n";
-	setColor(15, 0);
-	indicator = false;
+// 	std::cout << "\n";
+// 	setColor(15, 0);
+// 	indicator = false;
 
-	std::ifstream file(nameFile);
-	indicator = file.is_open() ? true : false;
-	std::string comment = file.is_open() ? "   ���� ������� ������\n\n" : "   ������, ������ ����� ���\n\n";
-	std::cout << comment << std::endl;
+// 	std::ifstream file(nameFile);
+// 	indicator = file.is_open() ? true : false;
+// 	std::string comment = file.is_open() ? "   Файл успешно найден\n\n" : "   Ошибка, такого файла нет\n\n";
+// 	std::cout << comment << std::endl;
 
-	if (indicator == true)
-	{
-		std::string data;
-		std::string item;
-		size_t numberEl = 0;
-		size_t i = 0;
+// 	if (indicator == true)
+// 	{
+// 		std::string data;
+// 		std::string item;
+// 		size_t numberEl = 0;
+// 		size_t i = 0;
 
-		while (std::getline(file, data))
-		{
-			if (!data.empty())
-			{
-				numberEl++;
-			}
-			else
-			{
-				continue;
-			}
-		}
-		std::cout << "\n\n   ���������� ������ � �����: " << numberEl << std::endl;
-		if (numberEl == 0)
-		{
-			std::cerr << "   Error: file is empty!";
-			textIndicator = false, indicator = false;
-			return;
-		}
+// 		while (std::getline(file, data))
+// 		{
+// 			if (!data.empty())
+// 			{
+// 				numberEl++;
+// 			}
+// 			else
+// 			{
+// 				continue;
+// 			}
+// 		}
+// 		std::cout << "\n\n   Количество элементов в файле: " << numberEl << std::endl;
+// 		if (numberEl == 0)
+// 		{
+// 			std::cerr << "   Error: file is empty!";
+// 			textIndicator = false, indicator = false;
+// 			return;
+// 		}
 
-		saveArr(arr, sizeArr);
-		arr = new double[numberEl];
-		sizeArr = numberEl;
-		std::string line;
-		file.clear();
-		file.seekg(0, std::ios::beg);
+// 		saveArr(arr, sizeArr);
+// 		arr = new double[numberEl];
+// 		sizeArr = numberEl;
+// 		std::string line;
+// 		file.clear();
+// 		file.seekg(0, std::ios::beg);
 
-		while (std::getline(file, line))
-		{
-			if (line.empty())
-			{
-				continue;
-			}
+// 		while (std::getline(file, line))
+// 		{
+// 			if (line.empty())
+// 			{
+// 				continue;
+// 			}
 
-			double value = 0.0, result = 0.0;
-			size_t charProcessed = 0;
-			std::stringstream ss(line);
-			while (ss >> item)
-			{
+// 			double value = 0.0, result = 0.0;
+// 			size_t charProcessed = 0;
+// 			std::stringstream ss(line);
+// 			while (ss >> item)
+// 			{
 
-				try
-				{
-					for (size_t i = 0; i < item.length(); i++)
-					{
-						if (item[i] == '.')
-						{
-							item[i] = separate;
-						}
-						if (!((item[i] >= '0' && item[i] <= '9') || item[i] == '+' || item[i] == '-' || item[i] == 'e' || item[i] == 'E' || item[i] == '.' || item[i] == ','))
-						{
-							result = 0;
-						};
-					}
-					value = std::stod(item, &charProcessed);
-					result += value;
-				}
-				catch (const std::invalid_argument &e)
-				{
-					setColor(12, 0);
-					std::cerr << "   ������: ��������������� �������� " << std::endl;
-				}
-				catch (const std::out_of_range &e)
-				{
-					setColor(12, 0);
-					std::cerr << "   ������: ����� �� ������� ������� �������" << std::endl;
-				}
-				catch (const std::exception &e)
-				{
-					setColor(12, 0);
-					std::cerr << "   ������: ������� � ������ " << i + 1 << " ����� ���������������� �������� � ��� ������� �� 0. �������� ������� � �������� ���� ������" << std::endl;
-				}
-			}
-			arr[i] = result;
-			i++;
-		}
+// 				try
+// 				{
+// 					for (size_t i = 0; i < item.length(); i++)
+// 					{
+// 						if (item[i] == '.')
+// 						{
+// 							item[i] = separate;
+// 						}
+// 						if (!((item[i] >= '0' && item[i] <= '9') || item[i] == '+' || item[i] == '-' || item[i] == 'e' || item[i] == 'E' || item[i] == '.' || item[i] == ','))
+// 						{
+// 							result = 0;
+// 						};
+// 					}
+// 					value = std::stod(item, &charProcessed);
+// 					result += value;
+// 				}
+// 				catch (const std::invalid_argument &e)
+// 				{
+// 					setColor(12, 0);
+// 					std::cerr << "   Error:" << e.what();
+// 				}
+// 				catch (const std::out_of_range &e)
+// 				{
+// 					setColor(12, 0);
+// 					std::cerr << "   Error: " << e.what() << std::endl;
+// 				}
+// 				catch (const std::exception &e)
+// 				{
+// 					setColor(12, 0);
+// 					std::cerr << "   Error: " << e.what() << std::endl;
+// 				}
+// 			}
+// 			arr[i] = result;
+// 			i++;
+// 		}
 
-		file.close();
+// 		file.close();
 
-		solution1();
-		outputEl();
-	}
-}
+// 		solution1();
+// 		outputEl();
+// 	}
+// }
 
 // void outTableGraf(double *arr, int size, int pnsec, std::string title, std::string psmas, HDC hdc, size_t n)
 // {
@@ -394,113 +397,229 @@ void outFile()
 // 	}
 // };
 
-void replaceElFile()
+// void replaceElFile()
+// {
+// 	outFile();
+
+// 	if (indicator == true)
+// 	{
+// 		std::cout << "\n   �������� �������� ��������?\n\n   1 - ��\t2 - ���" << std::endl;
+// 		size_t key = get_char_non_blocking();
+
+// 		if (key == '1')
+// 		{
+// 			// system("cls");
+
+// 			std::cout << "   ������ �� �����:\n";
+// 			for (size_t i = 0; i < sizeArr; i++)
+// 			{
+// 				std::cout << "  " << arr[i];
+// 			}
+
+// 			size_t replaceElIdx;
+// 			std::cout << "\n\n   ������� ����� �������� �������� ������ �������� (0, 1, 2, ...)" << std::endl
+// 					  << "   ";
+// 			std::cin >> replaceElIdx;
+// 			if (replaceElIdx >= sizeArr || std::cin.fail() || std::cin.bad())
+// 			{
+// 				std::cerr << "   ������: �������� � ����� �������� �� ����������!" << std::endl;
+// 				while (replaceElIdx >= sizeArr || std::cin.fail() || std::cin.bad())
+// 				{
+// 					CURSOR(3, 6);
+// 					SPACEBACK(30);
+// 					std::cin.clear();
+// 					std::cin.ignore(250, '\n');
+// 					// std::cout << "   ������� ����� �������� �������� �������� � �������� �� 0 �� " << sizeArr << std::endl;
+// 					std::cin >> replaceElIdx;
+// 				}
+// 				for (int i = 4; i < 7; i++)
+// 				{
+// 					for (int j = 0; j < 30; j++)
+// 					{
+// 						std::cin.clear();
+// 						SPACEBACK(30);
+// 						CURSOR(j, i);
+// 					}
+// 				};
+// 			}
+// 			CURSOR(3, 6);
+
+// 			for (size_t i = 0; i < sizeArr; i++)
+// 			{
+// 				if (i == replaceElIdx)
+// 				{
+// 					replaceElIdx = i;
+// 					break;
+// 				}
+// 			}
+// 			std::cout << "�������� � �������� ";
+// 			setColor(10, 0);
+// 			SPACEBACK(30);
+// 			std::cout << replaceElIdx;
+// 			setColor(14, 0);
+// 			SPACEBACK(30);
+// 			std::cout << " ������� ������ => ";
+// 			setColor(10, 0);
+// 			SPACEBACK(30);
+// 			std::cout << arr[replaceElIdx];
+
+// 			double newElement;
+
+// 			setColor(14, 0);
+// 			std::cout << "\n\n   ������� ����� �������� ��� ����� ��������: \n   ";
+// 			setColor(10, 0);
+// 			std::cout << arr[replaceElIdx];
+// 			setColor(14, 0);
+// 			SPACEBACK(30);
+// 			std::cout << " => ";
+// 			setColor(10, 0);
+// 			SPACEBACK(30);
+// 			std::cin >> newElement;
+// 			setColor(14, 0);
+
+// 			arr[replaceElIdx] = newElement;
+// 			std::ofstream file(nameFile, std::ios::trunc);
+// 			for (size_t i = 0; i < sizeArr; i++)
+// 			{
+// 				file << arr[i] << "\n";
+// 			}
+
+// 			std::cout << "   ���������� ������:\n";
+// 			for (size_t i = 0; i < sizeArr; i++)
+// 			{
+// 				std::cout << "  " << arr[i];
+// 			}
+// 		}
+// 		else
+// 		{
+// 			std::cout << "\n\n   ������� ESC ����� �����...";
+// 		}
+// 	}
+// }
+
+MenuLab_1::MenuLab_1(const std::function<void()> &navigateBack, const std::function<void(std::shared_ptr<UIComponent>)> &navigateTo)
 {
-	outFile();
 
-	if (indicator == true)
+	this->AddItem(std::make_shared<TextItem>("Laboratory work #1"));
+	this->AddItem(std::make_shared<MenuItem>("Information", [this, navigateBack, navigateTo]
+											 {
+												 std::string taskTitle = "Task:";
+												 std::string taskContent = "An array of numbers is given from x_1 to x_n.\nFind the sum elements from x_1 to x_min.";
+												 auto infoWindow = std::make_shared<InfoComponent>(taskTitle, taskContent, navigateBack);
+												 navigateTo(infoWindow); }));
+	this->AddItem(std::make_shared<MenuItem>("Set size in the array", [this]
+											 {
+												this->promptForGetValue();
+												this->handleSetSizeArray(); }));
+	this->AddItem(std::make_shared<MenuItem>("Back", navigateBack));
+
+	ftxui::InputOption options;
+	options.on_enter = [this]
 	{
-		std::cout << "\n   �������� �������� ��������?\n\n   1 - ��\t2 - ���" << std::endl;
-		size_t key = get_char_non_blocking();
-
-		if (key == '1')
+		try
 		{
-			// system("cls");
-
-			std::cout << "   ������ �� �����:\n";
-			for (size_t i = 0; i < sizeArr; i++)
-			{
-				std::cout << "  " << arr[i];
-			}
-
-			size_t replaceElIdx;
-			std::cout << "\n\n   ������� ����� �������� �������� ������ �������� (0, 1, 2, ...)" << std::endl
-					  << "   ";
-			std::cin >> replaceElIdx;
-			if (replaceElIdx >= sizeArr || std::cin.fail() || std::cin.bad())
-			{
-				std::cerr << "   ������: �������� � ����� �������� �� ����������!" << std::endl;
-				while (replaceElIdx >= sizeArr || std::cin.fail() || std::cin.bad())
-				{
-					CURSOR(3, 6);
-					SPACEBACK(30);
-					std::cin.clear();
-					std::cin.ignore(250, '\n');
-					// std::cout << "   ������� ����� �������� �������� �������� � �������� �� 0 �� " << sizeArr << std::endl;
-					std::cin >> replaceElIdx;
-				}
-				for (int i = 4; i < 7; i++)
-				{
-					for (int j = 0; j < 30; j++)
-					{
-						std::cin.clear();
-						SPACEBACK(30);
-						CURSOR(j, i);
-					}
-				};
-			}
-			CURSOR(3, 6);
-
-			for (size_t i = 0; i < sizeArr; i++)
-			{
-				if (i == replaceElIdx)
-				{
-					replaceElIdx = i;
-					break;
-				}
-			}
-			std::cout << "�������� � �������� ";
-			setColor(10, 0);
-			SPACEBACK(30);
-			std::cout << replaceElIdx;
-			setColor(14, 0);
-			SPACEBACK(30);
-			std::cout << " ������� ������ => ";
-			setColor(10, 0);
-			SPACEBACK(30);
-			std::cout << arr[replaceElIdx];
-
-			double newElement;
-
-			setColor(14, 0);
-			std::cout << "\n\n   ������� ����� �������� ��� ����� ��������: \n   ";
-			setColor(10, 0);
-			std::cout << arr[replaceElIdx];
-			setColor(14, 0);
-			SPACEBACK(30);
-			std::cout << " => ";
-			setColor(10, 0);
-			SPACEBACK(30);
-			std::cin >> newElement;
-			setColor(14, 0);
-
-			arr[replaceElIdx] = newElement;
-			std::ofstream file(nameFile, std::ios::trunc);
-			for (size_t i = 0; i < sizeArr; i++)
-			{
-				file << arr[i] << "\n";
-			}
-
-			std::cout << "   ���������� ������:\n";
-			for (size_t i = 0; i < sizeArr; i++)
-			{
-				std::cout << "  " << arr[i];
-			}
+			this->receivedValue_ = std::stoull(this->inputString_);
+			this->activeMode_ = this->returnToMode_;
+			this->getValue_ = true;
 		}
-		else
+		catch (std::exception &e)
 		{
-			std::cout << "\n\n   ������� ESC ����� �����...";
+			this->errorMessage_ = e.what();
 		}
+	};
+	inputComponent_ = ftxui::Input(inputString_, "...", options);
+};
+
+ftxui::Element MenuLab_1::Render()
+{
+
+	switch (this->activeMode_)
+	{
+	case ViewMode::MenuMode:
+	{
+		return Menu::Render();
 	}
+	case ViewMode::InputMode:
+	{
+		ftxui::Element inpWindow = ftxui::vbox({
+			ftxui::text(this->promptMessage_),
+			ftxui::separator(),
+			ftxui::hbox({
+				ftxui::text(">"),
+				this->inputComponent_->Render(),
+			}),
+		});
+		return inpWindow | ftxui::border;
+	}
+	case ViewMode::SetSizeArrayMode:
+	{
+		std::vector<ftxui::Element> resultArray;
+		this->returnToMode_ = ViewMode::SetSizeArrayMode;
+
+		ftxui::Element nameWindow = ftxui::text("Change a array of the size");
+		ftxui::Element message = ftxui::text("The size of the array has been succesfully changed!");
+		size_t newSizeArray = 0;
+		if (this->getValue_)
+		{
+			newSizeArray = this->receivedValue_;
+			this->getValue_ = false;
+
+			this->arrayModel_.setSizeArray(newSizeArray);
+		};
+		const std::vector<double> &array = this->arrayModel_.getArray();
+		for (double element : array)
+		{
+			std::string sElement = std::to_string(element);
+			resultArray.push_back(ftxui::text(sElement));
+		};
+
+		return ftxui::vbox({nameWindow,
+							message,
+							ftxui::hbox({resultArray})});
+	};
+	default:
+	{
+		activeMode_ = ViewMode::MenuMode;
+	}
+	}
+};
+
+void MenuLab_1::promptForGetValue()
+{
+	activeMode_ = ViewMode::InputMode;
+};
+
+void MenuLab_1::handleSetSizeArray()
+{
+	activeMode_ = ViewMode::SetSizeArrayMode;
 }
 
-MenuLab_1::MenuLab_1(const std::function<void()> &navigateBack)
+void MenuLab_1::handlePopulateArray()
 {
-	this->AddItem(std::make_shared<TextItem>("Laboratory work #1"));
-	this->AddItem(std::make_shared<MenuItem>("Information", []
-											 { info(); }));
-	this->AddItem(std::make_shared<MenuItem>("Back", navigateBack));
-};
+	std::cout << "Filling in the array" << std::endl;
+	std::cout << "Enter the elements for the array: \n";
+	for (size_t i = 0; i < arrayModel_.getSizeArray(); i++)
+	{
+		double value;
+		std::cout << "   x[" << i + 1 << "] = ";
+		std::cin >> value;
+
+		if (std::cin.bad() || std::cin.fail())
+		{
+			const size_t MAX_IGNORE_LINE = 256;
+			std::cin.clear();
+			std::cin.ignore(MAX_IGNORE_LINE, '\n');
+			i--;
+			continue;
+		}
+		arrayModel_.setItem(i, value);
+	};
+	std::cout << "The array has been succesfully filled";
+}
+
+void MenuLab_1::handleSolutionTask()
+{
+}
 
 void menuLab_1()
 {
