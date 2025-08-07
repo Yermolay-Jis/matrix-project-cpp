@@ -2,7 +2,6 @@
 #include "Header.h"
 #include "UIComponent.h"
 #include "MenuItem.h"
-#include "TextItem.h"
 
 class Menu : public UIComponent
 {

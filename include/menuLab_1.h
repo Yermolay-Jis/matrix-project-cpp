@@ -4,41 +4,70 @@
 #include "../include/UIComponent.h"
 #include "../include/Menu.h"
 #include "../include/MenuItem.h"
-#include "../include/TextItem.h"
 
-class MenuLab_1 : public Menu
+// class MenuLab_1 : public Menu
+// {
+// private:
+//     enum class ViewMode
+//     {
+//         MenuMode,
+//         InputMode,
+//         SetSizeArrayMode,
+//         PopulateArrayMode,
+//         SolutionMode
+//     };
+
+//     ViewMode activeMode_ = ViewMode::MenuMode;
+//     ViewMode returnToMode_;
+//     ArrayModel arrayModel_;
+
+//     size_t newSize_ = 0;
+
+//     std::string userInputBuffer_;
+//     std::string promptMessage_ = "Enter the value:";
+//     std::string errorMessage_;
+//     std::function<void(std::string)> on_input_submit_;
+//     void promptForValue(std::string, std::function<void(std::string)>);
+
+// public:
+//     MenuLab_1(const std::function<void()> &navigateBack, const std::function<void(std::shared_ptr<UIComponent>)> &navigateTo);
+//     ftxui::Element Render() override;
+//     void handleSetSizeArray(size_t newSize);
+
+//     void handlePopulateArray();
+//     void handleSolutionTask();
+//     void handleSaveArrayAs();
+//     void handleLoadArray();
+// };
+
+class MenuLab_1 : public UIComponent
 {
-private:
-    enum class ViewMode
-    {
-        MenuMode,
-        InputMode,
-        SetSizeArrayMode,
-        PopulateArrayMode,
-        SolutionMode
-    };
-
-    ViewMode activeMode_ = ViewMode::MenuMode;
-    ViewMode returnToMode_;
-    ArrayModel arrayModel_;
-
-    size_t receivedValue_;
-    bool getValue_ = false;
-    std::string inputString_ = "";
-    std::string promptMessage_ = "Enter the value:";
-    std::string errorMessage_;
-    ftxui::Component inputComponent_ = ftxui::Input(&inputString_, promptMessage_);
-    void promptForGetValue();
-
 public:
-    MenuLab_1(const std::function<void()> &navigateBack, const std::function<void(std::shared_ptr<UIComponent>)> &navigateTo);
-    ftxui::Element Render() override;
-    void handleSetSizeArray();
+    MenuLab_1(std::function<void()> navigateBack,
+              std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo);
 
-    void handlePopulateArray();
-    void handleSolutionTask();
-    void handleSaveArrayAs();
-    void handleLoadArray();
+    ftxui::Element Render() override;
+    void OnEvent(ftxui::Event event) override;
+    bool IsSelectable() override;
+
+private:
+    ftxui::Component component_;
+
+    enum View
+    {
+        Menu,
+        Input,
+        Result
+    };
+    View active_view_ = View::Menu;
+    std::string user_input_buffer_;
+    size_t new_size_ = 0;
+    std::string error_message_;
+    std::shared_ptr<ArrayModel> array_model_;
+
+    ftxui::Component buildMainMenuView(std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo, std::function<void()> navigateBack);
+    ftxui::Component buildInputView();
+    ftxui::Component buildResultView();
 };
 
 void menuLab_1();
@@ -48,7 +77,7 @@ void info();
 void inputEl();
 void solution1();
 void outputEl();
-void clearArr(double *);
+// void clearArr(double *);
 
 void inpFile();
 void outFile();

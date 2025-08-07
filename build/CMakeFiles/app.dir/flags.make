@@ -6,13 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles/app.dir/includes_CXX.rsp
 
-<<<<<<< HEAD
 CXX_FLAGS = -g -std=gnu++17 -Wall -Wextra
-=======
-<<<<<<< HEAD
-CXX_FLAGS = -std=gnu++17
-=======
-CXX_FLAGS = -g -std=c++17 -Wall -Wextra
->>>>>>> 927b644 (Finall fix)
->>>>>>> 5b570679858f216fcef46c578a9e46a02c6712f3
 

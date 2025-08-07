@@ -5,8 +5,8 @@
 #include "../include/UIComponent.h"
 #include "../include/Menu.h"
 #include "../include/MenuItem.h"
-#include "../include/TextItem.h"
 #include "../include/portable_io.h"
+#include "../include/mainMenuComponent.h"
 
 int main()
 {
@@ -45,10 +45,9 @@ int main()
     // } while (key != 27);
 
     auto screen = ftxui::ScreenInteractive::Fullscreen();
-    auto mainMenu = std::make_shared<Menu>();
 
-    std::shared_ptr<UIComponent> activeComponent = mainMenu;
     std::vector<std::shared_ptr<UIComponent>> navigationStack;
+    std::shared_ptr<UIComponent> activeComponent;
 
     auto navigateTo = [&](const std::shared_ptr<UIComponent> &component)
     {
@@ -63,29 +62,25 @@ int main()
             navigationStack.pop_back();
         }
     };
-    auto menuLab_1 = std::make_shared<MenuLab_1>(navigateBack, navigateTo);
+    auto exitAction = [&]
+    {
+        screen.Exit();
+    };
 
-    mainMenu->AddItem(std::make_shared<TextItem>("Main menu"));
-    mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №1", [navigateTo, menuLab_1]
-                                                 { navigateTo(menuLab_1); }));
-    // mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №2", [&]
-    //                                              { navigateTo(menuLab_2); }));
-    // mainMenu->AddItem(std::make_shared<MenuItem>("Laboratory work №3", [&]
-    //                                              { navigateTo(menuLab_3); }));
-    mainMenu->AddItem(std::make_shared<MenuItem>("Exit", [&]
-                                                 { screen.Exit(); }));
+    auto mainMenu = std::make_shared<MainMenuComponent>(exitAction, navigateTo);
+    navigateTo(mainMenu);
 
     auto component = ftxui::Renderer([&]
                                      { return activeComponent->Render(); });
-    component = ftxui::CatchEvent(component, [&](ftxui::Event event)
-                                  {
+    auto event_catcher = ftxui::CatchEvent(component, [&](ftxui::Event event)
+                                           {
         if (event == ftxui::Event::Escape)
         {
             navigateBack();
             return true;
         };
         activeComponent->OnEvent(event);
-        return true; });
-    screen.Loop(component);
+        return false; });
+    screen.Loop(event_catcher);
     return 0;
 }
