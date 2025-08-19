@@ -247,6 +247,30 @@ cmake_pch.hxx.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/cmake_pch.hxx.s
 .PHONY : cmake_pch.hxx.s
 
+core/array_logic/ArrayAutoFiller.obj: core/array_logic/ArrayAutoFiller.cpp.obj
+.PHONY : core/array_logic/ArrayAutoFiller.obj
+
+# target to build an object file
+core/array_logic/ArrayAutoFiller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj
+.PHONY : core/array_logic/ArrayAutoFiller.cpp.obj
+
+core/array_logic/ArrayAutoFiller.i: core/array_logic/ArrayAutoFiller.cpp.i
+.PHONY : core/array_logic/ArrayAutoFiller.i
+
+# target to preprocess a source file
+core/array_logic/ArrayAutoFiller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.i
+.PHONY : core/array_logic/ArrayAutoFiller.cpp.i
+
+core/array_logic/ArrayAutoFiller.s: core/array_logic/ArrayAutoFiller.cpp.s
+.PHONY : core/array_logic/ArrayAutoFiller.s
+
+# target to generate assembly for a file
+core/array_logic/ArrayAutoFiller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.s
+.PHONY : core/array_logic/ArrayAutoFiller.cpp.s
+
 core/array_logic/ArrayModel.obj: core/array_logic/ArrayModel.cpp.obj
 .PHONY : core/array_logic/ArrayModel.obj
 
@@ -391,6 +415,30 @@ src/ui/screens/array_operations/CreateArrayView.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/CreateArrayView.cpp.s
 .PHONY : src/ui/screens/array_operations/CreateArrayView.cpp.s
 
+src/ui/screens/array_operations/FillArrayRandomView.obj: src/ui/screens/array_operations/FillArrayRandomView.cpp.obj
+.PHONY : src/ui/screens/array_operations/FillArrayRandomView.obj
+
+# target to build an object file
+src/ui/screens/array_operations/FillArrayRandomView.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.obj
+.PHONY : src/ui/screens/array_operations/FillArrayRandomView.cpp.obj
+
+src/ui/screens/array_operations/FillArrayRandomView.i: src/ui/screens/array_operations/FillArrayRandomView.cpp.i
+.PHONY : src/ui/screens/array_operations/FillArrayRandomView.i
+
+# target to preprocess a source file
+src/ui/screens/array_operations/FillArrayRandomView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.i
+.PHONY : src/ui/screens/array_operations/FillArrayRandomView.cpp.i
+
+src/ui/screens/array_operations/FillArrayRandomView.s: src/ui/screens/array_operations/FillArrayRandomView.cpp.s
+.PHONY : src/ui/screens/array_operations/FillArrayRandomView.s
+
+# target to generate assembly for a file
+src/ui/screens/array_operations/FillArrayRandomView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.s
+.PHONY : src/ui/screens/array_operations/FillArrayRandomView.cpp.s
+
 src/ui/screens/array_operations/FillArrayView.obj: src/ui/screens/array_operations/FillArrayView.cpp.obj
 .PHONY : src/ui/screens/array_operations/FillArrayView.obj
 
@@ -414,6 +462,54 @@ src/ui/screens/array_operations/FillArrayView.s: src/ui/screens/array_operations
 src/ui/screens/array_operations/FillArrayView.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayView.cpp.s
 .PHONY : src/ui/screens/array_operations/FillArrayView.cpp.s
+
+src/ui/screens/array_operations/ShowArrayView.obj: src/ui/screens/array_operations/ShowArrayView.cpp.obj
+.PHONY : src/ui/screens/array_operations/ShowArrayView.obj
+
+# target to build an object file
+src/ui/screens/array_operations/ShowArrayView.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.obj
+.PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.obj
+
+src/ui/screens/array_operations/ShowArrayView.i: src/ui/screens/array_operations/ShowArrayView.cpp.i
+.PHONY : src/ui/screens/array_operations/ShowArrayView.i
+
+# target to preprocess a source file
+src/ui/screens/array_operations/ShowArrayView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.i
+.PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.i
+
+src/ui/screens/array_operations/ShowArrayView.s: src/ui/screens/array_operations/ShowArrayView.cpp.s
+.PHONY : src/ui/screens/array_operations/ShowArrayView.s
+
+# target to generate assembly for a file
+src/ui/screens/array_operations/ShowArrayView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.s
+.PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.s
+
+src/ui/screens/array_operations/SubMenuSortArray.obj: src/ui/screens/array_operations/SubMenuSortArray.cpp.obj
+.PHONY : src/ui/screens/array_operations/SubMenuSortArray.obj
+
+# target to build an object file
+src/ui/screens/array_operations/SubMenuSortArray.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.obj
+.PHONY : src/ui/screens/array_operations/SubMenuSortArray.cpp.obj
+
+src/ui/screens/array_operations/SubMenuSortArray.i: src/ui/screens/array_operations/SubMenuSortArray.cpp.i
+.PHONY : src/ui/screens/array_operations/SubMenuSortArray.i
+
+# target to preprocess a source file
+src/ui/screens/array_operations/SubMenuSortArray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.i
+.PHONY : src/ui/screens/array_operations/SubMenuSortArray.cpp.i
+
+src/ui/screens/array_operations/SubMenuSortArray.s: src/ui/screens/array_operations/SubMenuSortArray.cpp.s
+.PHONY : src/ui/screens/array_operations/SubMenuSortArray.s
+
+# target to generate assembly for a file
+src/ui/screens/array_operations/SubMenuSortArray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.s
+.PHONY : src/ui/screens/array_operations/SubMenuSortArray.cpp.s
 
 src/ui/screens/array_operations/menuLab_1.obj: src/ui/screens/array_operations/menuLab_1.cpp.obj
 .PHONY : src/ui/screens/array_operations/menuLab_1.obj
@@ -535,6 +631,30 @@ utils/io/portable_io.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/portable_io.cpp.s
 .PHONY : utils/io/portable_io.cpp.s
 
+utils/io/sorting/MergeSort.obj: utils/io/sorting/MergeSort.cpp.obj
+.PHONY : utils/io/sorting/MergeSort.obj
+
+# target to build an object file
+utils/io/sorting/MergeSort.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj
+.PHONY : utils/io/sorting/MergeSort.cpp.obj
+
+utils/io/sorting/MergeSort.i: utils/io/sorting/MergeSort.cpp.i
+.PHONY : utils/io/sorting/MergeSort.i
+
+# target to preprocess a source file
+utils/io/sorting/MergeSort.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.i
+.PHONY : utils/io/sorting/MergeSort.cpp.i
+
+utils/io/sorting/MergeSort.s: utils/io/sorting/MergeSort.cpp.s
+.PHONY : utils/io/sorting/MergeSort.s
+
+# target to generate assembly for a file
+utils/io/sorting/MergeSort.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.s
+.PHONY : utils/io/sorting/MergeSort.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -556,6 +676,9 @@ help:
 	@echo ... cmake_pch.hxx.gch
 	@echo ... cmake_pch.hxx.i
 	@echo ... cmake_pch.hxx.s
+	@echo ... core/array_logic/ArrayAutoFiller.obj
+	@echo ... core/array_logic/ArrayAutoFiller.i
+	@echo ... core/array_logic/ArrayAutoFiller.s
 	@echo ... core/array_logic/ArrayModel.obj
 	@echo ... core/array_logic/ArrayModel.i
 	@echo ... core/array_logic/ArrayModel.s
@@ -574,9 +697,18 @@ help:
 	@echo ... src/ui/screens/array_operations/CreateArrayView.obj
 	@echo ... src/ui/screens/array_operations/CreateArrayView.i
 	@echo ... src/ui/screens/array_operations/CreateArrayView.s
+	@echo ... src/ui/screens/array_operations/FillArrayRandomView.obj
+	@echo ... src/ui/screens/array_operations/FillArrayRandomView.i
+	@echo ... src/ui/screens/array_operations/FillArrayRandomView.s
 	@echo ... src/ui/screens/array_operations/FillArrayView.obj
 	@echo ... src/ui/screens/array_operations/FillArrayView.i
 	@echo ... src/ui/screens/array_operations/FillArrayView.s
+	@echo ... src/ui/screens/array_operations/ShowArrayView.obj
+	@echo ... src/ui/screens/array_operations/ShowArrayView.i
+	@echo ... src/ui/screens/array_operations/ShowArrayView.s
+	@echo ... src/ui/screens/array_operations/SubMenuSortArray.obj
+	@echo ... src/ui/screens/array_operations/SubMenuSortArray.i
+	@echo ... src/ui/screens/array_operations/SubMenuSortArray.s
 	@echo ... src/ui/screens/array_operations/menuLab_1.obj
 	@echo ... src/ui/screens/array_operations/menuLab_1.i
 	@echo ... src/ui/screens/array_operations/menuLab_1.s
@@ -592,6 +724,9 @@ help:
 	@echo ... utils/io/portable_io.obj
 	@echo ... utils/io/portable_io.i
 	@echo ... utils/io/portable_io.s
+	@echo ... utils/io/sorting/MergeSort.obj
+	@echo ... utils/io/sorting/MergeSort.i
+	@echo ... utils/io/sorting/MergeSort.s
 .PHONY : help
 
 

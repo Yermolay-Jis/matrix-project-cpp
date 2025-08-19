@@ -13,12 +13,12 @@ CreateArrayView::CreateArrayView(std::shared_ptr<ArrayModel> model, std::functio
 ftxui::Component CreateArrayView::buildInputView()
 {
     return ftxui::Container::Vertical({ftxui::Input(&user_input_buffer_, "Enter number here"), // Связываем поле ввода с нашим буфером
-                                       ftxui::Button("Submit", [this]
+                                       ftxui::Button("Submit", [&]
                                                      {
                                                          try
                                                          {
-                                                             this->new_size_ = std::stoul(user_input_buffer_);
-                                                             this->array_model_->setSizeArray(new_size_);
+                                                             this->new_size_ = std::stoi(user_input_buffer_);
+                                                             this->array_model_->setCapacity(new_size_);
                                                              this->error_message_.clear();
                                                              this->active_view_create_array_ = 1;
                                                          }

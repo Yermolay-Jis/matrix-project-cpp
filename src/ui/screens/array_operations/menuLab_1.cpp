@@ -3,6 +3,8 @@
 #include "array_logic/ArrayModel.h"
 #include "io/portable_io.h"
 #include "ui/screens/array_operations/CreateArrayView.h"
+#include "ui/screens/array_operations/ShowArrayView.h"
+#include "ui/screens/array_operations/FillArrayView.h"
 #include <string>
 #include <functional>
 #include <utility>
@@ -15,26 +17,10 @@ static double min_el;
 static int index;
 // static HDC hdc = GetDC(GetConsoleWindow());
 static std::string nameFile;
-static bool indicator = true;
-static bool textIndicator;
 
 int sizeBuckupArr1 = 10, sizeBuckupArr2 = 10;
 static double *buckupArr1 = new double[sizeBuckupArr1]();
 static double *buckupArr2 = new double[sizeBuckupArr2]();
-
-static void saveArr(double *svArr, double size)
-{
-
-	if (size <= 1)
-	{
-		return;
-	}
-	sizeBuckupArr1 = size;
-	for (size_t i = 0; i < size; i++)
-	{
-		buckupArr1[i] = svArr[i];
-	}
-}
 
 void info()
 {
@@ -493,56 +479,56 @@ std::string getNameFile()
 // MenuLab_1::MenuLab_1(const std::function<void()> &navigateBack, const std::function<void(std::shared_ptr<UIComponent>)> &navigateTo)
 // {
 
-// 	this->AddItem(std::make_shared<TextItem>("Laboratory work #1"));
-// 	this->AddItem(std::make_shared<MenuItem>("Information", [this, navigateBack, navigateTo]
+// 	AddItem(std::make_shared<TextItem>("Laboratory work #1"));
+// 	AddItem(std::make_shared<MenuItem>("Information", [this, navigateBack, navigateTo]
 // 											 {
 // 												 std::string taskTitle = "Task:";
 // 												 std::string taskContent = "An array of numbers is given from x_1 to x_n.\nFind the sum elements from x_1 to x_min.";
 // 												 auto infoWindow = std::make_shared<InfoComponent>(taskTitle, taskContent, navigateBack);
 // 												 navigateTo(infoWindow); }));
-// 	this->AddItem(std::make_shared<MenuItem>("Set size in the array", [this]
-// 											 { this->promptForValue("Enter new array size:", [this](std::string userInput)
+// 	AddItem(std::make_shared<MenuItem>("Set size in the array", [this]
+// 											 { promptForValue("Enter new array size:", [this](std::string userInput)
 // 																	{
 // 												try {
-// 													this->newSize_ = std::stoul(userInput);
-// 													this->handleSetSizeArray(newSize_);
-// 													this->activeMode_ = ViewMode::SetSizeArrayMode;
+// 													newSize_ = std::stoul(userInput);
+// 													handleSetSizeArray(newSize_);
+// 													activeMode_ = ViewMode::SetSizeArrayMode;
 // 												} catch (const std::exception& e) {
-// 													this->errorMessage_ = "Invalid input: must be a number.";
-// 													this->activeMode_ = ViewMode::MenuMode;
+// 													errorMessage_ = "Invalid input: must be a number.";
+// 													activeMode_ = ViewMode::MenuMode;
 // 												} }); }));
-// 	this->AddItem(std::make_shared<MenuItem>("Back", navigateBack));
+// 	AddItem(std::make_shared<MenuItem>("Back", navigateBack));
 // };
 
 // ftxui::Element MenuLab_1::Render()
 // {
 
-// 	switch (this->activeMode_)
+// 	switch (activeMode_)
 // 	{
 // 	case ViewMode::MenuMode:
 // 	{
-// 		return this->Menu::Render();
+// 		return Menu::Render();
 // 	}
 // 	case ViewMode::InputMode:
 // 	{
 // 		ftxui::InputOption options;
 // 		options.on_enter = [this]
 // 		{
-// 		if (this->on_input_submit_) {
-// 			this->on_input_submit_(this->userInputBuffer_);
-// 		} this->userInputBuffer_.clear(); };
-// 		auto inputComponent = ftxui::Input(&this->userInputBuffer_, "", options);
+// 		if (on_input_submit_) {
+// 			on_input_submit_(userInputBuffer_);
+// 		} userInputBuffer_.clear(); };
+// 		auto inputComponent = ftxui::Input(&userInputBuffer_, "", options);
 // 		return ftxui::vbox(
-// 				   ftxui::text(this->promptMessage_),
+// 				   ftxui::text(promptMessage_),
 // 				   inputComponent) |
 // 			   ftxui::border;
 // 	}
 // 	case ViewMode::SetSizeArrayMode:
 // 	{
 
-// 		auto message = ftxui::text("The size of the array has been succesfully changed to: " + std::to_string(this->newSize_));
+// 		auto message = ftxui::text("The size of the array has been succesfully changed to: " + std::to_string(newSize_));
 
-// 		const std::vector<double> &array = this->arrayModel_.getArray();
+// 		const std::vector<double> &array = arrayModel_.getArray();
 // 		std::vector<ftxui::Element> resultArrayElements;
 // 		for (double element : array)
 // 		{
@@ -550,7 +536,7 @@ std::string getNameFile()
 // 		};
 // 		auto arrayDisplay = ftxui::hbox(resultArrayElements);
 // 		auto ok_button = ftxui::Button("   OK   ", [this]
-// 									   { this->activeMode_ = ViewMode::MenuMode; }, ftxui::ButtonOption::Border());
+// 									   { activeMode_ = ViewMode::MenuMode; }, ftxui::ButtonOption::Border());
 
 // 		return ftxui::vbox(message,
 // 						   ftxui::separator(),
@@ -567,14 +553,14 @@ std::string getNameFile()
 
 // void MenuLab_1::promptForValue(std::string prompt_message, std::function<void(std::string)> on_submit)
 // {
-// 	this->promptMessage_ = prompt_message;
-// 	this->on_input_submit_ = on_submit;
-// 	this->activeMode_ = ViewMode::InputMode;
+// 	promptMessage_ = prompt_message;
+// 	on_input_submit_ = on_submit;
+// 	activeMode_ = ViewMode::InputMode;
 // };
 
 // void MenuLab_1::handleSetSizeArray(size_t newSize)
 // {
-// 	this->arrayModel_.setSizeArray(newSize);
+// 	arrayModel_.setSizeArray(newSize);
 // }
 
 // void MenuLab_1::handlePopulateArray()
@@ -616,10 +602,19 @@ MenuLab_1::MenuLab_1(std::function<void()> navigateBack,
 
 	auto fill_array_view = buildFillArrayView();
 
+	auto fill_array_random_view = buildFillArrayRandomView();
+
+	auto show_array_view = buildShowArrayView();
+
+	auto sub_menu_sort_array_view = buildSubMenuSortArrayView();
+
 	component_ = ftxui::Container::Tab(
 		{main_menu_view,
 		 create_array_view,
-		 fill_array_view},
+		 fill_array_view,
+		 fill_array_random_view,
+		 show_array_view,
+		 sub_menu_sort_array_view},
 
 		&active_view_);
 }
@@ -659,62 +654,74 @@ ftxui::Component MenuLab_1::buildMainMenuView(std::function<void(const std::shar
 	return ftxui::Container::Vertical({menu_title,
 									   ftxui::Button(">Create a new array", [this]
 													 {
-            							this->error_message_.clear(); 
-            							this->active_view_ = 1; }),
+            							error_message_.clear(); 
+            							active_view_ = 1; }),
 
 									   ftxui::Button("Fill in the array manually", [this]
 													 {
-										this->error_message_.clear();
-										this->active_view_ = 2; }),
+										error_message_.clear();
+										active_view_ = 2; }),
 
 									   ftxui::Button("Fill in the array with random numbers", [this]
 													 {
-										this->error_message_.clear();
-										this->active_view_ = 3; }),
+										error_message_.clear();
+										active_view_ = 3; }),
 
 									   ftxui::Button("Show an array on the screen", [this]
 													 {
-										this->error_message_.clear();
-										this->active_view_ = 4; }),
+										error_message_.clear();
+										active_view_ = 4; }),
 
-									   ftxui::Container::Horizontal({
-
-										   ftxui::Button("(?)", [=]
-														 {
-														std::string taskTitle = "Task:";
-														std::string taskContent = "An array of numbers is given from x_1 to x_n.\nFind the sum elements fr";
-														auto infoWindow = std::make_shared<InfoComponent>(taskTitle, taskContent, navigateBack);
-														navigateTo(infoWindow); }),
-										   ftxui::Button("Sort the array", [this]
-														 {
-														this->error_message_.clear();
-														this->active_view_ = 5; })}),
+									   ftxui::Button("Sort the array", [this]
+													 {
+										error_message_.clear();
+										active_view_ = 5; }),
 
 									   ftxui::Button("Find an element", [this]
 													 {
-										this->error_message_.clear();
-										this->active_view_ = 6; }),
+										error_message_.clear();
+										active_view_ = 6; }),
 									   ftxui::Button("Statistics", [this]
 													 { 
-										this->error_message_.clear();
-										this->active_view_ = 7; }),
+										error_message_.clear();
+										active_view_ = 7; }),
 									   ftxui::Button("<-- Back to the main menu", navigateBack)});
 };
 
 ftxui::Component MenuLab_1::buildCreateArrayView()
 {
-	this->createArrayView_ = std::make_shared<CreateArrayView>(this->array_model_, [&]
-															   { this->active_view_ = 0; });
+	createArrayView_ = std::make_shared<CreateArrayView>(array_model_, [&]
+														 { active_view_ = 0; });
 	return createArrayView_->GetFTXUIComponent();
 };
 
 ftxui::Component MenuLab_1::buildFillArrayView()
 {
-	this->fillArrayView_ = std::make_shared<FillArrayView>(this->array_model_, [&]
-														   { this->active_view_ = 0; });
-	return this->fillArrayView_->GetFTXUIComponent();
+	fillArrayView_ = std::make_shared<FillArrayView>(array_model_, [&]
+													 { active_view_ = 0; });
+	return fillArrayView_->GetFTXUIComponent();
 }
 
+ftxui::Component MenuLab_1::buildShowArrayView()
+{
+	showArrayView_ = std::make_shared<ShowArrayView>(array_model_, [this]
+													 { active_view_ = 0; });
+	return showArrayView_->GetFTXUIComponent();
+}
+
+ftxui::Component MenuLab_1::buildFillArrayRandomView()
+{
+	fillArrayRandomView_ = std::make_shared<FillArrayRandomView>(array_model_, [this]
+																 { active_view_ = 0; });
+	return fillArrayRandomView_->GetFTXUIComponent();
+}
+
+ftxui::Component MenuLab_1::buildSubMenuSortArrayView()
+{
+	subMenuSortArrayView_ = std::make_shared<SubMenuSortArray>(array_model_, [this]
+															   { active_view_ = 0; });
+	return subMenuSortArrayView_->GetFTXUIComponent();
+};
 void menuLab_1()
 {
 

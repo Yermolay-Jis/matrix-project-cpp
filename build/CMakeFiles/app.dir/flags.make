@@ -20,6 +20,12 @@ CXX_FLAGS = -g -std=gnu++17 -Wall -Wextra
 
 # PCH options: CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayView.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
 
+# PCH options: CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
+
+# PCH options: CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
+
+# PCH options: CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
+
 # PCH options: CMakeFiles/app.dir/src/ui/screens/matrix_operations/menuLab_3.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
@@ -28,9 +34,13 @@ CXX_FLAGS = -g -std=gnu++17 -Wall -Wextra
 
 # PCH options: CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
 
+# PCH options: CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
+
 # PCH options: CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/app.dir/utils/io/portable_io.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
+
+# PCH options: CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
 

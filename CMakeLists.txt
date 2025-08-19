@@ -20,6 +20,9 @@ set(APP_SOURCES
         src/ui/screens/array_operations/menuLab_1.cpp
         src/ui/screens/array_operations/CreateArrayView.cpp
         src/ui/screens/array_operations/FillArrayView.cpp
+        src/ui/screens/array_operations/FillArrayRandomView.cpp
+        src/ui/screens/array_operations/ShowArrayView.cpp
+        src/ui/screens/array_operations/SubMenuSortArray.cpp
 
         src/ui/screens/matrix_operations/menuLab_3.cpp 
         src/ui/screens/file_operations/menuLab2.cpp
@@ -29,11 +32,15 @@ set(APP_SOURCES
 
 set(CORE_SOURCES 
         core/array_logic/ArrayModel.cpp 
+        core/array_logic/ArrayAutoFiller.cpp
+
         core/matrix_logic/matrix.cpp
         )
 
 set(UTILS_SOURCES 
         utils/io/portable_io.cpp 
+
+        utils/io/sorting/MergeSort.cpp
         utils/io/math/math_utils.cpp
         )
 

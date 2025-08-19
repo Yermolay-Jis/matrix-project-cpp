@@ -8,13 +8,6 @@
 
 class FillArrayView : public UIComponent
 {
-public:
-    FillArrayView(std::shared_ptr<ArrayModel> model, std::function<void()> call_back);
-    ftxui::Element Render() override;
-    void OnEvent(ftxui::Event event) override;
-    bool IsSelectable() override { return true; };
-    ftxui::Component GetFTXUIComponent();
-
 private:
     ftxui::Component fill_array_component_;
 
@@ -29,4 +22,11 @@ private:
 
     ftxui::Component buildInputView();
     ftxui::Component buildResultView();
+
+public:
+    FillArrayView(std::shared_ptr<ArrayModel> model, std::function<void()> call_back);
+    ftxui::Element Render() override;
+    void OnEvent(ftxui::Event event) override;
+    bool IsSelectable() override { return true; };
+    ftxui::Component GetFTXUIComponent() override;
 };

@@ -11,17 +11,17 @@ FillArrayView::FillArrayView(std::shared_ptr<ArrayModel> model, std::function<vo
 
 ftxui::Element FillArrayView::Render()
 {
-    return this->fill_array_component_->Render();
+    return fill_array_component_->Render();
 };
 
 void FillArrayView::OnEvent(ftxui::Event event)
 {
-    this->fill_array_component_->OnEvent(event);
+    fill_array_component_->OnEvent(event);
 };
 
 ftxui::Component FillArrayView::GetFTXUIComponent()
 {
-    return this->fill_array_component_;
+    return fill_array_component_;
 };
 
 ftxui::Component FillArrayView::buildInputView()
@@ -29,67 +29,80 @@ ftxui::Component FillArrayView::buildInputView()
 
     auto fill_array_content = ftxui::Renderer([&]
                                               {
+
+         auto array = array_model_->getArray();
         std::stringstream ss;
         ss << "[";
-        for (size_t i = 0; i < array_model_->getSizeArray() - 1; i++)
+        for (size_t i = 0; i < array_model_->getCapacity(); i++)
         {
-            auto array = array_model_->getArray();
-            if (i < array_model_->getSizeArray() && array[i] != 0)
-            {
+            if (i < array.capacity())
                 ss << array[i];
-            }else {
-                ss << "_";
-            }
 
-           if (i < array_model_->getSizeArray() - 1) {
+
+
+           if (i < array_model_->getCapacity() - 1) 
                 ss << ", ";
-           } 
         }
         ss << "]";
 
-//  ftxui::text("Please, enter the number for current index --> " + std::to_string(this->current_index_));
-        return ftxui::text("Current array: " + ss.str()); });
+//  ftxui::text("Please, enter the number for current index --> " + std::to_string(current_index_));
 
+        return ftxui::text("Current array: " + ss.str() + "   Current capacity: " + std::to_string(array.capacity()) + "   Current size: " + std::to_string(array.size())); });
     return ftxui::Container::Vertical({fill_array_content,
                                        ftxui::Input(&user_input_buffer_, "Enter number here"), // Связываем поле ввода с нашим буфером
                                        ftxui::Button("Submit", [this]
                                                      {
                                                          try
                                                          {
-                                                             this->new_value_ = std::stoi(user_input_buffer_);
+                                                             new_value_ = std::stoi(user_input_buffer_);
                                                          }
                                                          catch (const std::exception &e)
                                                          {
                                                              // Если пользователь ввел не число:
-                                                             this->error_message_ = "Invalid input. Must be a number.";
-                                                             this->call_back_();
+                                                             error_message_ = "Invalid input. Must be a number.";
+                                                             call_back_();
                                                          }
-                                                         this->array_model_->setItemForIndex(current_index_, new_value_);
-                                                         this->error_message_.clear();
-                                                         if (this->current_index_ >= this->array_model_->getSizeArray() - 1)
+                                                         array_model_->pushItem(new_value_);
+                                                         error_message_.clear();
+                                                         if (current_index_ >= array_model_->getCapacity() - 1)
                                                          {
-                                                             this->active_view_fill_array_ = 1;
-                                                             this->current_index_ = 0;
+                                                             active_view_fill_array_ = 1;
+                                                             current_index_ = 0;
                                                          }
                                                          else
                                                          {
-                                                             this->current_index_++;
+                                                             current_index_++;
                                                          }
-                                                         this->user_input_buffer_.clear(); // Очищаем поле ввода в любом случае
+                                                         user_input_buffer_.clear(); // Очищаем поле ввода в любом случае
                                                      })});
 };
 
 ftxui::Component FillArrayView::buildResultView()
 {
+    auto current_arr = ftxui::Renderer([&]
+                                       {
+        auto array = array_model_->getArray();
+         std::stringstream ss;
+        ss << "[ ";
+        for (size_t i = 0; i < array_model_->getCapacity(); i++)
+        {
+            ss << array[i];
+            if (i < array_model_->getCapacity() - 1)
+            {
+                ss << ", ";
+            };
+        };
+        ss << " ]";
+        return ftxui::text("Result array --> " + ss.str()) | ftxui::border; });
 
     auto result_button = ftxui::Button("OK", [this]
-                                       {this->active_view_fill_array_ = 0; 
-                                        this->call_back_(); });
+                                       {active_view_fill_array_ = 0; 
+                                        call_back_(); });
     auto result_text = ftxui::Renderer([this]
                                        { return ftxui::vbox(
-                                                    ftxui::text("The size of the array has been successfully changed to: " + std::to_string(new_value_)),
-                                                    ftxui::separator()) |
+                                                    ftxui::text("The array with size " + std::to_string(array_model_->getCapacity()) + ", was succefully filled")) |
                                                 ftxui::border; });
     return ftxui::Container::Vertical({result_text,
+                                       current_arr,
                                        result_button});
 };

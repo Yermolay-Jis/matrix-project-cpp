@@ -3,6 +3,9 @@
 #include "ui/UIComponent.h"
 #include "ui/screens/array_operations/CreateArrayView.h"
 #include "ui/screens/array_operations/FillArrayView.h"
+#include "ui/screens/array_operations/FillArrayRandomView.h"
+#include "ui/screens/array_operations/ShowArrayView.h"
+#include "ui/screens/array_operations/SubMenuSortArray.h"
 #include <string>
 #include <utility>
 #include <functional>
@@ -55,12 +58,6 @@ public:
 
 private:
     ftxui::Component component_;
-
-    // enum View
-    // {
-    //     Menu,
-    //     CreateArray,
-    // };
     int active_view_ = 0;
     std::string user_input_buffer_;
     size_t new_size_ = 0;
@@ -69,10 +66,16 @@ private:
 
     std::shared_ptr<CreateArrayView> createArrayView_;
     std::shared_ptr<FillArrayView> fillArrayView_;
+    std::shared_ptr<ShowArrayView> showArrayView_;
+    std::shared_ptr<FillArrayRandomView> fillArrayRandomView_;
+    std::shared_ptr<SubMenuSortArray> subMenuSortArrayView_;
 
     ftxui::Component buildMainMenuView(std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo, std::function<void()> navigateBack);
     ftxui::Component buildCreateArrayView();
     ftxui::Component buildFillArrayView();
+    ftxui::Component buildFillArrayRandomView();
+    ftxui::Component buildShowArrayView();
+    ftxui::Component buildSubMenuSortArrayView();
 };
 
 void menuLab_1();
