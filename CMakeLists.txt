@@ -23,6 +23,7 @@ set(APP_SOURCES
         src/ui/screens/array_operations/FillArrayRandomView.cpp
         src/ui/screens/array_operations/ShowArrayView.cpp
         src/ui/screens/array_operations/SubMenuSortArray.cpp
+        src/ui/screens/array_operations/SubMenuSearchComponent.cpp
 
         src/ui/screens/matrix_operations/menuLab_3.cpp 
         src/ui/screens/file_operations/menuLab2.cpp

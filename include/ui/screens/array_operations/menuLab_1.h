@@ -6,44 +6,10 @@
 #include "ui/screens/array_operations/FillArrayRandomView.h"
 #include "ui/screens/array_operations/ShowArrayView.h"
 #include "ui/screens/array_operations/SubMenuSortArray.h"
+#include "ui/screens/array_operations/SubMenuSearchComponent.h"
 #include <string>
 #include <utility>
 #include <functional>
-
-// class MenuLab_1 : public Menu
-// {
-// private:
-//     enum class ViewMode
-//     {
-//         MenuMode,
-//         InputMode,
-//         SetSizeArrayMode,
-//         PopulateArrayMode,
-//         SolutionMode
-//     };
-
-//     ViewMode activeMode_ = ViewMode::MenuMode;
-//     ViewMode returnToMode_;
-//     ArrayModel arrayModel_;
-
-//     size_t newSize_ = 0;
-
-//     std::string userInputBuffer_;
-//     std::string promptMessage_ = "Enter the value:";
-//     std::string errorMessage_;
-//     std::function<void(std::string)> on_input_submit_;
-//     void promptForValue(std::string, std::function<void(std::string)>);
-
-// public:
-//     MenuLab_1(const std::function<void()> &navigateBack, const std::function<void(std::shared_ptr<UIComponent>)> &navigateTo);
-//     ftxui::Element Render() override;
-//     void handleSetSizeArray(size_t newSize);
-
-//     void handlePopulateArray();
-//     void handleSolutionTask();
-//     void handleSaveArrayAs();
-//     void handleLoadArray();
-// };
 
 class MenuLab_1 : public UIComponent
 {
@@ -69,6 +35,7 @@ private:
     std::shared_ptr<ShowArrayView> showArrayView_;
     std::shared_ptr<FillArrayRandomView> fillArrayRandomView_;
     std::shared_ptr<SubMenuSortArray> subMenuSortArrayView_;
+    std::shared_ptr<SubMenuSearchComponent> subMenuSearchComponentView_;
 
     ftxui::Component buildMainMenuView(std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo, std::function<void()> navigateBack);
     ftxui::Component buildCreateArrayView();
@@ -76,6 +43,7 @@ private:
     ftxui::Component buildFillArrayRandomView();
     ftxui::Component buildShowArrayView();
     ftxui::Component buildSubMenuSortArrayView();
+    ftxui::Component buildSubMenuSearchComponentView();
 };
 
 void menuLab_1();

@@ -487,6 +487,30 @@ src/ui/screens/array_operations/ShowArrayView.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.s
 .PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.s
 
+src/ui/screens/array_operations/SubMenuSearchComponent.obj: src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj
+.PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.obj
+
+# target to build an object file
+src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj
+.PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj
+
+src/ui/screens/array_operations/SubMenuSearchComponent.i: src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i
+.PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.i
+
+# target to preprocess a source file
+src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i
+.PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i
+
+src/ui/screens/array_operations/SubMenuSearchComponent.s: src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s
+.PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.s
+
+# target to generate assembly for a file
+src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s
+.PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s
+
 src/ui/screens/array_operations/SubMenuSortArray.obj: src/ui/screens/array_operations/SubMenuSortArray.cpp.obj
 .PHONY : src/ui/screens/array_operations/SubMenuSortArray.obj
 
@@ -706,6 +730,9 @@ help:
 	@echo ... src/ui/screens/array_operations/ShowArrayView.obj
 	@echo ... src/ui/screens/array_operations/ShowArrayView.i
 	@echo ... src/ui/screens/array_operations/ShowArrayView.s
+	@echo ... src/ui/screens/array_operations/SubMenuSearchComponent.obj
+	@echo ... src/ui/screens/array_operations/SubMenuSearchComponent.i
+	@echo ... src/ui/screens/array_operations/SubMenuSearchComponent.s
 	@echo ... src/ui/screens/array_operations/SubMenuSortArray.obj
 	@echo ... src/ui/screens/array_operations/SubMenuSortArray.i
 	@echo ... src/ui/screens/array_operations/SubMenuSortArray.s

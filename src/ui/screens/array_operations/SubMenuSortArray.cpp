@@ -8,17 +8,15 @@ SubMenuSortArray::SubMenuSortArray(std::shared_ptr<ArrayModel> model, std::funct
 {
     auto subMenuSortArrayView = buildSubMenuSortArrayView();
     auto mergeSortView = buildMergeSortView();
-
+    auto aboutComparisonSortView = buildAboutComparisonSortView();
     auto stlSortView = buildSTLSortView();
+    auto comparisonSortView = buildComparisonSortView();
 
-    // auto comparisonSortView = buildComparisonSortView();
-
-    sub_menu_sort_arr_componetnt_ = ftxui::Container::Tab({
-                                                              subMenuSortArrayView,
-                                                              mergeSortView,
-                                                              stlSortView,
-                                                              //    comparisonSortView
-                                                          },
+    sub_menu_sort_arr_componetnt_ = ftxui::Container::Tab({subMenuSortArrayView,
+                                                           mergeSortView,
+                                                           stlSortView,
+                                                           aboutComparisonSortView,
+                                                           comparisonSortView},
                                                           &active_view_sort_arr_);
 };
 
@@ -53,11 +51,9 @@ ftxui::Component SubMenuSortArray::buildSubMenuSortArrayView()
         ftxui::Container::Horizontal({
 
             ftxui::Button("(?)", [=]
-                          {
-                                std::string taskTitle = "Task:";
-                                std::string taskContent = "An array of numbers is given from x_1 to x_n.\nFind the sum elements fr";
-                                auto infoWindow = std::make_shared<InfoComponent>(taskTitle, taskContent, call_back_); }),
-            ftxui::Button("Approval of two sorts", [this] {})
+                          { active_view_sort_arr_ = 3; }),
+            ftxui::Button("Approval of two sorts", [this]
+                          { active_view_sort_arr_ = 4; })
 
         }),
         ftxui::Button("<-- Back", [this]
@@ -86,7 +82,7 @@ ftxui::Component SubMenuSortArray::buildMergeSortView()
         }
         ss << "]";
 
-        return ftxui::text("Current array: " + ss.str() + " Current sorting time:  " + std::to_string(sorting_time_) + " ms"); });
+        return ftxui::text("Current array: " + ss.str() + " Current sorting time:  " + std::to_string(merge_sort_time_) + " ms"); });
 
     return ftxui::Container::Vertical({
 
@@ -99,8 +95,8 @@ ftxui::Component SubMenuSortArray::buildMergeSortView()
             //   std::sort(array.begin(), array.end());
             array = mergeSort(array);
             auto end = std::chrono::high_resolution_clock::now();
-            sorting_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-            sorting_time_ /= 1000;
+            merge_sort_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+            merge_sort_time_ /= 1000;
             for (size_t i = 0; i < array.size(); i++)
             {
                 array_model_->setItemForIndex(i, array[i]);
@@ -130,7 +126,7 @@ ftxui::Component SubMenuSortArray::buildSTLSortView()
         }
         ss << "]";
 
-        return ftxui::text("Current array: " + ss.str() + " Current sorting time:  " + std::to_string(sorting_time_) + " ms"); });
+        return ftxui::text("Current array: " + ss.str() + " Current sorting time:  " + std::to_string(stl_sort_time_) + " ms"); });
 
     return ftxui::Container::Vertical({
 
@@ -142,8 +138,8 @@ ftxui::Component SubMenuSortArray::buildSTLSortView()
             auto start = std::chrono::high_resolution_clock::now();
               std::sort(array.begin(), array.end());
             auto end = std::chrono::high_resolution_clock::now();
-            sorting_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-            sorting_time_ /= 1000;
+            stl_sort_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+            stl_sort_time_ /= 1000;
             for (size_t i = 0; i < array.size(); i++)
             {
                 array_model_->setItemForIndex(i, array[i]);
@@ -153,4 +149,128 @@ ftxui::Component SubMenuSortArray::buildSTLSortView()
                       { active_view_sort_arr_ = 0; })});
 };
 
-// ftxui::Component SubMenuSortArray::buildComparisonSortView() {};
+ftxui::Component SubMenuSortArray::buildAboutComparisonSortView()
+{
+    auto Title = ftxui::Renderer([this]
+                                 { return ftxui::vbox({ftxui::text("About comparison sort") | ftxui::bold,
+                                                       ftxui::separator()}); });
+    auto Content = ftxui::Renderer([this]
+                                   { return ftxui::vbox({ftxui::text("This section provides a practical performance analysis by benchmarking a custom algorithm implementation against the C++ standard library's baseline."),
+                                                         ftxui::text(""),
+                                                         ftxui::text("* Algorithms Under Test :"),
+
+                                                         ftxui::text(""),
+                                                         ftxui::text("Merge Sort : A custom implementation of the Merge Sort algorithm, known for its stable, predictable O(n log n) time complexity."),
+
+                                                         //  ftxui::text(""),
+                                                         ftxui::text("std::sort : The C ++ Standard Library's sort function. This is typically a hybrid algorithm called Introsort, which combines the strengths of Quicksort, Heapsort,  and Insertion Sort to offer excellent average - case performance and avoid worst - case scenarios."),
+
+                                                         ftxui::text(""),
+                                                         ftxui::text("* Key Metrics for Comparison :"),
+
+                                                         ftxui::text(""),
+                                                         ftxui::text("Execution Time : The wall - clock time required for each algorithm to completely sort the array.This is the most direct measure of performance."),
+
+                                                         ftxui::text(""),
+                                                         ftxui::text("* Memory Usage :"),
+
+                                                         ftxui::text(""),
+                                                         ftxui::text("While Merge Sort requires O(n) auxiliary space for its merging process,"),
+                                                         ftxui::text("std::sort is largely an in - place sort, using O(log n) stack space. Highlighting this difference shows a great understanding of space complexity."),
+
+                                                         ftxui::text(""),
+                                                         ftxui::text("* Expected Outcome :"),
+
+                                                         ftxui::text(""),
+                                                         ftxui::text("You will likely observe that std::sort is significantly faster.This exercise serves to demonstrate the powerful optimizations present in standard libraries and"),
+                                                         ftxui::text("provides a tangible measure of your own implementation's performance."),
+                                                         ftxui::separator()}); });
+    return ftxui::Container::Vertical({Title,
+                                       Content,
+                                       ftxui::Button("<-- Back", [this]
+                                                     { active_view_sort_arr_ = 0; })});
+}
+
+ftxui::Component SubMenuSortArray::buildComparisonSortView()
+{
+    auto title = ftxui::Renderer([&]
+                                 { return ftxui::vbox({
+
+                                       ftxui::text("Comparison sort") | ftxui::bold,
+                                       ftxui::separator(),
+                                   }); });
+
+    auto merge_sort = ftxui::Renderer([&]
+                                      {  
+                                          std::stringstream ss;
+                                          ss << "[";
+                                          for (size_t i = 0; i < merge_sort_array_->getCapacity(); i++)
+                                          {
+                                              if (i < merge_sort_array_->getCapacity())
+                                                  ss << merge_sort_array_->getArray()[i];
+
+                                              if (i < merge_sort_array_->getCapacity() - 1)
+                                                  ss << ", ";
+                                          }
+                                          ss << "]";
+                                          
+                                          
+                                          return ftxui::vbox({
+                                            ftxui::text(ss.str()),
+                                            ftxui::text("Merge sort time: " + std::to_string(merge_sort_time_) + " ms"),
+                                            ftxui::separator(),
+                                      }); });
+
+    auto stl_sort = ftxui::Renderer([&]
+                                    {
+                                          std::stringstream ss;
+                                          ss << "[";
+                                          for (size_t i = 0; i < stl_sort_array_->getCapacity(); i++)
+                                          {
+                                              if (i < stl_sort_array_->getCapacity())
+                                                  ss << stl_sort_array_->getArray()[i];
+
+                                              if (i < stl_sort_array_->getCapacity() -  1)
+                                                  ss << ", ";
+                                          }
+                                          ss << "]";
+                                          
+                                          
+                                          return ftxui::vbox({
+                                            ftxui::text(ss.str()),
+                                            ftxui::text("STL sort time: " + std::to_string(stl_sort_time_) + " ms"),
+                                      }); });
+
+    auto separator = ftxui::Renderer([&]
+                                     { return ftxui::separator(); });
+
+    return ftxui::Container::Vertical({title,
+                                       merge_sort,
+                                       separator,
+                                       stl_sort,
+                                       separator,
+                                       ftxui::Button("Measure", [&]
+                                                     {
+                                                         auto start_merge_sort = std::chrono::high_resolution_clock::now();
+                                                         auto merge_array = mergeSort(merge_sort_array_->getArray());
+                                                         auto end_merge_sort = std::chrono::high_resolution_clock::now();
+                                                         merge_sort_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end_merge_sort - start_merge_sort).count();
+                                                         merge_sort_time_ /= 100;
+                                                        for (size_t i = 0; i < stl_sort_array_->getCapacity(); i++)
+                                                        {
+                                                             merge_sort_array_->setItemForIndex(i, merge_array[i]);
+                                                        }
+
+                                                         auto sort_array = stl_sort_array_->getArray();
+                                                         auto start_stl_sort = std::chrono::high_resolution_clock::now();
+                                                         std::sort(sort_array.begin(), sort_array.end());
+                                                         auto end_stl_sort = std::chrono::high_resolution_clock::now();
+                                                         stl_sort_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end_stl_sort - start_stl_sort).count();
+                                                         stl_sort_time_ /= 100;
+                                                          for (size_t i = 0; i < stl_sort_array_->getCapacity(); i++)
+                                                         {
+                                                             stl_sort_array_->setItemForIndex(i, sort_array[i]);
+                                                         } }),
+                                       ftxui::Button("<-- Back", [&]
+                                                     { active_view_sort_arr_ = 0; })});
+};

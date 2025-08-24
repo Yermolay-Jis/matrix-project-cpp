@@ -608,13 +608,16 @@ MenuLab_1::MenuLab_1(std::function<void()> navigateBack,
 
 	auto sub_menu_sort_array_view = buildSubMenuSortArrayView();
 
+	auto sub_menu_search_component_view = buildSubMenuSearchComponentView();
+
 	component_ = ftxui::Container::Tab(
 		{main_menu_view,
 		 create_array_view,
 		 fill_array_view,
 		 fill_array_random_view,
 		 show_array_view,
-		 sub_menu_sort_array_view},
+		 sub_menu_sort_array_view,
+		 sub_menu_search_component_view},
 
 		&active_view_);
 }
@@ -722,6 +725,14 @@ ftxui::Component MenuLab_1::buildSubMenuSortArrayView()
 															   { active_view_ = 0; });
 	return subMenuSortArrayView_->GetFTXUIComponent();
 };
+
+ftxui::Component MenuLab_1::buildSubMenuSearchComponentView()
+{
+	subMenuSearchComponentView_ = std::make_shared<SubMenuSearchComponent>(array_model_, [this]
+																		   { active_view_ = 0; });
+	return subMenuSearchComponentView_->GetFTXUIComponent();
+}
+
 void menuLab_1()
 {
 

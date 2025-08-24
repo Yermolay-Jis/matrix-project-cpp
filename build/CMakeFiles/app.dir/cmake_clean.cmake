@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayView.cpp.obj.d"
   "CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.obj"
   "CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.obj.d"
+  "CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj"
+  "CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj.d"
   "CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.obj"
   "CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.obj.d"
   "CMakeFiles/app.dir/src/ui/screens/array_operations/menuLab_1.cpp.obj"
