@@ -66,7 +66,7 @@ ftxui::Component SubMenuSearchComponent::buildBinarySearchView()
 {
 
     auto name_window = ftxui::Renderer([this]
-                                       { return ftxui::vbox({ftxui::text("Merge sort") | ftxui::bold,
+                                       { return ftxui::vbox({ftxui::text("Binary search") | ftxui::bold,
                                                              ftxui::separator()}); });
 
     auto current_array = ftxui::Renderer([this]
@@ -97,13 +97,15 @@ ftxui::Component SubMenuSearchComponent::buildBinarySearchView()
             {
                 return ftxui::vbox({ftxui::separator(),
                                     ftxui::text("The user number " + last_value_+ " succesfully searched!"),
-                                    ftxui::paragraph(R"(   Time of completing --> )" + std::to_string(binary_search_time_) + " us")});
+                                    ftxui::paragraph(R"(Time of completing --> )" + std::to_string(binary_search_time_) + " us"),
+                                    ftxui::separator()});
             }
             else
             {
                 return ftxui::vbox({ftxui::separator(),
                                     ftxui::text("The user number " + last_value_+ " is unfined!"),
-                                    ftxui::paragraph(R"(Time of completing --> )" + std::to_string(binary_search_time_) + " us")
+                                    ftxui::paragraph(R"(Time of completing --> )" + std::to_string(binary_search_time_) + " us"),
+                                    ftxui::separator()
 
                 });
             }
@@ -153,7 +155,8 @@ ftxui::Component SubMenuSearchComponent::buildBinarySearchView()
 ftxui::Component SubMenuSearchComponent::buildLinearSearchView()
 {
     auto name_window = ftxui::Renderer([this]
-                                       { return ftxui::text("STL sort") | ftxui::bold; });
+                                       { return ftxui::vbox({ftxui::text("Linear search") | ftxui::bold,
+                                                             ftxui::separator()}); });
 
     auto current_array = ftxui::Renderer([this]
                                          {
@@ -170,27 +173,76 @@ ftxui::Component SubMenuSearchComponent::buildLinearSearchView()
         }
         ss << "]";
 
-        return ftxui::text("Current array: " + ss.str() + " Current sorting time:  " + std::to_string(linear_search_time_) + " ms"); });
+        return ftxui::vbox({
+                    ftxui::text("Current array: " + ss.str()),
+                    ftxui::separator()
+        }); });
 
-    return ftxui::Container::Vertical({
-
-        name_window,
-        current_array,
-        ftxui::Button("Sort", [&]
-                      {
-            auto array = array_model_->getArray();
-            auto start = std::chrono::high_resolution_clock::now();
-              std::sort(array.begin(), array.end());
-            auto end = std::chrono::high_resolution_clock::now();
-            linear_search_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-            linear_search_time_ /= 1000;
-            for (size_t i = 0; i < array.size(); i++)
+    auto message = ftxui::Renderer([&]
+                                   {
+         if (search_perfomed_)
+        {
+            if (is_search_)
             {
-                array_model_->setItemForIndex(i, array[i]);
-            } }),
+                return ftxui::vbox({ftxui::separator(),
+                                    ftxui::text("The user number " + last_value_+ " succesfully searched!"),
+                                    ftxui::paragraph(R"(Time of completing --> )" + std::to_string(linear_search_time_) + " us"),
+                                    ftxui::separator()});
+            }
+            else
+            {
+                return ftxui::vbox({ftxui::separator(),
+                                    ftxui::text("The user number " + last_value_+ " is unfined!"),
+                                    ftxui::paragraph(R"(Time of completing --> )" + std::to_string(linear_search_time_) + " us"),
+                                    ftxui::separator()
 
-        ftxui::Button("<-- Back", [this]
-                      { active_view_search_arr_ = 0; })});
+                });
+            }
+        } else {
+            return ftxui::vbox({
+                                    ftxui::separator(),
+                                    ftxui::text("..."),
+                                    ftxui::separator()
+            });
+        } });
+
+    return ftxui::Container::Vertical({name_window,
+                                       current_array,
+                                       message,
+                                       ftxui::Input(&user_input_buffer_, "Enter the element for searching here"),
+                                       ftxui::Button("Search", [&]
+                                                     {
+                                                         try
+                                                         {
+                                                            auto array = array_model_->getArray();
+                                                            int value = std::stoi(user_input_buffer_);
+                                                             
+                                                            auto start = std::chrono::high_resolution_clock::now();
+                                                            auto searched_it = std::find(array.begin(), array.end(), value);
+                                                            auto end = std::chrono::high_resolution_clock::now();
+
+                                                            if (searched_it != array.end())
+                                                            {
+                                                                is_search_ = true;
+                                                            }else {
+                                                                is_search_ = false;
+                                                            };
+
+                                                            last_value_ = user_input_buffer_;
+                                                            search_perfomed_ = true;
+                                                            binary_search_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+                                                         }
+                                                         catch (const std::exception &e)
+                                                         {
+                                                             error_message_ = e.what();
+                                                         };
+                                                        user_input_buffer_.clear(); }),
+
+                                       ftxui::Button("<-- Back", [this]
+                                                     { 
+                                                        search_perfomed_ = false;
+                                                        user_input_buffer_.clear();
+                                                        active_view_search_arr_ = 0; })});
 };
 
 ftxui::Component SubMenuSearchComponent::buildAboutComparisonSearchView()
@@ -240,12 +292,12 @@ ftxui::Component SubMenuSearchComponent::buildComparisonSearchView()
     auto title = ftxui::Renderer([&]
                                  { return ftxui::vbox({
 
-                                       ftxui::text("Comparison sort") | ftxui::bold,
+                                       ftxui::text("Comparison search") | ftxui::bold,
                                        ftxui::separator(),
                                    }); });
 
-    auto merge_sort = ftxui::Renderer([&]
-                                      {  
+    auto binary_search = ftxui::Renderer([&]
+                                         {  
                                           std::stringstream ss;
                                           ss << "[";
                                           for (size_t i = 0; i < array_model_->getCapacity(); i++)
@@ -261,60 +313,78 @@ ftxui::Component SubMenuSearchComponent::buildComparisonSearchView()
                                           
                                           return ftxui::vbox({
                                             ftxui::text(ss.str()),
-                                            ftxui::text("Merge sort time: " + std::to_string(binary_search_time_) + " ms"),
+                                            ftxui::text("Binary search time: " + std::to_string(binary_search_time_) + " us"),
                                             ftxui::separator(),
                                       }); });
 
-    auto stl_sort = ftxui::Renderer([&]
-                                    {
-                                          std::stringstream ss;
-                                          ss << "[";
-                                          for (size_t i = 0; i < array_model_->getCapacity(); i++)
-                                          {
-                                              if (i < array_model_->getCapacity())
-                                                  ss << array_model_->getArray()[i];
+    auto linear_search = ftxui::Renderer([&]
+                                         { return ftxui::vbox({
+                                               ftxui::text("Linear search time: " + std::to_string(linear_search_time_) + " us"),
+                                           }); });
 
-                                              if (i < array_model_->getCapacity() -  1)
-                                                  ss << ", ";
-                                          }
-                                          ss << "]";
-                                          
-                                          
-                                          return ftxui::vbox({
-                                            ftxui::text(ss.str()),
-                                            ftxui::text("STL sort time: " + std::to_string(linear_search_time_) + " ms"),
-                                      }); });
+    auto data_process = ftxui::Renderer([&]
+                                        {
+        if (search_perfomed_)
+        {
+            if (is_search_)
+            {
+                return ftxui::vbox({ftxui::separator(),
+                                    ftxui::text("The user number " + last_value_+ " succesfully searched!"),
+                                    ftxui::separator()});
+            }
+            else
+            {
+                return ftxui::vbox({ftxui::separator(),
+                                    ftxui::text("The user number " + last_value_+ " is unfined!"),
+                                    ftxui::separator()
 
-    auto separator = ftxui::Renderer([&]
-                                     { return ftxui::separator(); });
+                });
+            }
+        } else {
+            return ftxui::vbox({
+                                    ftxui::separator(),
+                                    ftxui::text("..."),
+                                    ftxui::separator()
+            });
+        } });
 
     return ftxui::Container::Vertical({title,
-                                       merge_sort,
-                                       separator,
-                                       stl_sort,
-                                       separator,
+                                       binary_search,
+                                       linear_search,
+                                       data_process,
+                                       ftxui::Input(&user_input_buffer_, "Enter value for searching..."),
                                        ftxui::Button("Measure", [&]
                                                      {
-                                                         auto start_merge_sort = std::chrono::high_resolution_clock::now();
-                                                         auto merge_array = mergeSort(array_model_->getArray());
-                                                         auto end_merge_sort = std::chrono::high_resolution_clock::now();
-                                                         binary_search_time_= std::chrono::duration_cast<std::chrono::microseconds>(end_merge_sort - start_merge_sort).count();
-                                                         binary_search_time_/= 100;
-                                                        for (size_t i = 0; i < array_model_->getCapacity(); i++)
-                                                        {
-                                                             array_model_->setItemForIndex(i, merge_array[i]);
-                                                        }
-
-                                                         auto sort_array = array_model_->getArray();
-                                                         auto start_stl_sort = std::chrono::high_resolution_clock::now();
-                                                         std::sort(sort_array.begin(), sort_array.end());
-                                                         auto end_stl_sort = std::chrono::high_resolution_clock::now();
-                                                         linear_search_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end_stl_sort - start_stl_sort).count();
-                                                         linear_search_time_ /= 100;
-                                                          for (size_t i = 0; i < array_model_->getCapacity(); i++)
+                                                         try
                                                          {
-                                                             array_model_->setItemForIndex(i, sort_array[i]);
-                                                         } }),
+                                                             int value = std::stoi(user_input_buffer_);
+                                                             auto binary_search_array = array_model_->getArray();
+
+                                                            
+                                                             if (!std::is_sorted(binary_search_array.begin(), binary_search_array.end())){
+                                                                std::sort(binary_search_array.begin(), binary_search_array.end());
+                                                             }
+                                                             auto start_binary_search = std::chrono::steady_clock::now();
+                                                             is_search_ = std::binary_search(binary_search_array.begin(), binary_search_array.end(), value);
+                                                             auto end_binary_search = std::chrono::steady_clock::now();
+                                                             binary_search_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end_binary_search - start_binary_search).count();
+
+                                                             auto linear_search_array = array_model_->getArray();
+                                                             auto start_linear_search = std::chrono::high_resolution_clock::now();
+                                                            //  std::find(linear_search_array.begin(), linear_search_array.end(), value);
+                                                             auto end_linear_search = std::chrono::high_resolution_clock::now();
+
+                                                             linear_search_time_ = std::chrono::duration_cast<std::chrono::microseconds>(end_linear_search - start_linear_search).count();
+                                                             search_perfomed_ = true;
+                                                             last_value_ = user_input_buffer_;
+                                                         }
+                                                         catch (const std::exception &e)
+                                                         {
+                                                             error_message_ = e.what();
+                                                         };
+                                                         user_input_buffer_.clear(); }),
                                        ftxui::Button("<-- Back", [&]
-                                                     { active_view_search_arr_ = 0; })});
+                                                     { active_view_search_arr_ = 0; 
+                                                        search_perfomed_ = false;
+                                                        user_input_buffer_.clear(); })});
 };
