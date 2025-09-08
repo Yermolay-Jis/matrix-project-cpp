@@ -25,8 +25,11 @@ set(APP_SOURCES
         src/ui/screens/array_operations/SubMenuSortArray.cpp
         src/ui/screens/array_operations/SubMenuSearchComponent.cpp
 
-        src/ui/screens/matrix_operations/menuLab_3.cpp 
+        src/ui/screens/matrix_operations/MatrixOperations.cpp 
+        src/ui/screens/matrix_operations/CreateMatrixView.cpp
+        src/ui/screens/matrix_operations/ShowMatrixView.cpp
         src/ui/screens/file_operations/menuLab2.cpp
+        
 
         src/ui/components/InfoComponent.cpp 
         )
@@ -36,6 +39,8 @@ set(CORE_SOURCES
         core/array_logic/ArrayAutoFiller.cpp
 
         core/matrix_logic/matrix.cpp
+        core/matrix_logic/MatrixAutoFiller.cpp
+
         )
 
 set(UTILS_SOURCES 

@@ -295,6 +295,30 @@ core/array_logic/ArrayModel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.s
 .PHONY : core/array_logic/ArrayModel.cpp.s
 
+core/matrix_logic/MatrixAutoFiller.obj: core/matrix_logic/MatrixAutoFiller.cpp.obj
+.PHONY : core/matrix_logic/MatrixAutoFiller.obj
+
+# target to build an object file
+core/matrix_logic/MatrixAutoFiller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj
+.PHONY : core/matrix_logic/MatrixAutoFiller.cpp.obj
+
+core/matrix_logic/MatrixAutoFiller.i: core/matrix_logic/MatrixAutoFiller.cpp.i
+.PHONY : core/matrix_logic/MatrixAutoFiller.i
+
+# target to preprocess a source file
+core/matrix_logic/MatrixAutoFiller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.i
+.PHONY : core/matrix_logic/MatrixAutoFiller.cpp.i
+
+core/matrix_logic/MatrixAutoFiller.s: core/matrix_logic/MatrixAutoFiller.cpp.s
+.PHONY : core/matrix_logic/MatrixAutoFiller.s
+
+# target to generate assembly for a file
+core/matrix_logic/MatrixAutoFiller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.s
+.PHONY : core/matrix_logic/MatrixAutoFiller.cpp.s
+
 core/matrix_logic/matrix.obj: core/matrix_logic/matrix.cpp.obj
 .PHONY : core/matrix_logic/matrix.obj
 
@@ -583,29 +607,77 @@ src/ui/screens/file_operations/menuLab2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.s
 .PHONY : src/ui/screens/file_operations/menuLab2.cpp.s
 
-src/ui/screens/matrix_operations/menuLab_3.obj: src/ui/screens/matrix_operations/menuLab_3.cpp.obj
-.PHONY : src/ui/screens/matrix_operations/menuLab_3.obj
+src/ui/screens/matrix_operations/CreateMatrixView.obj: src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/CreateMatrixView.obj
 
 # target to build an object file
-src/ui/screens/matrix_operations/menuLab_3.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/menuLab_3.cpp.obj
-.PHONY : src/ui/screens/matrix_operations/menuLab_3.cpp.obj
+src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj
 
-src/ui/screens/matrix_operations/menuLab_3.i: src/ui/screens/matrix_operations/menuLab_3.cpp.i
-.PHONY : src/ui/screens/matrix_operations/menuLab_3.i
+src/ui/screens/matrix_operations/CreateMatrixView.i: src/ui/screens/matrix_operations/CreateMatrixView.cpp.i
+.PHONY : src/ui/screens/matrix_operations/CreateMatrixView.i
 
 # target to preprocess a source file
-src/ui/screens/matrix_operations/menuLab_3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/menuLab_3.cpp.i
-.PHONY : src/ui/screens/matrix_operations/menuLab_3.cpp.i
+src/ui/screens/matrix_operations/CreateMatrixView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.i
+.PHONY : src/ui/screens/matrix_operations/CreateMatrixView.cpp.i
 
-src/ui/screens/matrix_operations/menuLab_3.s: src/ui/screens/matrix_operations/menuLab_3.cpp.s
-.PHONY : src/ui/screens/matrix_operations/menuLab_3.s
+src/ui/screens/matrix_operations/CreateMatrixView.s: src/ui/screens/matrix_operations/CreateMatrixView.cpp.s
+.PHONY : src/ui/screens/matrix_operations/CreateMatrixView.s
 
 # target to generate assembly for a file
-src/ui/screens/matrix_operations/menuLab_3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/menuLab_3.cpp.s
-.PHONY : src/ui/screens/matrix_operations/menuLab_3.cpp.s
+src/ui/screens/matrix_operations/CreateMatrixView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.s
+.PHONY : src/ui/screens/matrix_operations/CreateMatrixView.cpp.s
+
+src/ui/screens/matrix_operations/MatrixOperations.obj: src/ui/screens/matrix_operations/MatrixOperations.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/MatrixOperations.obj
+
+# target to build an object file
+src/ui/screens/matrix_operations/MatrixOperations.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/MatrixOperations.cpp.obj
+
+src/ui/screens/matrix_operations/MatrixOperations.i: src/ui/screens/matrix_operations/MatrixOperations.cpp.i
+.PHONY : src/ui/screens/matrix_operations/MatrixOperations.i
+
+# target to preprocess a source file
+src/ui/screens/matrix_operations/MatrixOperations.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.i
+.PHONY : src/ui/screens/matrix_operations/MatrixOperations.cpp.i
+
+src/ui/screens/matrix_operations/MatrixOperations.s: src/ui/screens/matrix_operations/MatrixOperations.cpp.s
+.PHONY : src/ui/screens/matrix_operations/MatrixOperations.s
+
+# target to generate assembly for a file
+src/ui/screens/matrix_operations/MatrixOperations.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.s
+.PHONY : src/ui/screens/matrix_operations/MatrixOperations.cpp.s
+
+src/ui/screens/matrix_operations/ShowMatrixView.obj: src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/ShowMatrixView.obj
+
+# target to build an object file
+src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj
+
+src/ui/screens/matrix_operations/ShowMatrixView.i: src/ui/screens/matrix_operations/ShowMatrixView.cpp.i
+.PHONY : src/ui/screens/matrix_operations/ShowMatrixView.i
+
+# target to preprocess a source file
+src/ui/screens/matrix_operations/ShowMatrixView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.i
+.PHONY : src/ui/screens/matrix_operations/ShowMatrixView.cpp.i
+
+src/ui/screens/matrix_operations/ShowMatrixView.s: src/ui/screens/matrix_operations/ShowMatrixView.cpp.s
+.PHONY : src/ui/screens/matrix_operations/ShowMatrixView.s
+
+# target to generate assembly for a file
+src/ui/screens/matrix_operations/ShowMatrixView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.s
+.PHONY : src/ui/screens/matrix_operations/ShowMatrixView.cpp.s
 
 utils/io/math/math_utils.obj: utils/io/math/math_utils.cpp.obj
 .PHONY : utils/io/math/math_utils.obj
@@ -706,6 +778,9 @@ help:
 	@echo ... core/array_logic/ArrayModel.obj
 	@echo ... core/array_logic/ArrayModel.i
 	@echo ... core/array_logic/ArrayModel.s
+	@echo ... core/matrix_logic/MatrixAutoFiller.obj
+	@echo ... core/matrix_logic/MatrixAutoFiller.i
+	@echo ... core/matrix_logic/MatrixAutoFiller.s
 	@echo ... core/matrix_logic/matrix.obj
 	@echo ... core/matrix_logic/matrix.i
 	@echo ... core/matrix_logic/matrix.s
@@ -742,9 +817,15 @@ help:
 	@echo ... src/ui/screens/file_operations/menuLab2.obj
 	@echo ... src/ui/screens/file_operations/menuLab2.i
 	@echo ... src/ui/screens/file_operations/menuLab2.s
-	@echo ... src/ui/screens/matrix_operations/menuLab_3.obj
-	@echo ... src/ui/screens/matrix_operations/menuLab_3.i
-	@echo ... src/ui/screens/matrix_operations/menuLab_3.s
+	@echo ... src/ui/screens/matrix_operations/CreateMatrixView.obj
+	@echo ... src/ui/screens/matrix_operations/CreateMatrixView.i
+	@echo ... src/ui/screens/matrix_operations/CreateMatrixView.s
+	@echo ... src/ui/screens/matrix_operations/MatrixOperations.obj
+	@echo ... src/ui/screens/matrix_operations/MatrixOperations.i
+	@echo ... src/ui/screens/matrix_operations/MatrixOperations.s
+	@echo ... src/ui/screens/matrix_operations/ShowMatrixView.obj
+	@echo ... src/ui/screens/matrix_operations/ShowMatrixView.i
+	@echo ... src/ui/screens/matrix_operations/ShowMatrixView.s
 	@echo ... utils/io/math/math_utils.obj
 	@echo ... utils/io/math/math_utils.i
 	@echo ... utils/io/math/math_utils.s

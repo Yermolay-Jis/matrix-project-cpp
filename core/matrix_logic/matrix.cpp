@@ -3,70 +3,71 @@
 #include <string>
 #include <iostream>
 
-Matrix::Matrix()
+MatrixModel::MatrixModel()
 {
-    matrix = new double *[rows]();
-    for (size_t i = 0; i < rows; i++)
+    data_ = std::make_shared<std::vector<std::vector<double>>>(rows_);
+    for (size_t i = 0; i < rows_; i++)
     {
-        matrix[i] = new double[cols]();
+        (*data_)[i] = std::vector<double>(cols_);
+    };
+}
+MatrixModel::MatrixModel(size_t rows, size_t cols) : rows_(rows), cols_(cols)
+{
+    data_ = std::make_shared<std::vector<std::vector<double>>>(rows_);
+    for (size_t i = 0; i < rows_; i++)
+    {
+        (*data_)[i] = std::vector<double>(cols_);
+    };
+}
+
+const std::string MatrixModel::MatrixFormat()
+{
+    std::stringstream ss;
+    for (size_t i = 0; i < rows_; i++)
+    {
+        for (size_t j = 0; j < cols_; j++)
+        {
+            ss << (*data_)[i][j] << "\t";
+        };
+        ss << "\n";
+    };
+    return ss.str();
+}
+
+void MatrixModel::SetForIndex(double value, size_t row, size_t col)
+{
+    if (!(data_ == nullptr || rows_ == 0 || cols_ == 0))
+    {
+        (*data_)[row][col] = value;
+    }
+    else
+    {
+        return;
     }
 }
-Matrix::Matrix(size_t rows, size_t cols) : rows(rows), cols(cols)
+
+size_t MatrixModel::GetRows() const
 {
-    matrix = new double *[rows]();
-    for (size_t i = 0; i < rows; i++)
-    {
-        matrix[i] = new double[cols]();
-    }
+    return rows_;
 }
-void Matrix::changeSize(size_t newRows, size_t newCols)
+
+size_t MatrixModel::GetCols() const
 {
-    try
-    {
-        if (newRows == 0 || newCols == 0)
-        {
-            throw std::bad_alloc();
-        }
-        for (size_t i = 0; i < rows; i++)
-        {
-            delete matrix[i];
-        }
-        delete[] matrix;
-        double **newMatrix = new double *[newRows]();
-        for (size_t i = 0; i < newRows; i++)
-        {
-            newMatrix[i] = new double[newCols]();
-        }
-        matrix = newMatrix;
-        rows = newRows;
-        cols = newCols;
-    }
-    catch (const std::bad_alloc &e)
-    {
-        std::cerr << "������: ������� �������� �� ������ 1!" << std::endl;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
+    return cols_;
 }
-void Matrix::printMatrix() const
+
+const std::shared_ptr<std::vector<std::vector<double>>> MatrixModel::GetMatrix() const
 {
-    for (size_t i = 0; i < rows; i++)
-    {
-        for (size_t j = 0; j < cols; j++)
-        {
-            std::cout << "   " << matrix[i][j];
-        }
-        std::cout << "\n\n";
-    }
+    return data_;
 }
-Matrix::~Matrix()
+
+void MatrixModel::CreateMatrix(size_t rows, size_t cols)
 {
-    for (size_t i = 0; i < rows; i++)
+    rows_ = rows;
+    cols_ = cols;
+    data_ = std::make_shared<std::vector<std::vector<double>>>(rows_);
+    for (size_t i = 0; i < rows_; i++)
     {
-        delete matrix[i];
-    }
-    delete[] matrix;
-    matrix = nullptr;
+        (*data_)[i] = std::vector<double>(cols_);
+    };
 }

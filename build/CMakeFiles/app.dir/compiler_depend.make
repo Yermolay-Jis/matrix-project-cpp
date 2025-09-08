@@ -327,6 +327,46 @@ CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj: CMakeFiles/app.dir/cmake
   C:/Users/Yermolay/matrix-project-cpp/core/array_logic/ArrayModel.cpp \
   C:/Users/Yermolay/matrix-project-cpp/core/array_logic/ArrayModel.h
 
+CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
+  C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/MatrixAutoFiller.h \
+  C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/matrix.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bit \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/concept_check.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/move.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/random.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/random.tcc \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/requires_hosted.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_function.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_iterator_base_types.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_numeric.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/uniform_int_dist.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/bits/version.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/cmath \
+  C:/msys64/ucrt64/include/c++/15.1.0/cstddef \
+  C:/msys64/ucrt64/include/c++/15.1.0/cstdint \
+  C:/msys64/ucrt64/include/c++/15.1.0/cstdlib \
+  C:/msys64/ucrt64/include/c++/15.1.0/debug/debug.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/ext/numeric_traits.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/iosfwd \
+  C:/msys64/ucrt64/include/c++/15.1.0/limits \
+  C:/msys64/ucrt64/include/c++/15.1.0/memory \
+  C:/msys64/ucrt64/include/c++/15.1.0/numeric \
+  C:/msys64/ucrt64/include/c++/15.1.0/pstl/execution_defs.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/pstl/glue_numeric_defs.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/random \
+  C:/msys64/ucrt64/include/c++/15.1.0/string \
+  C:/msys64/ucrt64/include/c++/15.1.0/type_traits \
+  C:/msys64/ucrt64/include/c++/15.1.0/vector \
+  C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/c++config.h \
+  C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/opt_random.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/emmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mwaitintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/pmmintrin.h \
+  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/xmmintrin.h \
+  C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/MatrixAutoFiller.cpp
+
 CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
   C:/msys64/ucrt64/include/c++/15.1.0/cstddef \
   C:/msys64/ucrt64/include/c++/15.1.0/iostream \
@@ -348,7 +388,9 @@ CMakeFiles/app.dir/src/main.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/SubMenuSortArray.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/menuLab_1.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/file_operations/menuLab2.h \
-  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/menuLab_3.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/CreateMatrixView.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/MatrixOperations.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/ShowMatrixView.h \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/component.hpp \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/screen_interactive.hpp \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/dom/elements.hpp \
@@ -356,6 +398,7 @@ CMakeFiles/app.dir/src/main.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
   C:/Users/Yermolay/matrix-project-cpp/utils/io/portable_io.h \
   C:/msys64/ucrt64/include/c++/15.1.0/cstddef \
   C:/msys64/ucrt64/include/c++/15.1.0/functional \
+  C:/msys64/ucrt64/include/c++/15.1.0/memory \
   C:/msys64/ucrt64/include/c++/15.1.0/string \
   C:/msys64/ucrt64/include/c++/15.1.0/utility \
   C:/msys64/ucrt64/include/c++/15.1.0/vector \
@@ -372,6 +415,7 @@ CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj: CMakeFiles/app.dir/c
 
 CMakeFiles/app.dir/src/ui/mainMenuComponent.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
   C:/Users/Yermolay/matrix-project-cpp/core/array_logic/ArrayModel.h \
+  C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/matrix.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/UIComponent.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/components/InfoComponent.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/mainMenuComponent.h \
@@ -382,10 +426,15 @@ CMakeFiles/app.dir/src/ui/mainMenuComponent.cpp.obj: CMakeFiles/app.dir/cmake_pc
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/SubMenuSearchComponent.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/SubMenuSortArray.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/menuLab_1.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/CreateMatrixView.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/MatrixOperations.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/ShowMatrixView.h \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/component.hpp \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/screen_interactive.hpp \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/dom/elements.hpp \
+  C:/msys64/ucrt64/include/c++/15.1.0/cstddef \
   C:/msys64/ucrt64/include/c++/15.1.0/functional \
+  C:/msys64/ucrt64/include/c++/15.1.0/memory \
   C:/msys64/ucrt64/include/c++/15.1.0/string \
   C:/msys64/ucrt64/include/c++/15.1.0/utility \
   C:/msys64/ucrt64/include/c++/15.1.0/vector \
@@ -554,7 +603,18 @@ CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj: CMakeFiles/a
   C:/msys64/ucrt64/include/c++/15.1.0/vector \
   C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/file_operations/menuLab2.cpp
 
-CMakeFiles/app.dir/src/ui/screens/matrix_operations/menuLab_3.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
+  C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/matrix.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/UIComponent.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/CreateMatrixView.h \
+  C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/component.hpp \
+  C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/screen_interactive.hpp \
+  C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/dom/elements.hpp \
+  C:/msys64/ucrt64/include/c++/15.1.0/cstddef \
+  C:/msys64/ucrt64/include/c++/15.1.0/utility \
+  C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/matrix_operations/CreateMatrixView.cpp
+
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
   C:/Users/Yermolay/matrix-project-cpp/core/array_logic/ArrayModel.h \
   C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/matrix.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/UIComponent.h \
@@ -566,7 +626,9 @@ CMakeFiles/app.dir/src/ui/screens/matrix_operations/menuLab_3.cpp.obj: CMakeFile
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/SubMenuSearchComponent.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/SubMenuSortArray.h \
   C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/menuLab_1.h \
-  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/menuLab_3.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/CreateMatrixView.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/MatrixOperations.h \
+  C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/ShowMatrixView.h \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/component.hpp \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/screen_interactive.hpp \
   C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/dom/elements.hpp \
@@ -576,10 +638,11 @@ CMakeFiles/app.dir/src/ui/screens/matrix_operations/menuLab_3.cpp.obj: CMakeFile
   C:/msys64/ucrt64/include/c++/15.1.0/fstream \
   C:/msys64/ucrt64/include/c++/15.1.0/functional \
   C:/msys64/ucrt64/include/c++/15.1.0/iostream \
+  C:/msys64/ucrt64/include/c++/15.1.0/memory \
   C:/msys64/ucrt64/include/c++/15.1.0/string \
   C:/msys64/ucrt64/include/c++/15.1.0/utility \
   C:/msys64/ucrt64/include/c++/15.1.0/vector \
-  C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/matrix_operations/menuLab_3.cpp
+  C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/matrix_operations/MatrixOperations.cpp
 
 CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx \
   C:/Users/Yermolay/matrix-project-cpp/utils/io/math/math_utils.cpp \
@@ -596,8 +659,6 @@ CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj: CMakeFiles/app.dir/cmake_
   C:/Users/Yermolay/matrix-project-cpp/utils/io/sorting/MergeSort.h
 
 
-C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/matrix_operations/menuLab_3.cpp:
-
 C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/file_operations/menuLab2.cpp:
 
 C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/array_operations/menuLab_1.cpp:
@@ -608,11 +669,19 @@ C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/array_operations/CreateArray
 
 C:/Users/Yermolay/matrix-project-cpp/src/ui/mainMenuComponent.cpp:
 
+C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/MatrixOperations.h:
+
+C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/CreateMatrixView.h:
+
 C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/file_operations/menuLab2.h:
 
 C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/SubMenuSortArray.h:
 
+C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/matrix_operations/CreateMatrixView.cpp:
+
 C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/SubMenuSearchComponent.h:
+
+C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/ShowMatrixView.h:
 
 C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/array_operations/ShowArrayView.h:
 
@@ -626,9 +695,13 @@ C:/Users/Yermolay/matrix-project-cpp/include/ui/components/InfoComponent.h:
 
 C:/Users/Yermolay/matrix-project-cpp/include/ui/UIComponent.h:
 
+C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/matrix.cpp:
+
+C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/MatrixAutoFiller.cpp:
+
 C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/matrix.h:
 
-C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/matrix.cpp:
+C:/Users/Yermolay/matrix-project-cpp/core/matrix_logic/MatrixAutoFiller.h:
 
 C:/Users/Yermolay/matrix-project-cpp/core/array_logic/ArrayModel.cpp:
 
@@ -721,8 +794,6 @@ C:/msys64/ucrt64/include/c++/15.1.0/iostream:
 C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_bvector.h:
-
-C:/Users/Yermolay/matrix-project-cpp/include/ui/screens/matrix_operations/menuLab_3.h:
 
 C:/msys64/ucrt64/include/_mingw_mac.h:
 
@@ -883,6 +954,8 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/quoted_string.h:
 C:/msys64/ucrt64/include/c++/15.1.0/bits/alloc_traits.h:
 
 C:/Users/Yermolay/matrix-project-cpp/lib/FTXUI/include/ftxui/component/component_options.hpp:
+
+C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/matrix_operations/MatrixOperations.cpp:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_pair.h:
 

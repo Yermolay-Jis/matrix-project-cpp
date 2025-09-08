@@ -2,6 +2,7 @@
 #include "ui/UIComponent.h"
 #include "ui/screens/array_operations/menuLab_1.h"
 #include "ui/components/InfoComponent.h"
+#include "ui/screens/matrix_operations/MatrixOperations.h"
 #include <functional>
 #include <utility>
 
@@ -17,6 +18,8 @@ public:
 private:
     ftxui::Component main_menu_component_;
     std::shared_ptr<MenuLab_1> menuLab_1_;
+    std::shared_ptr<MatrixOperations> matrixOperations_;
+
     ftxui::Component menu_name_component_;
     std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo_;
     std::function<void()> navigateBack_;

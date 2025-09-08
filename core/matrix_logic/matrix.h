@@ -1,16 +1,20 @@
 #pragma once
 #include <cstddef>
 
-struct Matrix
+struct MatrixModel
 {
-	size_t rows = 0, cols = 0;
-	double **matrix;
+public:
+	MatrixModel();
+	MatrixModel(size_t rows, size_t cols);
+	const std::string MatrixFormat();
+	void SetForIndex(double value, size_t row, size_t col);
+	size_t GetRows() const;
+	size_t GetCols() const;
+	const std::shared_ptr<std::vector<std::vector<double>>> GetMatrix() const;
+	void CreateMatrix(size_t rows, size_t cols);
+	~MatrixModel() = default;
 
-	Matrix();
-	Matrix(size_t rows, size_t cols);
-	void fillMatrix(size_t rows, size_t cols, size_t x, size_t y);
-	void changeSize(size_t rows, size_t cols);
-	void changeEl(Matrix &matrix, size_t rows, size_t cols);
-	void printMatrix() const;
-	~Matrix();
+private:
+	size_t rows_ = 0, cols_ = 0;
+	std::shared_ptr<std::vector<std::vector<double>>> data_;
 };
