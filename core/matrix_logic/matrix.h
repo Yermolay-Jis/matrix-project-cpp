@@ -6,11 +6,11 @@ struct MatrixModel
 public:
 	MatrixModel();
 	MatrixModel(size_t rows, size_t cols);
-	const std::string MatrixFormat();
+	double GetValueForIndex(size_t i, size_t j) const;
 	void SetForIndex(double value, size_t row, size_t col);
 	size_t GetRows() const;
 	size_t GetCols() const;
-	const std::shared_ptr<std::vector<std::vector<double>>> GetMatrix() const;
+	std::shared_ptr<std::vector<std::vector<double>>> GetMatrix() const;
 	void CreateMatrix(size_t rows, size_t cols);
 	~MatrixModel() = default;
 

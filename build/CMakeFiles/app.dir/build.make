@@ -291,13 +291,30 @@ CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.s: cmake_
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -S C:\Users\Yermolay\matrix-project-cpp\src\ui\screens\matrix_operations\ShowMatrixView.cpp -o CMakeFiles\app.dir\src\ui\screens\matrix_operations\ShowMatrixView.cpp.s
 
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj: C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/matrix_operations/FillMatrixView.cpp
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj -MF CMakeFiles\app.dir\src\ui\screens\matrix_operations\FillMatrixView.cpp.obj.d -o CMakeFiles\app.dir\src\ui\screens\matrix_operations\FillMatrixView.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\src\ui\screens\matrix_operations\FillMatrixView.cpp
+
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -E C:\Users\Yermolay\matrix-project-cpp\src\ui\screens\matrix_operations\FillMatrixView.cpp > CMakeFiles\app.dir\src\ui\screens\matrix_operations\FillMatrixView.cpp.i
+
+CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -S C:\Users\Yermolay\matrix-project-cpp\src\ui\screens\matrix_operations\FillMatrixView.cpp -o CMakeFiles\app.dir\src\ui\screens\matrix_operations\FillMatrixView.cpp.s
+
 CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
 CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj: C:/Users/Yermolay/matrix-project-cpp/src/ui/screens/file_operations/menuLab2.cpp
 CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj -MF CMakeFiles\app.dir\src\ui\screens\file_operations\menuLab2.cpp.obj.d -o CMakeFiles\app.dir\src\ui\screens\file_operations\menuLab2.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\src\ui\screens\file_operations\menuLab2.cpp
 
 CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.i: cmake_force
@@ -314,7 +331,7 @@ CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj: C:/Users/Yermolay/ma
 CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj -MF CMakeFiles\app.dir\src\ui\components\InfoComponent.cpp.obj.d -o CMakeFiles\app.dir\src\ui\components\InfoComponent.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\src\ui\components\InfoComponent.cpp
 
 CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.i: cmake_force
@@ -331,7 +348,7 @@ CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj: C:/Users/Yermolay/matrix
 CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj -MF CMakeFiles\app.dir\core\array_logic\ArrayModel.cpp.obj.d -o CMakeFiles\app.dir\core\array_logic\ArrayModel.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\core\array_logic\ArrayModel.cpp
 
 CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.i: cmake_force
@@ -348,7 +365,7 @@ CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj: C:/Users/Yermolay/m
 CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj -MF CMakeFiles\app.dir\core\array_logic\ArrayAutoFiller.cpp.obj.d -o CMakeFiles\app.dir\core\array_logic\ArrayAutoFiller.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\core\array_logic\ArrayAutoFiller.cpp
 
 CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.i: cmake_force
@@ -365,7 +382,7 @@ CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj: C:/Users/Yermolay/matrix-pr
 CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj -MF CMakeFiles\app.dir\core\matrix_logic\matrix.cpp.obj.d -o CMakeFiles\app.dir\core\matrix_logic\matrix.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\core\matrix_logic\matrix.cpp
 
 CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.i: cmake_force
@@ -382,7 +399,7 @@ CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj: C:/Users/Yermolay
 CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj -MF CMakeFiles\app.dir\core\matrix_logic\MatrixAutoFiller.cpp.obj.d -o CMakeFiles\app.dir\core\matrix_logic\MatrixAutoFiller.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\core\matrix_logic\MatrixAutoFiller.cpp
 
 CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.i: cmake_force
@@ -399,7 +416,7 @@ CMakeFiles/app.dir/utils/io/portable_io.cpp.obj: C:/Users/Yermolay/matrix-projec
 CMakeFiles/app.dir/utils/io/portable_io.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/utils/io/portable_io.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/utils/io/portable_io.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/app.dir/utils/io/portable_io.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/app.dir/utils/io/portable_io.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/utils/io/portable_io.cpp.obj -MF CMakeFiles\app.dir\utils\io\portable_io.cpp.obj.d -o CMakeFiles\app.dir\utils\io\portable_io.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\utils\io\portable_io.cpp
 
 CMakeFiles/app.dir/utils/io/portable_io.cpp.i: cmake_force
@@ -416,7 +433,7 @@ CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj: C:/Users/Yermolay/matrix-
 CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj -MF CMakeFiles\app.dir\utils\io\sorting\MergeSort.cpp.obj.d -o CMakeFiles\app.dir\utils\io\sorting\MergeSort.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\utils\io\sorting\MergeSort.cpp
 
 CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.i: cmake_force
@@ -433,7 +450,7 @@ CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj: C:/Users/Yermolay/matrix-pr
 CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx
 CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj: CMakeFiles/app.dir/cmake_pch.hxx.gch
 CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx -MD -MT CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj -MF CMakeFiles\app.dir\utils\io\math\math_utils.cpp.obj.d -o CMakeFiles\app.dir\utils\io\math\math_utils.cpp.obj -c C:\Users\Yermolay\matrix-project-cpp\utils\io\math\math_utils.cpp
 
 CMakeFiles/app.dir/utils/io/math/math_utils.cpp.i: cmake_force
@@ -458,6 +475,7 @@ app_OBJECTS = \
 "CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.obj" \
 "CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj" \
 "CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj" \
+"CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj" \
 "CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj" \
 "CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj" \
 "CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj" \
@@ -484,6 +502,7 @@ app.exe: CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchCompone
 app.exe: CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.obj
 app.exe: CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj
 app.exe: CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj
+app.exe: CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj
 app.exe: CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj
 app.exe: CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj
 app.exe: CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj
@@ -502,7 +521,7 @@ app.exe: lib/FTXUI/libftxui-screen.a
 app.exe: CMakeFiles/app.dir/linkLibs.rsp
 app.exe: CMakeFiles/app.dir/objects1.rsp
 app.exe: CMakeFiles/app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable app.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX executable app.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\app.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

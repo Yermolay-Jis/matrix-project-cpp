@@ -33,6 +33,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj.d"
   "CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj"
   "CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj.d"
+  "CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj"
+  "CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj.d"
   "CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.obj"
   "CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.obj.d"
   "CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj"

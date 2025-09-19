@@ -34,6 +34,8 @@ CXX_FLAGS = -g -std=gnu++17 -Wall -Wextra
 
 # PCH options: CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
 
+# PCH options: CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
+
 # PCH options: CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj_OPTIONS = -Winvalid-pch;-include;C:/Users/Yermolay/matrix-project-cpp/build/CMakeFiles/app.dir/cmake_pch.hxx

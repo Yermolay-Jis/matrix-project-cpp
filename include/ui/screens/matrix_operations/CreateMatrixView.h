@@ -23,10 +23,10 @@ private:
 
     std::string user_input_rows_ = "";
     std::string user_input_cols_ = "";
-    std::string error_message_;
+    std::string error_message_ = "";
 
     bool is_fill_zero_ = false;
-    bool is_create_matrix_ = false;
+    bool is_create_matrix_ = true;
 
     ftxui::Component buildEnterSizeMatrixView();
     ftxui::Component buildMatrixZeroFillView();

@@ -2,21 +2,21 @@
 #include <filesystem>
 
 #if defined(_WIN32)
-// #include <windows.h>
-// #include <conio.h>
+#include <windows.h>
+#include <conio.h>
 
 #elif (__linux__) || (__APPLE__)
-// #include <unistd.h>
-// #include <termios.h>
-// #include <stdio.h>
-// #error "ERROR: Your os not supported!"
+#include <unistd.h>
+#include <termios.h>
+#include <stdio.h>
+#error "ERROR: Your os not supported!"
 
 #endif
 
 char get_char_non_blocking()
 {
 #ifdef _WIN32
-    // return _getch();
+    return _getch();
 #else
     struct termios, new_settings, old_settings;
     char ch;

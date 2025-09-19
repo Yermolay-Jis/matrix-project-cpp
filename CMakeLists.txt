@@ -28,6 +28,7 @@ set(APP_SOURCES
         src/ui/screens/matrix_operations/MatrixOperations.cpp 
         src/ui/screens/matrix_operations/CreateMatrixView.cpp
         src/ui/screens/matrix_operations/ShowMatrixView.cpp
+        src/ui/screens/matrix_operations/FillMatrixView.cpp
         src/ui/screens/file_operations/menuLab2.cpp
         
 

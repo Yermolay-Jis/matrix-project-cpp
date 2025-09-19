@@ -1,3 +1,4 @@
+#pragma once
 #include "ftxui/dom/elements.hpp"
 #include "ftxui/component/component.hpp"
 #include "ui/UIComponent.h"
@@ -21,4 +22,6 @@ private:
     std::shared_ptr<MatrixModel> matrix_model_;
     std::function<void()> call_back_;
     int show_matrix_active_view_ = 0;
+
+    ftxui::Component buildShowMatrixView();
 };

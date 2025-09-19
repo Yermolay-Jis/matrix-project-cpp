@@ -1,5 +1,6 @@
 #include "ui/screens/matrix_operations/MatrixOperations.h"
 #include "ui/screens/matrix_operations/CreateMatrixView.h"
+#include "ui/screens/matrix_operations/ShowMatrixView.h"
 #include "ui/screens/array_operations/menuLab_1.h"
 #include "matrix_logic/matrix.h"
 #include "io/portable_io.h"
@@ -1880,10 +1881,13 @@ MatrixOperations::MatrixOperations()
 
 	auto show_matrix_view = buildShowMatrixView();
 
+	auto fill_matrix_view = buildFillMatrixView();
+
 	matrix_operations_ = ftxui::Container::Tab({
 												   matrix_main_menu_view,
 												   create_matrix_view,
 												   show_matrix_view,
+												   fill_matrix_view,
 											   },
 											   &matrix_operations_active_view_);
 }
@@ -1907,11 +1911,14 @@ ftxui::Component MatrixOperations::buildMatrixMainMenuView()
 {
 	auto menuTitle = ftxui::Renderer([&]
 									 { return ftxui::text("Matrix operations") | ftxui::bold; });
-	return ftxui::Container::Vertical({menuTitle,
-									   ftxui::Button("> Create matrix", [&]
-													 { matrix_operations_active_view_ = 1; }),
-									   ftxui::Button("Show matrix", [&]
-													 { matrix_operations_active_view_ = 2; })
+	return ftxui::Container::Vertical({
+		menuTitle,
+		ftxui::Button("> Create matrix", [&]
+					  { matrix_operations_active_view_ = 1; }),
+		ftxui::Button("Show matrix", [&]
+					  { matrix_operations_active_view_ = 2; }),
+		ftxui::Button("Fill of the matrix", [&]
+					  { matrix_operations_active_view_ = 3; }),
 
 	});
 }
@@ -1926,10 +1933,22 @@ ftxui::Component MatrixOperations::buildCreateMatrixView()
 
 ftxui::Component MatrixOperations::buildShowMatrixView()
 {
-	showMatrixView_ = std::make_shared<ShowMatrixView>(matrix_model_, [this]
+	showMatrixView_ = std::make_shared<ShowMatrixView>(matrix_model_, [&]
 													   { matrix_operations_active_view_ = 0; });
 	return showMatrixView_->GetFTXUIComponent();
 };
+
+ftxui::Component MatrixOperations::buildFillMatrixView()
+{
+	fillMatrixView_ = std::make_shared<FillMatrixView>(matrix_model_, [&]
+													   { matrix_operations_active_view_ = 0; });
+
+	return fillMatrixView_->GetFTXUIComponent();
+};
+
+// ftxui::Component MatrixOperations::buildAutoFillMatrixView()
+// {
+// }
 
 void menuLab_3()
 {

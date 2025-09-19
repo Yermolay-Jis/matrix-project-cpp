@@ -2,6 +2,7 @@
 // #include "ui/screens/matrix_operations/menuLab_3.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 MatrixModel::MatrixModel()
 {
@@ -20,18 +21,9 @@ MatrixModel::MatrixModel(size_t rows, size_t cols) : rows_(rows), cols_(cols)
     };
 }
 
-const std::string MatrixModel::MatrixFormat()
+double MatrixModel::GetValueForIndex(size_t i, size_t j) const
 {
-    std::stringstream ss;
-    for (size_t i = 0; i < rows_; i++)
-    {
-        for (size_t j = 0; j < cols_; j++)
-        {
-            ss << (*data_)[i][j] << "\t";
-        };
-        ss << "\n";
-    };
-    return ss.str();
+    return (*data_)[i][j];
 }
 
 void MatrixModel::SetForIndex(double value, size_t row, size_t col)
@@ -56,7 +48,7 @@ size_t MatrixModel::GetCols() const
     return cols_;
 }
 
-const std::shared_ptr<std::vector<std::vector<double>>> MatrixModel::GetMatrix() const
+std::shared_ptr<std::vector<std::vector<double>>> MatrixModel::GetMatrix() const
 {
     return data_;
 }
@@ -65,9 +57,5 @@ void MatrixModel::CreateMatrix(size_t rows, size_t cols)
 {
     rows_ = rows;
     cols_ = cols;
-    data_ = std::make_shared<std::vector<std::vector<double>>>(rows_);
-    for (size_t i = 0; i < rows_; i++)
-    {
-        (*data_)[i] = std::vector<double>(cols_);
-    };
+    data_ = std::make_shared<std::vector<std::vector<double>>>(rows, std::vector<double>(cols));
 }
