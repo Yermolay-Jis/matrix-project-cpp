@@ -1,4 +1,7 @@
 #pragma once
+#ifndef SUB_MENU_SORT_ARRAY_H_
+#define SUB_MENU_SORT_ARRAY_H_
+
 #include "ftxui/component/component.hpp"
 #include "ftxui/dom/elements.hpp"
 #include "ui/UIComponent.h"
@@ -35,3 +38,5 @@ private:
     ftxui::Component buildAboutComparisonSortView();
     ftxui::Component buildComparisonSortView();
 };
+
+#endif

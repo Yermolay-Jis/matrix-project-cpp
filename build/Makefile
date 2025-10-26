@@ -56,10 +56,10 @@ RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Yermolay\matrix-project-cpp
+CMAKE_SOURCE_DIR = C:\Users\Yermolay\NumericCore
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Yermolay\matrix-project-cpp\build
+CMAKE_BINARY_DIR = C:\Users\Yermolay\NumericCore\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -77,7 +77,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	C:\msys64\ucrt64\bin\cpack.exe --config ./CPackSourceConfig.cmake C:/Users/Yermolay/matrix-project-cpp/build/CPackSourceConfig.cmake
+	C:\msys64\ucrt64\bin\cpack.exe --config ./CPackSourceConfig.cmake C:/Users/Yermolay/NumericCore/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -151,9 +151,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles C:\Users\Yermolay\matrix-project-cpp\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Yermolay\NumericCore\build\CMakeFiles C:\Users\Yermolay\NumericCore\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Yermolay\matrix-project-cpp\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Yermolay\NumericCore\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -181,17 +181,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named app
+# Target rules for targets named NumericCore
 
 # Build rule for target.
-app: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 app
-.PHONY : app
+NumericCore: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 NumericCore
+.PHONY : NumericCore
 
 # fast build rule for target.
-app/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/build
-.PHONY : app/fast
+NumericCore/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/build
+.PHONY : NumericCore/fast
 
 #=============================================================================
 # Target rules for targets named screen
@@ -234,17 +234,17 @@ component/fast:
 
 # target to build an object file
 cmake_pch.hxx.gch:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/cmake_pch.hxx.gch
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/cmake_pch.hxx.gch
 .PHONY : cmake_pch.hxx.gch
 
 # target to preprocess a source file
 cmake_pch.hxx.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/cmake_pch.hxx.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/cmake_pch.hxx.i
 .PHONY : cmake_pch.hxx.i
 
 # target to generate assembly for a file
 cmake_pch.hxx.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/cmake_pch.hxx.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/cmake_pch.hxx.s
 .PHONY : cmake_pch.hxx.s
 
 core/array_logic/ArrayAutoFiller.obj: core/array_logic/ArrayAutoFiller.cpp.obj
@@ -252,7 +252,7 @@ core/array_logic/ArrayAutoFiller.obj: core/array_logic/ArrayAutoFiller.cpp.obj
 
 # target to build an object file
 core/array_logic/ArrayAutoFiller.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/array_logic/ArrayAutoFiller.cpp.obj
 .PHONY : core/array_logic/ArrayAutoFiller.cpp.obj
 
 core/array_logic/ArrayAutoFiller.i: core/array_logic/ArrayAutoFiller.cpp.i
@@ -260,7 +260,7 @@ core/array_logic/ArrayAutoFiller.i: core/array_logic/ArrayAutoFiller.cpp.i
 
 # target to preprocess a source file
 core/array_logic/ArrayAutoFiller.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/array_logic/ArrayAutoFiller.cpp.i
 .PHONY : core/array_logic/ArrayAutoFiller.cpp.i
 
 core/array_logic/ArrayAutoFiller.s: core/array_logic/ArrayAutoFiller.cpp.s
@@ -268,7 +268,7 @@ core/array_logic/ArrayAutoFiller.s: core/array_logic/ArrayAutoFiller.cpp.s
 
 # target to generate assembly for a file
 core/array_logic/ArrayAutoFiller.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayAutoFiller.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/array_logic/ArrayAutoFiller.cpp.s
 .PHONY : core/array_logic/ArrayAutoFiller.cpp.s
 
 core/array_logic/ArrayModel.obj: core/array_logic/ArrayModel.cpp.obj
@@ -276,7 +276,7 @@ core/array_logic/ArrayModel.obj: core/array_logic/ArrayModel.cpp.obj
 
 # target to build an object file
 core/array_logic/ArrayModel.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/array_logic/ArrayModel.cpp.obj
 .PHONY : core/array_logic/ArrayModel.cpp.obj
 
 core/array_logic/ArrayModel.i: core/array_logic/ArrayModel.cpp.i
@@ -284,7 +284,7 @@ core/array_logic/ArrayModel.i: core/array_logic/ArrayModel.cpp.i
 
 # target to preprocess a source file
 core/array_logic/ArrayModel.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/array_logic/ArrayModel.cpp.i
 .PHONY : core/array_logic/ArrayModel.cpp.i
 
 core/array_logic/ArrayModel.s: core/array_logic/ArrayModel.cpp.s
@@ -292,7 +292,7 @@ core/array_logic/ArrayModel.s: core/array_logic/ArrayModel.cpp.s
 
 # target to generate assembly for a file
 core/array_logic/ArrayModel.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/array_logic/ArrayModel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/array_logic/ArrayModel.cpp.s
 .PHONY : core/array_logic/ArrayModel.cpp.s
 
 core/matrix_logic/MatrixAutoFiller.obj: core/matrix_logic/MatrixAutoFiller.cpp.obj
@@ -300,7 +300,7 @@ core/matrix_logic/MatrixAutoFiller.obj: core/matrix_logic/MatrixAutoFiller.cpp.o
 
 # target to build an object file
 core/matrix_logic/MatrixAutoFiller.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/matrix_logic/MatrixAutoFiller.cpp.obj
 .PHONY : core/matrix_logic/MatrixAutoFiller.cpp.obj
 
 core/matrix_logic/MatrixAutoFiller.i: core/matrix_logic/MatrixAutoFiller.cpp.i
@@ -308,7 +308,7 @@ core/matrix_logic/MatrixAutoFiller.i: core/matrix_logic/MatrixAutoFiller.cpp.i
 
 # target to preprocess a source file
 core/matrix_logic/MatrixAutoFiller.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/matrix_logic/MatrixAutoFiller.cpp.i
 .PHONY : core/matrix_logic/MatrixAutoFiller.cpp.i
 
 core/matrix_logic/MatrixAutoFiller.s: core/matrix_logic/MatrixAutoFiller.cpp.s
@@ -316,7 +316,7 @@ core/matrix_logic/MatrixAutoFiller.s: core/matrix_logic/MatrixAutoFiller.cpp.s
 
 # target to generate assembly for a file
 core/matrix_logic/MatrixAutoFiller.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/MatrixAutoFiller.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/matrix_logic/MatrixAutoFiller.cpp.s
 .PHONY : core/matrix_logic/MatrixAutoFiller.cpp.s
 
 core/matrix_logic/matrix.obj: core/matrix_logic/matrix.cpp.obj
@@ -324,7 +324,7 @@ core/matrix_logic/matrix.obj: core/matrix_logic/matrix.cpp.obj
 
 # target to build an object file
 core/matrix_logic/matrix.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/matrix_logic/matrix.cpp.obj
 .PHONY : core/matrix_logic/matrix.cpp.obj
 
 core/matrix_logic/matrix.i: core/matrix_logic/matrix.cpp.i
@@ -332,7 +332,7 @@ core/matrix_logic/matrix.i: core/matrix_logic/matrix.cpp.i
 
 # target to preprocess a source file
 core/matrix_logic/matrix.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/matrix_logic/matrix.cpp.i
 .PHONY : core/matrix_logic/matrix.cpp.i
 
 core/matrix_logic/matrix.s: core/matrix_logic/matrix.cpp.s
@@ -340,7 +340,7 @@ core/matrix_logic/matrix.s: core/matrix_logic/matrix.cpp.s
 
 # target to generate assembly for a file
 core/matrix_logic/matrix.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/core/matrix_logic/matrix.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/core/matrix_logic/matrix.cpp.s
 .PHONY : core/matrix_logic/matrix.cpp.s
 
 src/main.obj: src/main.cpp.obj
@@ -348,7 +348,7 @@ src/main.obj: src/main.cpp.obj
 
 # target to build an object file
 src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/main.cpp.obj
 .PHONY : src/main.cpp.obj
 
 src/main.i: src/main.cpp.i
@@ -356,7 +356,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -364,7 +364,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/ui/components/InfoComponent.obj: src/ui/components/InfoComponent.cpp.obj
@@ -372,7 +372,7 @@ src/ui/components/InfoComponent.obj: src/ui/components/InfoComponent.cpp.obj
 
 # target to build an object file
 src/ui/components/InfoComponent.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/components/InfoComponent.cpp.obj
 .PHONY : src/ui/components/InfoComponent.cpp.obj
 
 src/ui/components/InfoComponent.i: src/ui/components/InfoComponent.cpp.i
@@ -380,7 +380,7 @@ src/ui/components/InfoComponent.i: src/ui/components/InfoComponent.cpp.i
 
 # target to preprocess a source file
 src/ui/components/InfoComponent.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/components/InfoComponent.cpp.i
 .PHONY : src/ui/components/InfoComponent.cpp.i
 
 src/ui/components/InfoComponent.s: src/ui/components/InfoComponent.cpp.s
@@ -388,7 +388,7 @@ src/ui/components/InfoComponent.s: src/ui/components/InfoComponent.cpp.s
 
 # target to generate assembly for a file
 src/ui/components/InfoComponent.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/components/InfoComponent.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/components/InfoComponent.cpp.s
 .PHONY : src/ui/components/InfoComponent.cpp.s
 
 src/ui/mainMenuComponent.obj: src/ui/mainMenuComponent.cpp.obj
@@ -396,7 +396,7 @@ src/ui/mainMenuComponent.obj: src/ui/mainMenuComponent.cpp.obj
 
 # target to build an object file
 src/ui/mainMenuComponent.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/mainMenuComponent.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/mainMenuComponent.cpp.obj
 .PHONY : src/ui/mainMenuComponent.cpp.obj
 
 src/ui/mainMenuComponent.i: src/ui/mainMenuComponent.cpp.i
@@ -404,7 +404,7 @@ src/ui/mainMenuComponent.i: src/ui/mainMenuComponent.cpp.i
 
 # target to preprocess a source file
 src/ui/mainMenuComponent.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/mainMenuComponent.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/mainMenuComponent.cpp.i
 .PHONY : src/ui/mainMenuComponent.cpp.i
 
 src/ui/mainMenuComponent.s: src/ui/mainMenuComponent.cpp.s
@@ -412,7 +412,7 @@ src/ui/mainMenuComponent.s: src/ui/mainMenuComponent.cpp.s
 
 # target to generate assembly for a file
 src/ui/mainMenuComponent.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/mainMenuComponent.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/mainMenuComponent.cpp.s
 .PHONY : src/ui/mainMenuComponent.cpp.s
 
 src/ui/screens/array_operations/CreateArrayView.obj: src/ui/screens/array_operations/CreateArrayView.cpp.obj
@@ -420,7 +420,7 @@ src/ui/screens/array_operations/CreateArrayView.obj: src/ui/screens/array_operat
 
 # target to build an object file
 src/ui/screens/array_operations/CreateArrayView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/CreateArrayView.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/CreateArrayView.cpp.obj
 .PHONY : src/ui/screens/array_operations/CreateArrayView.cpp.obj
 
 src/ui/screens/array_operations/CreateArrayView.i: src/ui/screens/array_operations/CreateArrayView.cpp.i
@@ -428,7 +428,7 @@ src/ui/screens/array_operations/CreateArrayView.i: src/ui/screens/array_operatio
 
 # target to preprocess a source file
 src/ui/screens/array_operations/CreateArrayView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/CreateArrayView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/CreateArrayView.cpp.i
 .PHONY : src/ui/screens/array_operations/CreateArrayView.cpp.i
 
 src/ui/screens/array_operations/CreateArrayView.s: src/ui/screens/array_operations/CreateArrayView.cpp.s
@@ -436,7 +436,7 @@ src/ui/screens/array_operations/CreateArrayView.s: src/ui/screens/array_operatio
 
 # target to generate assembly for a file
 src/ui/screens/array_operations/CreateArrayView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/CreateArrayView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/CreateArrayView.cpp.s
 .PHONY : src/ui/screens/array_operations/CreateArrayView.cpp.s
 
 src/ui/screens/array_operations/FillArrayRandomView.obj: src/ui/screens/array_operations/FillArrayRandomView.cpp.obj
@@ -444,7 +444,7 @@ src/ui/screens/array_operations/FillArrayRandomView.obj: src/ui/screens/array_op
 
 # target to build an object file
 src/ui/screens/array_operations/FillArrayRandomView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.obj
 .PHONY : src/ui/screens/array_operations/FillArrayRandomView.cpp.obj
 
 src/ui/screens/array_operations/FillArrayRandomView.i: src/ui/screens/array_operations/FillArrayRandomView.cpp.i
@@ -452,7 +452,7 @@ src/ui/screens/array_operations/FillArrayRandomView.i: src/ui/screens/array_oper
 
 # target to preprocess a source file
 src/ui/screens/array_operations/FillArrayRandomView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.i
 .PHONY : src/ui/screens/array_operations/FillArrayRandomView.cpp.i
 
 src/ui/screens/array_operations/FillArrayRandomView.s: src/ui/screens/array_operations/FillArrayRandomView.cpp.s
@@ -460,7 +460,7 @@ src/ui/screens/array_operations/FillArrayRandomView.s: src/ui/screens/array_oper
 
 # target to generate assembly for a file
 src/ui/screens/array_operations/FillArrayRandomView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/FillArrayRandomView.cpp.s
 .PHONY : src/ui/screens/array_operations/FillArrayRandomView.cpp.s
 
 src/ui/screens/array_operations/FillArrayView.obj: src/ui/screens/array_operations/FillArrayView.cpp.obj
@@ -468,7 +468,7 @@ src/ui/screens/array_operations/FillArrayView.obj: src/ui/screens/array_operatio
 
 # target to build an object file
 src/ui/screens/array_operations/FillArrayView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayView.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/FillArrayView.cpp.obj
 .PHONY : src/ui/screens/array_operations/FillArrayView.cpp.obj
 
 src/ui/screens/array_operations/FillArrayView.i: src/ui/screens/array_operations/FillArrayView.cpp.i
@@ -476,7 +476,7 @@ src/ui/screens/array_operations/FillArrayView.i: src/ui/screens/array_operations
 
 # target to preprocess a source file
 src/ui/screens/array_operations/FillArrayView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/FillArrayView.cpp.i
 .PHONY : src/ui/screens/array_operations/FillArrayView.cpp.i
 
 src/ui/screens/array_operations/FillArrayView.s: src/ui/screens/array_operations/FillArrayView.cpp.s
@@ -484,7 +484,7 @@ src/ui/screens/array_operations/FillArrayView.s: src/ui/screens/array_operations
 
 # target to generate assembly for a file
 src/ui/screens/array_operations/FillArrayView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/FillArrayView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/FillArrayView.cpp.s
 .PHONY : src/ui/screens/array_operations/FillArrayView.cpp.s
 
 src/ui/screens/array_operations/ShowArrayView.obj: src/ui/screens/array_operations/ShowArrayView.cpp.obj
@@ -492,7 +492,7 @@ src/ui/screens/array_operations/ShowArrayView.obj: src/ui/screens/array_operatio
 
 # target to build an object file
 src/ui/screens/array_operations/ShowArrayView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowArrayView.cpp.obj
 .PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.obj
 
 src/ui/screens/array_operations/ShowArrayView.i: src/ui/screens/array_operations/ShowArrayView.cpp.i
@@ -500,7 +500,7 @@ src/ui/screens/array_operations/ShowArrayView.i: src/ui/screens/array_operations
 
 # target to preprocess a source file
 src/ui/screens/array_operations/ShowArrayView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowArrayView.cpp.i
 .PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.i
 
 src/ui/screens/array_operations/ShowArrayView.s: src/ui/screens/array_operations/ShowArrayView.cpp.s
@@ -508,7 +508,7 @@ src/ui/screens/array_operations/ShowArrayView.s: src/ui/screens/array_operations
 
 # target to generate assembly for a file
 src/ui/screens/array_operations/ShowArrayView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/ShowArrayView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowArrayView.cpp.s
 .PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.s
 
 src/ui/screens/array_operations/SubMenuSearchComponent.obj: src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj
@@ -516,7 +516,7 @@ src/ui/screens/array_operations/SubMenuSearchComponent.obj: src/ui/screens/array
 
 # target to build an object file
 src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj
 .PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj
 
 src/ui/screens/array_operations/SubMenuSearchComponent.i: src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i
@@ -524,7 +524,7 @@ src/ui/screens/array_operations/SubMenuSearchComponent.i: src/ui/screens/array_o
 
 # target to preprocess a source file
 src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i
 .PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.cpp.i
 
 src/ui/screens/array_operations/SubMenuSearchComponent.s: src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s
@@ -532,7 +532,7 @@ src/ui/screens/array_operations/SubMenuSearchComponent.s: src/ui/screens/array_o
 
 # target to generate assembly for a file
 src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s
 .PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.cpp.s
 
 src/ui/screens/array_operations/SubMenuSortArray.obj: src/ui/screens/array_operations/SubMenuSortArray.cpp.obj
@@ -540,7 +540,7 @@ src/ui/screens/array_operations/SubMenuSortArray.obj: src/ui/screens/array_opera
 
 # target to build an object file
 src/ui/screens/array_operations/SubMenuSortArray.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.obj
 .PHONY : src/ui/screens/array_operations/SubMenuSortArray.cpp.obj
 
 src/ui/screens/array_operations/SubMenuSortArray.i: src/ui/screens/array_operations/SubMenuSortArray.cpp.i
@@ -548,7 +548,7 @@ src/ui/screens/array_operations/SubMenuSortArray.i: src/ui/screens/array_operati
 
 # target to preprocess a source file
 src/ui/screens/array_operations/SubMenuSortArray.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.i
 .PHONY : src/ui/screens/array_operations/SubMenuSortArray.cpp.i
 
 src/ui/screens/array_operations/SubMenuSortArray.s: src/ui/screens/array_operations/SubMenuSortArray.cpp.s
@@ -556,7 +556,7 @@ src/ui/screens/array_operations/SubMenuSortArray.s: src/ui/screens/array_operati
 
 # target to generate assembly for a file
 src/ui/screens/array_operations/SubMenuSortArray.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/SubMenuSortArray.cpp.s
 .PHONY : src/ui/screens/array_operations/SubMenuSortArray.cpp.s
 
 src/ui/screens/array_operations/menuLab_1.obj: src/ui/screens/array_operations/menuLab_1.cpp.obj
@@ -564,7 +564,7 @@ src/ui/screens/array_operations/menuLab_1.obj: src/ui/screens/array_operations/m
 
 # target to build an object file
 src/ui/screens/array_operations/menuLab_1.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/menuLab_1.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/menuLab_1.cpp.obj
 .PHONY : src/ui/screens/array_operations/menuLab_1.cpp.obj
 
 src/ui/screens/array_operations/menuLab_1.i: src/ui/screens/array_operations/menuLab_1.cpp.i
@@ -572,7 +572,7 @@ src/ui/screens/array_operations/menuLab_1.i: src/ui/screens/array_operations/men
 
 # target to preprocess a source file
 src/ui/screens/array_operations/menuLab_1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/menuLab_1.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/menuLab_1.cpp.i
 .PHONY : src/ui/screens/array_operations/menuLab_1.cpp.i
 
 src/ui/screens/array_operations/menuLab_1.s: src/ui/screens/array_operations/menuLab_1.cpp.s
@@ -580,7 +580,7 @@ src/ui/screens/array_operations/menuLab_1.s: src/ui/screens/array_operations/men
 
 # target to generate assembly for a file
 src/ui/screens/array_operations/menuLab_1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/array_operations/menuLab_1.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/menuLab_1.cpp.s
 .PHONY : src/ui/screens/array_operations/menuLab_1.cpp.s
 
 src/ui/screens/file_operations/menuLab2.obj: src/ui/screens/file_operations/menuLab2.cpp.obj
@@ -588,7 +588,7 @@ src/ui/screens/file_operations/menuLab2.obj: src/ui/screens/file_operations/menu
 
 # target to build an object file
 src/ui/screens/file_operations/menuLab2.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/file_operations/menuLab2.cpp.obj
 .PHONY : src/ui/screens/file_operations/menuLab2.cpp.obj
 
 src/ui/screens/file_operations/menuLab2.i: src/ui/screens/file_operations/menuLab2.cpp.i
@@ -596,7 +596,7 @@ src/ui/screens/file_operations/menuLab2.i: src/ui/screens/file_operations/menuLa
 
 # target to preprocess a source file
 src/ui/screens/file_operations/menuLab2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/file_operations/menuLab2.cpp.i
 .PHONY : src/ui/screens/file_operations/menuLab2.cpp.i
 
 src/ui/screens/file_operations/menuLab2.s: src/ui/screens/file_operations/menuLab2.cpp.s
@@ -604,7 +604,7 @@ src/ui/screens/file_operations/menuLab2.s: src/ui/screens/file_operations/menuLa
 
 # target to generate assembly for a file
 src/ui/screens/file_operations/menuLab2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/file_operations/menuLab2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/file_operations/menuLab2.cpp.s
 .PHONY : src/ui/screens/file_operations/menuLab2.cpp.s
 
 src/ui/screens/matrix_operations/CreateMatrixView.obj: src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj
@@ -612,7 +612,7 @@ src/ui/screens/matrix_operations/CreateMatrixView.obj: src/ui/screens/matrix_ope
 
 # target to build an object file
 src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj
 .PHONY : src/ui/screens/matrix_operations/CreateMatrixView.cpp.obj
 
 src/ui/screens/matrix_operations/CreateMatrixView.i: src/ui/screens/matrix_operations/CreateMatrixView.cpp.i
@@ -620,7 +620,7 @@ src/ui/screens/matrix_operations/CreateMatrixView.i: src/ui/screens/matrix_opera
 
 # target to preprocess a source file
 src/ui/screens/matrix_operations/CreateMatrixView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.i
 .PHONY : src/ui/screens/matrix_operations/CreateMatrixView.cpp.i
 
 src/ui/screens/matrix_operations/CreateMatrixView.s: src/ui/screens/matrix_operations/CreateMatrixView.cpp.s
@@ -628,15 +628,39 @@ src/ui/screens/matrix_operations/CreateMatrixView.s: src/ui/screens/matrix_opera
 
 # target to generate assembly for a file
 src/ui/screens/matrix_operations/CreateMatrixView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/CreateMatrixView.cpp.s
 .PHONY : src/ui/screens/matrix_operations/CreateMatrixView.cpp.s
+
+src/ui/screens/matrix_operations/FillMatrixAutoView.obj: src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/FillMatrixAutoView.obj
+
+# target to build an object file
+src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.obj
+
+src/ui/screens/matrix_operations/FillMatrixAutoView.i: src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.i
+.PHONY : src/ui/screens/matrix_operations/FillMatrixAutoView.i
+
+# target to preprocess a source file
+src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.i
+.PHONY : src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.i
+
+src/ui/screens/matrix_operations/FillMatrixAutoView.s: src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.s
+.PHONY : src/ui/screens/matrix_operations/FillMatrixAutoView.s
+
+# target to generate assembly for a file
+src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.s
+.PHONY : src/ui/screens/matrix_operations/FillMatrixAutoView.cpp.s
 
 src/ui/screens/matrix_operations/FillMatrixView.obj: src/ui/screens/matrix_operations/FillMatrixView.cpp.obj
 .PHONY : src/ui/screens/matrix_operations/FillMatrixView.obj
 
 # target to build an object file
 src/ui/screens/matrix_operations/FillMatrixView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.obj
 .PHONY : src/ui/screens/matrix_operations/FillMatrixView.cpp.obj
 
 src/ui/screens/matrix_operations/FillMatrixView.i: src/ui/screens/matrix_operations/FillMatrixView.cpp.i
@@ -644,7 +668,7 @@ src/ui/screens/matrix_operations/FillMatrixView.i: src/ui/screens/matrix_operati
 
 # target to preprocess a source file
 src/ui/screens/matrix_operations/FillMatrixView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.i
 .PHONY : src/ui/screens/matrix_operations/FillMatrixView.cpp.i
 
 src/ui/screens/matrix_operations/FillMatrixView.s: src/ui/screens/matrix_operations/FillMatrixView.cpp.s
@@ -652,15 +676,39 @@ src/ui/screens/matrix_operations/FillMatrixView.s: src/ui/screens/matrix_operati
 
 # target to generate assembly for a file
 src/ui/screens/matrix_operations/FillMatrixView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/FillMatrixView.cpp.s
 .PHONY : src/ui/screens/matrix_operations/FillMatrixView.cpp.s
+
+src/ui/screens/matrix_operations/MatrixMathOperations.obj: src/ui/screens/matrix_operations/MatrixMathOperations.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/MatrixMathOperations.obj
+
+# target to build an object file
+src/ui/screens/matrix_operations/MatrixMathOperations.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/MatrixMathOperations.cpp.obj
+.PHONY : src/ui/screens/matrix_operations/MatrixMathOperations.cpp.obj
+
+src/ui/screens/matrix_operations/MatrixMathOperations.i: src/ui/screens/matrix_operations/MatrixMathOperations.cpp.i
+.PHONY : src/ui/screens/matrix_operations/MatrixMathOperations.i
+
+# target to preprocess a source file
+src/ui/screens/matrix_operations/MatrixMathOperations.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/MatrixMathOperations.cpp.i
+.PHONY : src/ui/screens/matrix_operations/MatrixMathOperations.cpp.i
+
+src/ui/screens/matrix_operations/MatrixMathOperations.s: src/ui/screens/matrix_operations/MatrixMathOperations.cpp.s
+.PHONY : src/ui/screens/matrix_operations/MatrixMathOperations.s
+
+# target to generate assembly for a file
+src/ui/screens/matrix_operations/MatrixMathOperations.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/MatrixMathOperations.cpp.s
+.PHONY : src/ui/screens/matrix_operations/MatrixMathOperations.cpp.s
 
 src/ui/screens/matrix_operations/MatrixOperations.obj: src/ui/screens/matrix_operations/MatrixOperations.cpp.obj
 .PHONY : src/ui/screens/matrix_operations/MatrixOperations.obj
 
 # target to build an object file
 src/ui/screens/matrix_operations/MatrixOperations.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.obj
 .PHONY : src/ui/screens/matrix_operations/MatrixOperations.cpp.obj
 
 src/ui/screens/matrix_operations/MatrixOperations.i: src/ui/screens/matrix_operations/MatrixOperations.cpp.i
@@ -668,7 +716,7 @@ src/ui/screens/matrix_operations/MatrixOperations.i: src/ui/screens/matrix_opera
 
 # target to preprocess a source file
 src/ui/screens/matrix_operations/MatrixOperations.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.i
 .PHONY : src/ui/screens/matrix_operations/MatrixOperations.cpp.i
 
 src/ui/screens/matrix_operations/MatrixOperations.s: src/ui/screens/matrix_operations/MatrixOperations.cpp.s
@@ -676,7 +724,7 @@ src/ui/screens/matrix_operations/MatrixOperations.s: src/ui/screens/matrix_opera
 
 # target to generate assembly for a file
 src/ui/screens/matrix_operations/MatrixOperations.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/MatrixOperations.cpp.s
 .PHONY : src/ui/screens/matrix_operations/MatrixOperations.cpp.s
 
 src/ui/screens/matrix_operations/ShowMatrixView.obj: src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj
@@ -684,7 +732,7 @@ src/ui/screens/matrix_operations/ShowMatrixView.obj: src/ui/screens/matrix_opera
 
 # target to build an object file
 src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj
 .PHONY : src/ui/screens/matrix_operations/ShowMatrixView.cpp.obj
 
 src/ui/screens/matrix_operations/ShowMatrixView.i: src/ui/screens/matrix_operations/ShowMatrixView.cpp.i
@@ -692,7 +740,7 @@ src/ui/screens/matrix_operations/ShowMatrixView.i: src/ui/screens/matrix_operati
 
 # target to preprocess a source file
 src/ui/screens/matrix_operations/ShowMatrixView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.i
 .PHONY : src/ui/screens/matrix_operations/ShowMatrixView.cpp.i
 
 src/ui/screens/matrix_operations/ShowMatrixView.s: src/ui/screens/matrix_operations/ShowMatrixView.cpp.s
@@ -700,7 +748,7 @@ src/ui/screens/matrix_operations/ShowMatrixView.s: src/ui/screens/matrix_operati
 
 # target to generate assembly for a file
 src/ui/screens/matrix_operations/ShowMatrixView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/matrix_operations/ShowMatrixView.cpp.s
 .PHONY : src/ui/screens/matrix_operations/ShowMatrixView.cpp.s
 
 utils/io/math/math_utils.obj: utils/io/math/math_utils.cpp.obj
@@ -708,7 +756,7 @@ utils/io/math/math_utils.obj: utils/io/math/math_utils.cpp.obj
 
 # target to build an object file
 utils/io/math/math_utils.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/math/math_utils.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/math/math_utils.cpp.obj
 .PHONY : utils/io/math/math_utils.cpp.obj
 
 utils/io/math/math_utils.i: utils/io/math/math_utils.cpp.i
@@ -716,7 +764,7 @@ utils/io/math/math_utils.i: utils/io/math/math_utils.cpp.i
 
 # target to preprocess a source file
 utils/io/math/math_utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/math/math_utils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/math/math_utils.cpp.i
 .PHONY : utils/io/math/math_utils.cpp.i
 
 utils/io/math/math_utils.s: utils/io/math/math_utils.cpp.s
@@ -724,7 +772,7 @@ utils/io/math/math_utils.s: utils/io/math/math_utils.cpp.s
 
 # target to generate assembly for a file
 utils/io/math/math_utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/math/math_utils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/math/math_utils.cpp.s
 .PHONY : utils/io/math/math_utils.cpp.s
 
 utils/io/portable_io.obj: utils/io/portable_io.cpp.obj
@@ -732,7 +780,7 @@ utils/io/portable_io.obj: utils/io/portable_io.cpp.obj
 
 # target to build an object file
 utils/io/portable_io.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/portable_io.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/portable_io.cpp.obj
 .PHONY : utils/io/portable_io.cpp.obj
 
 utils/io/portable_io.i: utils/io/portable_io.cpp.i
@@ -740,7 +788,7 @@ utils/io/portable_io.i: utils/io/portable_io.cpp.i
 
 # target to preprocess a source file
 utils/io/portable_io.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/portable_io.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/portable_io.cpp.i
 .PHONY : utils/io/portable_io.cpp.i
 
 utils/io/portable_io.s: utils/io/portable_io.cpp.s
@@ -748,7 +796,7 @@ utils/io/portable_io.s: utils/io/portable_io.cpp.s
 
 # target to generate assembly for a file
 utils/io/portable_io.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/portable_io.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/portable_io.cpp.s
 .PHONY : utils/io/portable_io.cpp.s
 
 utils/io/sorting/MergeSort.obj: utils/io/sorting/MergeSort.cpp.obj
@@ -756,7 +804,7 @@ utils/io/sorting/MergeSort.obj: utils/io/sorting/MergeSort.cpp.obj
 
 # target to build an object file
 utils/io/sorting/MergeSort.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/sorting/MergeSort.cpp.obj
 .PHONY : utils/io/sorting/MergeSort.cpp.obj
 
 utils/io/sorting/MergeSort.i: utils/io/sorting/MergeSort.cpp.i
@@ -764,7 +812,7 @@ utils/io/sorting/MergeSort.i: utils/io/sorting/MergeSort.cpp.i
 
 # target to preprocess a source file
 utils/io/sorting/MergeSort.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/sorting/MergeSort.cpp.i
 .PHONY : utils/io/sorting/MergeSort.cpp.i
 
 utils/io/sorting/MergeSort.s: utils/io/sorting/MergeSort.cpp.s
@@ -772,7 +820,7 @@ utils/io/sorting/MergeSort.s: utils/io/sorting/MergeSort.cpp.s
 
 # target to generate assembly for a file
 utils/io/sorting/MergeSort.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/utils/io/sorting/MergeSort.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/utils/io/sorting/MergeSort.cpp.s
 .PHONY : utils/io/sorting/MergeSort.cpp.s
 
 # Help Target
@@ -789,7 +837,7 @@ help:
 	@echo ... package
 	@echo ... package_source
 	@echo ... rebuild_cache
-	@echo ... app
+	@echo ... NumericCore
 	@echo ... component
 	@echo ... dom
 	@echo ... screen
@@ -844,9 +892,15 @@ help:
 	@echo ... src/ui/screens/matrix_operations/CreateMatrixView.obj
 	@echo ... src/ui/screens/matrix_operations/CreateMatrixView.i
 	@echo ... src/ui/screens/matrix_operations/CreateMatrixView.s
+	@echo ... src/ui/screens/matrix_operations/FillMatrixAutoView.obj
+	@echo ... src/ui/screens/matrix_operations/FillMatrixAutoView.i
+	@echo ... src/ui/screens/matrix_operations/FillMatrixAutoView.s
 	@echo ... src/ui/screens/matrix_operations/FillMatrixView.obj
 	@echo ... src/ui/screens/matrix_operations/FillMatrixView.i
 	@echo ... src/ui/screens/matrix_operations/FillMatrixView.s
+	@echo ... src/ui/screens/matrix_operations/MatrixMathOperations.obj
+	@echo ... src/ui/screens/matrix_operations/MatrixMathOperations.i
+	@echo ... src/ui/screens/matrix_operations/MatrixMathOperations.s
 	@echo ... src/ui/screens/matrix_operations/MatrixOperations.obj
 	@echo ... src/ui/screens/matrix_operations/MatrixOperations.i
 	@echo ... src/ui/screens/matrix_operations/MatrixOperations.s

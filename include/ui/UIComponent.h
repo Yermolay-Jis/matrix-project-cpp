@@ -1,4 +1,7 @@
 #pragma once
+#ifndef UI_COMPONENT_H_
+#define UI_COMPONENT_H_
+
 #include <ftxui/component/screen_interactive.hpp>
 #include <ftxui/dom/elements.hpp>
 class UIComponent
@@ -10,3 +13,5 @@ public:
     virtual ftxui::Component GetFTXUIComponent() = 0;
     virtual ~UIComponent() = default;
 };
+
+#endif

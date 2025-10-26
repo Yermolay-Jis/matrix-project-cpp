@@ -1,4 +1,7 @@
 #pragma once
+#ifndef FILL_ARRAY_VIEW_H_
+#define FILL_ARRAY_VIEW_H_
+
 #include "ftxui/dom/elements.hpp"
 #include "ftxui/component/component.hpp"
 #include "ui/UIComponent.h"
@@ -30,3 +33,5 @@ public:
     bool IsSelectable() override { return true; };
     ftxui::Component GetFTXUIComponent() override;
 };
+
+#endif

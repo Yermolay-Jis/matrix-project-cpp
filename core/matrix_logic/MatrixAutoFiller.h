@@ -6,10 +6,10 @@
 class MatrixAutoFiller
 {
 public:
-    MatrixAutoFiller(int max, int min);
+    MatrixAutoFiller(int min, int max);
     void AutoFill(std::shared_ptr<MatrixModel> matrix_model);
 
 private:
-    int max_, min_;
+    int min_, max_;
     std::mt19937 random_engine_;
 };

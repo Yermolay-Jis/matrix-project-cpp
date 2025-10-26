@@ -1,4 +1,7 @@
 #pragma once
+#ifndef ARRAY_OPERATION_H_
+#define ARRAY_OPERATION_H_
+
 #include "array_logic/ArrayModel.h"
 #include "ui/UIComponent.h"
 #include "ui/screens/array_operations/CreateArrayView.h"
@@ -70,3 +73,5 @@ extern size_t sizeArr;
 extern double *arr;
 // extern HDC hdc;
 extern char separate;
+
+#endif

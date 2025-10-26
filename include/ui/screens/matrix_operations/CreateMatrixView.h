@@ -1,4 +1,7 @@
 #pragma once
+#ifndef CREATE_MATRIX_VIEW_H_
+#define CREATE_MATRIX_VIEW_H_
+
 #include <utility>
 #include "ui/UIComponent.h"
 #include "matrix_logic/matrix.h"
@@ -32,3 +35,5 @@ private:
     ftxui::Component buildMatrixZeroFillView();
     ftxui::Component buildResultMatrixView();
 };
+
+#endif

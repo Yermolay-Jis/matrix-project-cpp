@@ -1,4 +1,7 @@
 #pragma once
+#ifndef CREATE_ARRAY_VIEW_H_
+#define CREATE_ARRAY_VIEW_H_
+
 #include "ftxui/component/component.hpp"
 #include "ftxui/dom/elements.hpp"
 #include "ui/UIComponent.h"
@@ -26,3 +29,5 @@ private:
     ftxui::Component buildInputView();
     ftxui::Component buildResultView();
 };
+
+#endif

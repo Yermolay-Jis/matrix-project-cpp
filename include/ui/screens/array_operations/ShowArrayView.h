@@ -1,4 +1,7 @@
 #pragma once
+#ifndef SHOW_ARRAY_VIEW_H_
+#define SHOW_ARRAY_VIEW_H_
+
 #include "ftxui/component/component.hpp"
 #include "ftxui/dom/elements.hpp"
 #include "array_logic/ArrayModel.h"
@@ -28,3 +31,5 @@ private:
 
     ftxui::Component buildShowArrayView();
 };
+
+#endif

@@ -1,4 +1,7 @@
 #pragma once
+#ifndef FILL_ARRAY_RANDOM_VIEW_H_
+#define FILL_ARRAY_RANDOM_VIEW_H_
+
 #include "ui/UIComponent.h"
 #include "array_logic/ArrayModel.h"
 #include "ftxui/component/component.hpp"
@@ -24,3 +27,5 @@ private:
 
     ftxui::Component buildResultView();
 };
+
+#endif

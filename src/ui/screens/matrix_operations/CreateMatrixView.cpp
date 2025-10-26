@@ -53,27 +53,38 @@ ftxui::Component CreateMatrixView::buildMatrixZeroFillView()
                                        ftxui::Checkbox("Fill of the zero", &is_fill_zero_),
                                        ftxui::Checkbox("Create of the matrix", &is_create_matrix_),
                                        ftxui::Button("Next", [&]
-                                                     { 
-                                                        if (is_create_matrix_) {
-                                                            if (!(user_input_rows_.empty() || user_input_cols_.empty())) {
-                                                                size_t user_rows = std::stoi(user_input_rows_);
-                                                                size_t user_cols = std::stoi(user_input_cols_);
-                                                                matrix_model_->CreateMatrix(user_rows, user_cols);
+                                                     {
+                                                         if (is_create_matrix_)
+                                                         {
+                                                             if (!(user_input_rows_.empty() || user_input_cols_.empty()))
+                                                             {
+                                                                 size_t user_rows = std::stoi(user_input_rows_);
+                                                                 size_t user_cols = std::stoi(user_input_cols_);
+                                                                 matrix_model_->CreateMatrix(user_rows, user_cols);
 
-                                                                auto matrix = matrix_model_->GetMatrix();
-                                                                if (is_fill_zero_) {
-                                                                    for (size_t i = 0 ; i < user_rows; i++) {
-                                                                        for (size_t j = 0; j < user_cols; j++) {
-                                                                            matrix_model_->SetForIndex(0, i, j);
-                                                                        }
-                                                                    }
-                                                                }
-                                                            } else {
-                                                                error_message_ = "User rows or cols is empty!";
-                                                            };
-                                                        }
-                                                        
-                                                        create_matrix_active_view_ = 2; })});
+                                                                 auto matrix = matrix_model_->GetMatrix();
+                                                                 if (is_fill_zero_)
+                                                                 {
+                                                                     for (size_t i = 0; i < user_rows; i++)
+                                                                     {
+                                                                         for (size_t j = 0; j < user_cols; j++)
+                                                                         {
+                                                                             matrix_model_->SetForIndex(0, i, j);
+                                                                         }
+                                                                     }
+                                                                 }
+                                                             }
+                                                             else
+                                                             {
+                                                                 error_message_ = "User rows or cols is empty!";
+                                                             };
+                                                         }
+
+                                                         create_matrix_active_view_ = 2;
+                                                         user_input_cols_.clear();
+                                                         user_input_rows_.clear(); })
+
+    });
 };
 
 ftxui::Component CreateMatrixView::buildResultMatrixView()
@@ -110,7 +121,10 @@ ftxui::Component CreateMatrixView::buildResultMatrixView()
                                        title,
                                        result_matrix,
                                        ftxui::Button("Finish", [&]
-                                                     { call_back_(); })
+                                                     {
+                                                         call_back_();
+                                                         create_matrix_active_view_ = 0;
+                                                        error_message_.clear(); })
 
     });
 };

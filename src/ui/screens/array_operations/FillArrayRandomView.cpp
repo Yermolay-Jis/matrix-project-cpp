@@ -6,22 +6,22 @@ FillArrayRandomView::FillArrayRandomView(std::shared_ptr<ArrayModel> model, std:
 {
     auto resultView = buildResultView();
 
-    this->fill_array_random_component_ = ftxui::Container::Tab({resultView}, &active_view_fill_array_);
+    fill_array_random_component_ = ftxui::Container::Tab({resultView}, &active_view_fill_array_);
 };
 
 ftxui::Element FillArrayRandomView::Render()
 {
-    return this->fill_array_random_component_->Render();
+    return fill_array_random_component_->Render();
 };
 
 void FillArrayRandomView::OnEvent(ftxui::Event event)
 {
-    this->fill_array_random_component_->OnEvent(event);
+    fill_array_random_component_->OnEvent(event);
 };
 
 ftxui::Component FillArrayRandomView::GetFTXUIComponent()
 {
-    return this->fill_array_random_component_;
+    return fill_array_random_component_;
 };
 
 ftxui::Component FillArrayRandomView::buildResultView()
@@ -50,7 +50,6 @@ ftxui::Component FillArrayRandomView::buildResultView()
             ftxui::Button("Generate a new one", [this]
                           {
                                                 ArrayAutoFiller filler(0, 100);
-                                                auto current_array = array_model_->getArray();
                                                 filler.autoFill(array_model_); }),
 
             ftxui::Button("Save", [this]

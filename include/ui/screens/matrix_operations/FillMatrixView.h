@@ -1,4 +1,7 @@
 #pragma once
+#ifndef FILL_MATRIX_VIEW_H_
+#define FILL_MATRIX_VIEW_H_
+
 #include "ftxui/dom/elements.hpp"
 #include "ftxui/component/component.hpp"
 #include "matrix_logic/matrix.h"
@@ -25,6 +28,7 @@ private:
     std::string user_input_col_ = "0";
     std::string user_input_value_ = "";
     std::string error_message_;
+    bool is_error_ = false;
     std::string last_value_;
 
     size_t current_row_ = 0;
@@ -43,3 +47,5 @@ private:
     ftxui::Component buildSetValueMatrixView();
     ftxui::Component buildFinishView();
 };
+
+#endif

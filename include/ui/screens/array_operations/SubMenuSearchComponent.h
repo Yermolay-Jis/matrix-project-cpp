@@ -1,4 +1,7 @@
 #pragma once
+#ifndef SUB_MENU_SEARCH_COMPONENT_H_
+#define SUB_MENU_SEARCH_COMPONENT_H_
+
 #include "ftxui/component/component.hpp"
 #include "ftxui/dom/elements.hpp"
 #include "ui/UIComponent.h"
@@ -40,3 +43,5 @@ private:
     ftxui::Component buildAboutComparisonSearchView();
     ftxui::Component buildComparisonSearchView();
 };
+
+#endif

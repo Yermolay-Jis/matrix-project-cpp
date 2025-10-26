@@ -1,10 +1,15 @@
 #pragma once
+#ifndef MATRIX_OPERATIONS_H_
+#define MATRIX_OPERATIONS_H_
+
 #include "ftxui/component/component.hpp"
 #include "ftxui/dom/elements.hpp"
 #include "matrix_logic/matrix.h"
 #include "ui/screens/matrix_operations/ShowMatrixView.h"
 #include "ui/screens/matrix_operations/CreateMatrixView.h"
 #include "ui/screens/matrix_operations/FillMatrixView.h"
+#include "ui/screens/matrix_operations/FillMatrixAutoView.h"
+#include "ui/screens/matrix_operations/MatrixMathOperations.h"
 #include "ui/UIComponent.h"
 #include <functional>
 #include <utility>
@@ -12,7 +17,7 @@
 class MatrixOperations : public UIComponent
 {
 public:
-    MatrixOperations();
+    MatrixOperations(std::function<void()> navigateBack);
     ftxui::Element Render() override;
     void OnEvent(ftxui::Event event) override;
     ftxui::Component GetFTXUIComponent() override;
@@ -25,13 +30,17 @@ private:
     std::shared_ptr<CreateMatrixView> createMatrixView_;
     std::shared_ptr<ShowMatrixView> showMatrixView_;
     std::shared_ptr<FillMatrixView> fillMatrixView_;
-    // std::shared_ptr<AutoFillMatrixView> autoFillMatrixView_;
+    std::shared_ptr<FillMatrixAutoView> fillMatrixAutoView_;
+    std::shared_ptr<MatrixMathOperations> matrixMathOperationsView_;
 
     int matrix_operations_active_view_ = 0;
 
-    ftxui::Component buildMatrixMainMenuView();
+    ftxui::Component buildMatrixMainMenuView(std::function<void()> navigateBack);
     ftxui::Component buildCreateMatrixView();
     ftxui::Component buildShowMatrixView();
     ftxui::Component buildFillMatrixView();
-    ftxui::Component buildAutoFillMatrixView();
+    ftxui::Component buildFillMatrixAutoView();
+    ftxui::Component buildMatrixMathOperations();
 };
+
+#endif

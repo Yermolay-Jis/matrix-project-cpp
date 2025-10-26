@@ -1,4 +1,7 @@
 #pragma once
+#ifndef MAIN_MENU_COMPONENT_H_
+#define MAIN_MENU_COMPONENT_H_
+
 #include "ui/UIComponent.h"
 #include "ui/screens/array_operations/menuLab_1.h"
 #include "ui/components/InfoComponent.h"
@@ -24,3 +27,5 @@ private:
     std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo_;
     std::function<void()> navigateBack_;
 };
+
+#endif

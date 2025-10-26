@@ -1,4 +1,7 @@
 #pragma once
+#ifndef SHOW_MATRIX_VIEW_H_
+#define SHOW_MATRIX_VIEW_H_
+
 #include "ftxui/dom/elements.hpp"
 #include "ftxui/component/component.hpp"
 #include "ui/UIComponent.h"
@@ -25,3 +28,5 @@ private:
 
     ftxui::Component buildShowMatrixView();
 };
+
+#endif
