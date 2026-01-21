@@ -7,7 +7,7 @@
 
 MainMenuComponent::MainMenuComponent(std::function<void()> navigateBack, std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo, std::function<void()> exitAction) : navigateTo_(navigateTo), navigateBack_(navigateBack)
 {
-    menuLab_1_ = std::make_shared<MenuLab_1>(navigateBack_, navigateTo_);
+    menuLab_1_ = std::make_shared<MenuLab_1>(navigateBack_);
     matrixOperations_ = std::make_shared<MatrixOperations>(navigateBack_);
 
     menu_name_component_ = ftxui::Renderer([&]

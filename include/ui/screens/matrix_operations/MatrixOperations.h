@@ -13,6 +13,8 @@
 #include "ui/UIComponent.h"
 #include <functional>
 #include <utility>
+#include <map>
+#include <string>
 
 class MatrixOperations : public UIComponent
 {
@@ -26,6 +28,8 @@ public:
 private:
     ftxui::Component matrix_operations_;
     std::shared_ptr<MatrixModel> matrix_model_;
+
+    std::map<std::string, MatrixModel> workspace_;
 
     std::shared_ptr<CreateMatrixView> createMatrixView_;
     std::shared_ptr<ShowMatrixView> showMatrixView_;

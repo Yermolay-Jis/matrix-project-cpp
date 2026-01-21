@@ -487,29 +487,29 @@ src/ui/screens/array_operations/FillArrayView.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/FillArrayView.cpp.s
 .PHONY : src/ui/screens/array_operations/FillArrayView.cpp.s
 
-src/ui/screens/array_operations/ShowArrayView.obj: src/ui/screens/array_operations/ShowArrayView.cpp.obj
-.PHONY : src/ui/screens/array_operations/ShowArrayView.obj
+src/ui/screens/array_operations/ShowLibraryArrayView.obj: src/ui/screens/array_operations/ShowLibraryArrayView.cpp.obj
+.PHONY : src/ui/screens/array_operations/ShowLibraryArrayView.obj
 
 # target to build an object file
-src/ui/screens/array_operations/ShowArrayView.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowArrayView.cpp.obj
-.PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.obj
+src/ui/screens/array_operations/ShowLibraryArrayView.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowLibraryArrayView.cpp.obj
+.PHONY : src/ui/screens/array_operations/ShowLibraryArrayView.cpp.obj
 
-src/ui/screens/array_operations/ShowArrayView.i: src/ui/screens/array_operations/ShowArrayView.cpp.i
-.PHONY : src/ui/screens/array_operations/ShowArrayView.i
+src/ui/screens/array_operations/ShowLibraryArrayView.i: src/ui/screens/array_operations/ShowLibraryArrayView.cpp.i
+.PHONY : src/ui/screens/array_operations/ShowLibraryArrayView.i
 
 # target to preprocess a source file
-src/ui/screens/array_operations/ShowArrayView.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowArrayView.cpp.i
-.PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.i
+src/ui/screens/array_operations/ShowLibraryArrayView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowLibraryArrayView.cpp.i
+.PHONY : src/ui/screens/array_operations/ShowLibraryArrayView.cpp.i
 
-src/ui/screens/array_operations/ShowArrayView.s: src/ui/screens/array_operations/ShowArrayView.cpp.s
-.PHONY : src/ui/screens/array_operations/ShowArrayView.s
+src/ui/screens/array_operations/ShowLibraryArrayView.s: src/ui/screens/array_operations/ShowLibraryArrayView.cpp.s
+.PHONY : src/ui/screens/array_operations/ShowLibraryArrayView.s
 
 # target to generate assembly for a file
-src/ui/screens/array_operations/ShowArrayView.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowArrayView.cpp.s
-.PHONY : src/ui/screens/array_operations/ShowArrayView.cpp.s
+src/ui/screens/array_operations/ShowLibraryArrayView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumericCore.dir\build.make CMakeFiles/NumericCore.dir/src/ui/screens/array_operations/ShowLibraryArrayView.cpp.s
+.PHONY : src/ui/screens/array_operations/ShowLibraryArrayView.cpp.s
 
 src/ui/screens/array_operations/SubMenuSearchComponent.obj: src/ui/screens/array_operations/SubMenuSearchComponent.cpp.obj
 .PHONY : src/ui/screens/array_operations/SubMenuSearchComponent.obj
@@ -874,9 +874,9 @@ help:
 	@echo ... src/ui/screens/array_operations/FillArrayView.obj
 	@echo ... src/ui/screens/array_operations/FillArrayView.i
 	@echo ... src/ui/screens/array_operations/FillArrayView.s
-	@echo ... src/ui/screens/array_operations/ShowArrayView.obj
-	@echo ... src/ui/screens/array_operations/ShowArrayView.i
-	@echo ... src/ui/screens/array_operations/ShowArrayView.s
+	@echo ... src/ui/screens/array_operations/ShowLibraryArrayView.obj
+	@echo ... src/ui/screens/array_operations/ShowLibraryArrayView.i
+	@echo ... src/ui/screens/array_operations/ShowLibraryArrayView.s
 	@echo ... src/ui/screens/array_operations/SubMenuSearchComponent.obj
 	@echo ... src/ui/screens/array_operations/SubMenuSearchComponent.i
 	@echo ... src/ui/screens/array_operations/SubMenuSearchComponent.s

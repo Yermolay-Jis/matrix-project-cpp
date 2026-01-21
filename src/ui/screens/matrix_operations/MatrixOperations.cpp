@@ -120,7 +120,7 @@ ftxui::Component MatrixOperations::buildMatrixMainMenuView(std::function<void()>
 	return ftxui::Container::Vertical({menuTitle,
 									   ftxui::Button("> Create matrix", [&]
 													 { matrix_operations_active_view_ = 1; }),
-									   ftxui::Button("Show matrix", [&]
+									   ftxui::Button("Show matrixes", [&]
 													 { matrix_operations_active_view_ = 2; }),
 									   ftxui::Button("Fill of the matrix", [&]
 													 { matrix_operations_active_view_ = 3; }),
@@ -138,7 +138,7 @@ ftxui::Component MatrixOperations::buildMatrixMainMenuView(std::function<void()>
 
 ftxui::Component MatrixOperations::buildCreateMatrixView()
 {
-	createMatrixView_ = std::make_shared<CreateMatrixView>(matrix_model_, [this]
+	createMatrixView_ = std::make_shared<CreateMatrixView>(workspace_, [this]
 														   { matrix_operations_active_view_ = 0; });
 
 	return createMatrixView_->GetFTXUIComponent();

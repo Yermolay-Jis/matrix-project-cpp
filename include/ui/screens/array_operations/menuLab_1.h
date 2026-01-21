@@ -7,18 +7,18 @@
 #include "ui/screens/array_operations/CreateArrayView.h"
 #include "ui/screens/array_operations/FillArrayView.h"
 #include "ui/screens/array_operations/FillArrayRandomView.h"
-#include "ui/screens/array_operations/ShowArrayView.h"
+#include "ui/screens/array_operations/ShowLibraryArrayView.h"
 #include "ui/screens/array_operations/SubMenuSortArray.h"
 #include "ui/screens/array_operations/SubMenuSearchComponent.h"
 #include <string>
 #include <utility>
 #include <functional>
+#include <map>
 
 class MenuLab_1 : public UIComponent
 {
 public:
-    MenuLab_1(std::function<void()> navigateBack,
-              std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo);
+    MenuLab_1(std::function<void()> navigateBack);
 
     ftxui::Element Render() override;
     void OnEvent(ftxui::Event event) override;
@@ -31,47 +31,23 @@ private:
     std::string user_input_buffer_;
     size_t new_size_ = 0;
     std::string error_message_;
-    std::shared_ptr<ArrayModel> array_model_;
+
+    std::shared_ptr<std::map<std::string, ArrayModel>> models_;
 
     std::shared_ptr<CreateArrayView> createArrayView_;
     std::shared_ptr<FillArrayView> fillArrayView_;
-    std::shared_ptr<ShowArrayView> showArrayView_;
+    std::shared_ptr<ShowLibraryArrayView> showLibraryArrayView_;
     std::shared_ptr<FillArrayRandomView> fillArrayRandomView_;
     std::shared_ptr<SubMenuSortArray> subMenuSortArrayView_;
     std::shared_ptr<SubMenuSearchComponent> subMenuSearchComponentView_;
 
-    ftxui::Component buildMainMenuView(std::function<void(const std::shared_ptr<UIComponent> &)> navigateTo, std::function<void()> navigateBack);
+    ftxui::Component buildMainMenuView(std::function<void()> navigateBack);
     ftxui::Component buildCreateArrayView();
     ftxui::Component buildFillArrayView();
     ftxui::Component buildFillArrayRandomView();
-    ftxui::Component buildShowArrayView();
+    ftxui::Component buildShowLibraryArrayView();
     ftxui::Component buildSubMenuSortArrayView();
     ftxui::Component buildSubMenuSearchComponentView();
 };
-
-void menuLab_1();
-void subMenuLab1(std::string nameFile);
-
-void info();
-void inputEl();
-void solution1();
-void outputEl();
-// void clearArr(double *);
-
-void inpFile();
-void outFile();
-
-// void outTableGraf(double *, int, int, std::string, std::string, HDC, size_t);
-
-int setSizeArr();
-
-std::string getNameFile();
-void replaceElFile();
-bool is_number(std::string);
-
-extern size_t sizeArr;
-extern double *arr;
-// extern HDC hdc;
-extern char separate;
 
 #endif

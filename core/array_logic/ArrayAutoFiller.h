@@ -5,8 +5,8 @@
 class ArrayAutoFiller
 {
 public:
-    ArrayAutoFiller(int min, int max);
-    void autoFill(std::shared_ptr<ArrayModel> array_model);
+    ArrayAutoFiller(const int min, const int max);
+    void autoFill(ArrayModel &array_model);
 
 private:
     int min_;

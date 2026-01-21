@@ -1,32 +1,46 @@
 #include "ArrayModel.h"
 
-ArrayModel::ArrayModel(int capacity) : capacity_(std::move(capacity)) {};
+ArrayModel::ArrayModel(int capacity) : capacity_(capacity) {};
 
 size_t ArrayModel::getCapacity() const
 {
-    return this->capacity_;
+    return capacity_;
 };
 
-void ArrayModel::setCapacity(size_t newSizeArray)
+size_t ArrayModel::getSize() const
 {
-    this->array_.reserve(newSizeArray);
-    capacity_ = newSizeArray;
+    return size_;
+}
+
+void ArrayModel::setCapacity(size_t newCapacity)
+{
+    array_.reserve(newCapacity);
+    capacity_ = newCapacity;
 };
+
+void ArrayModel::setSize(size_t newSize)
+{
+    array_.resize(newSize);
+    capacity_ = newSize;
+    size_ = newSize;
+    for (size_t i = 0; i < newSize; i++)
+        array_[i] = 0;
+}
 
 const std::vector<int> &ArrayModel::getArray() const
 {
-    return this->array_;
+    return array_;
 };
 
 void ArrayModel::setItemForIndex(size_t index, int value)
 {
-    if (index < this->array_.size())
+    if (index < array_.size())
     {
-        this->array_[index] = value;
+        array_[index] = value;
     };
 };
 
 void ArrayModel::pushItem(int &value)
 {
-    this->array_.push_back(value);
+    array_.push_back(value);
 };

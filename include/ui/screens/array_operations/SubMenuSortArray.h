@@ -10,11 +10,12 @@
 #include <functional>
 #include <utility>
 #include <string>
+#include <map>
 
 class SubMenuSortArray : public UIComponent
 {
 public:
-    SubMenuSortArray(std::shared_ptr<ArrayModel> model, std::function<void()> call_back_);
+    SubMenuSortArray(std::shared_ptr<std::map<std::string, ArrayModel>> model, std::function<void()> call_back_);
     ftxui::Element Render() override;
     void OnEvent(ftxui::Event event) override;
     bool IsSelectable() override { return true; }
@@ -27,11 +28,17 @@ private:
     float merge_sort_time_ = 0;
     float stl_sort_time_ = 0;
 
-    std::shared_ptr<ArrayModel> array_model_;
-    std::shared_ptr<ArrayModel> merge_sort_array_ = array_model_;
-    std::shared_ptr<ArrayModel> stl_sort_array_ = array_model_;
+    std::string msg_ = "";
+    std::string user_input_name_ = "";
+
+    bool is_error = false;
+
+    std::shared_ptr<std::map<std::string, ArrayModel>> models_;
+    ArrayModel merge_sort_array_;
+    ArrayModel stl_sort_array_;
     std::function<void()> call_back_;
 
+    ftxui::Component buildInputNameView();
     ftxui::Component buildSubMenuSortArrayView();
     ftxui::Component buildMergeSortView();
     ftxui::Component buildSTLSortView();

@@ -20,7 +20,7 @@ set(APP_SOURCES
         src/ui/screens/array_operations/CreateArrayView.cpp
         src/ui/screens/array_operations/FillArrayView.cpp
         src/ui/screens/array_operations/FillArrayRandomView.cpp
-        src/ui/screens/array_operations/ShowArrayView.cpp
+        src/ui/screens/array_operations/ShowLibraryArrayView.cpp
         src/ui/screens/array_operations/SubMenuSortArray.cpp
         src/ui/screens/array_operations/SubMenuSearchComponent.cpp
 

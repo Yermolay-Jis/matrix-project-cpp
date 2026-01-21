@@ -27,20 +27,28 @@ ftxui::Component MatrixMathOperations::GetFTXUIComponent()
 
 ftxui::Component MatrixMathOperations::buildMatrixOperationMenu()
 {
-    return ftxui::Container::Vertical({ftxui::Button("Addition", [this]
-                                                     { matrix_math_operatons_active_view_ = 1; }),
 
-                                       ftxui::Button("Multiplication", [this]
-                                                     { matrix_math_operatons_active_view_ = 2; }),
+    auto name_menu = ftxui::Renderer([this]
+                                     { return ftxui::text("Matrix math operations") | ftxui::bold; });
 
-                                       ftxui::Button("Division", [this]
-                                                     { matrix_math_operatons_active_view_ = 3; }),
+    return ftxui::Container::Vertical({
 
-                                       ftxui::Button("Transposition", [this]
-                                                     { matrix_math_operatons_active_view_ = 4; }),
+        name_menu,
 
-                                       ftxui::Button("<-- Back", [this]
-                                                     { call_back_(); })
+        ftxui::Button("Addition", [this]
+                      { matrix_math_operatons_active_view_ = 1; }),
+
+        ftxui::Button("Multiplication", [this]
+                      { matrix_math_operatons_active_view_ = 2; }),
+
+        ftxui::Button("Division", [this]
+                      { matrix_math_operatons_active_view_ = 3; }),
+
+        ftxui::Button("Transposition", [this]
+                      { matrix_math_operatons_active_view_ = 4; }),
+
+        ftxui::Button("<-- Back", [this]
+                      { call_back_(); })
 
     });
 }

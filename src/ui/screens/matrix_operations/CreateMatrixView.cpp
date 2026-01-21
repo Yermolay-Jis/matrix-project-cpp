@@ -1,7 +1,7 @@
 #include "ui/screens/matrix_operations/CreateMatrixView.h"
 #include "matrix_logic/matrix.h"
 
-CreateMatrixView::CreateMatrixView(std::shared_ptr<MatrixModel> matrix_model, std::function<void()> call_back) : matrix_model_(std::move(matrix_model)), call_back_(call_back)
+CreateMatrixView::CreateMatrixView(std::map<std::string, MatrixModel> &workspace, std::function<void()> call_back) : workspace_(workspace), call_back_(call_back)
 {
     auto enter_size_matrix_view = buildEnterSizeMatrixView();
 
@@ -35,9 +35,10 @@ ftxui::Component CreateMatrixView::GetFTXUIComponent()
 ftxui::Component CreateMatrixView::buildEnterSizeMatrixView()
 {
     auto title = ftxui::Renderer([this]
-                                 { return ftxui::text("Enter the value of size for matrix (rows/cols)") | ftxui::bold; });
+                                 { return ftxui::text("Enter the value of size for matrix (rows/cols) and it name") | ftxui::bold; });
 
     return ftxui::Container::Vertical({title,
+                                       ftxui::Input(&user_input_name_, "Enter the name of matrix"),
                                        ftxui::Input(&user_input_rows_, "Enter the rows"),
                                        ftxui::Input(&user_input_cols_, "Enter the cols"),
                                        ftxui::Button("Next", [&]
@@ -60,16 +61,15 @@ ftxui::Component CreateMatrixView::buildMatrixZeroFillView()
                                                              {
                                                                  size_t user_rows = std::stoi(user_input_rows_);
                                                                  size_t user_cols = std::stoi(user_input_cols_);
-                                                                 matrix_model_->CreateMatrix(user_rows, user_cols);
-
-                                                                 auto matrix = matrix_model_->GetMatrix();
+                                                                 MatrixModel user_matrix(user_rows, user_cols);
+                                                                workspace_[user_input_name_] = std::move(user_matrix);
                                                                  if (is_fill_zero_)
                                                                  {
                                                                      for (size_t i = 0; i < user_rows; i++)
                                                                      {
                                                                          for (size_t j = 0; j < user_cols; j++)
                                                                          {
-                                                                             matrix_model_->SetForIndex(0, i, j);
+                                                                             user_matrix.SetForIndex(0, i, j);
                                                                          }
                                                                      }
                                                                  }
@@ -80,9 +80,7 @@ ftxui::Component CreateMatrixView::buildMatrixZeroFillView()
                                                              };
                                                          }
 
-                                                         create_matrix_active_view_ = 2;
-                                                         user_input_cols_.clear();
-                                                         user_input_rows_.clear(); })
+                                                         create_matrix_active_view_ = 2; })
 
     });
 };
@@ -100,21 +98,23 @@ ftxui::Component CreateMatrixView::buildResultMatrixView()
                                          return ftxui::text(error_message_) | ftxui::bgcolor(ftxui::Color::Red1) | ftxui::color(ftxui::Color::White) | ftxui::bold;
                                      } });
     auto result_matrix = ftxui::Renderer([this]
-                                         {size_t rows = matrix_model_->GetRows();
-                                             size_t cols = matrix_model_->GetCols();
-                                             std::stringstream ss;
-                                             for (size_t i = 0; i < rows; i++)
-                                             {
+                                         {
+                                            MatrixModel& matrix_model = workspace_.at(user_input_name_);
+                                            size_t rows = matrix_model.GetRows();
+                                            size_t cols = matrix_model.GetCols();
+                                            std::stringstream ss;
+                                            for (size_t i = 0; i < rows; i++)
+                                            {
                                                  for (size_t j = 0; j < cols; j++)
                                                  {
-                                                     ss  << matrix_model_->GetValueForIndex(i, j) << "   ";
+                                                     ss  << matrix_model.GetValueForIndex(i, j) << "   ";
                                                  };
                                                  ss << "\n";
-                                             }
-                                             return ftxui::paragraph(ss.str()); });
+                                            }
+                                            return ftxui::paragraph(ss.str()); });
     auto title = ftxui::Renderer([this]
                                  { return ftxui::vbox({
-                                       ftxui::text("Result matrix") | ftxui::bold,
+                                       ftxui::text("Result matrix (" + user_input_name_ + ")") | ftxui::bold,
                                    }); });
 
     return ftxui::Container::Vertical({error,
@@ -122,8 +122,13 @@ ftxui::Component CreateMatrixView::buildResultMatrixView()
                                        result_matrix,
                                        ftxui::Button("Finish", [&]
                                                      {
-                                                         call_back_();
-                                                         create_matrix_active_view_ = 0;
+                                                        
+                                                        user_input_cols_.clear();
+                                                        user_input_rows_.clear();
+                                                        user_input_name_.clear();
+                                                        is_fill_zero_ = false;
+                                                        call_back_();
+                                                        create_matrix_active_view_ = 0;
                                                         error_message_.clear(); })
 
     });

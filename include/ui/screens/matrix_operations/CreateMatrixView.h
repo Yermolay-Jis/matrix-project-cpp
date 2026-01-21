@@ -3,6 +3,10 @@
 #define CREATE_MATRIX_VIEW_H_
 
 #include <utility>
+#include <map>
+#include <functional>
+#include <string>
+#include <utility>
 #include "ui/UIComponent.h"
 #include "matrix_logic/matrix.h"
 #include "ftxui/dom/elements.hpp"
@@ -11,7 +15,7 @@
 class CreateMatrixView : public UIComponent
 {
 public:
-    CreateMatrixView(std::shared_ptr<MatrixModel> matrix_model, std::function<void()> call_back);
+    CreateMatrixView(std::map<std::string, MatrixModel> &workspace, std::function<void()> call_back);
     ftxui::Element Render() override;
     void OnEvent(ftxui::Event event) override;
     bool IsSelectable() override { return true; };
@@ -19,11 +23,12 @@ public:
 
 private:
     ftxui::Component create_matrix_;
-    std::shared_ptr<MatrixModel> matrix_model_;
+    std::map<std::string, MatrixModel> &workspace_;
     std::function<void()> call_back_;
 
     int create_matrix_active_view_ = 0;
 
+    std::string user_input_name_ = "";
     std::string user_input_rows_ = "";
     std::string user_input_cols_ = "";
     std::string error_message_ = "";
